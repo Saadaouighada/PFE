@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<summaryView
+    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/summaryView.xsd"
+    id="AuthorSummary">
+   <graphic>
+      <headerVisible>false</headerVisible>
+   </graphic>
+
+   <form id="AuthorSummaryForm" beanId="AuthorSummaryFormService">
+      <graphic>
+         <headerVisible>false</headerVisible>
+         <collapsible>false</collapsible>
+         <borderVisible>false</borderVisible>
+         <fieldSetMode>false</fieldSetMode>
+      </graphic>
+      <inParameters>
+        <inParameter actionOnEvent="DATA" eventType="SCREENCONTEXT" />
+      </inParameters>
+      <areas>
+         <area id="mainArea">
+          <graphic>
+            <headerVisible>false</headerVisible>
+            <collapsible>false</collapsible>
+            <borderVisible>false</borderVisible>
+            <fieldSetMode>false</fieldSetMode>
+          </graphic>
+            <fields>
+               <field  id="firstName" nature="string" sortNumber="1" />
+               <field  id="lastName" nature="string" sortNumber="1" />
+            </fields>
+         </area>
+      </areas>
+   </form>
+</summaryView>

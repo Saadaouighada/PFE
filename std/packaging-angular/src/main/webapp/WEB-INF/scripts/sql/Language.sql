@@ -1,0 +1,5 @@
+BEGIN
+DB_SSAL_TOOLS_UPDATE_LANGUAGE('&1');
+commit;
+END;
+/

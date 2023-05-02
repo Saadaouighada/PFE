@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	id="TestFormSpec" overrideFatherId="TestForm">
+
+   <form id="testnouveauspec">
+      <areas>
+         <area id="mainArea">
+            <fields>
+               <field id="testnouveauchamp" nature="string"></field>
+            </fields>
+         </area>
+      </areas>
+   </form>
+
+    <form id="testNewBlock" fatherId="NewBlock">
+      <inParameters>
+         <inParameter eventType="SCREENOPENED"/>
+      </inParameters>
+        <areas>
+         <area id="mainArea">
+            <fields>
+               <field id="testField2" nature="string" sortNumber="2" />
+            </fields>
+         </area>
+        </areas>
+    </form>
+
+</function>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view360 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/view360.xsd"
+	id="TestView360">
+	<entity360 entity360BeanId="TestPivot360">
+<!-- 
+		<overridingFunctions>
+			<entity360Function precedency="1" functionId="TestEntity"></entity360Function>
+            
+		</overridingFunctions>
+ -->
+	</entity360>
+</view360>

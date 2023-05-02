@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="dialect">org.hibernate.dialect.Oracle9Dialect
+		</property>
+		<property name="show_sql">true</property>
+		<mapping resource="spring/oracle/mapping/LovDefenition.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/LovElt.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/LovEltLabel.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/Products.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/Regions.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/Users.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/Environment.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/Allocation.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/AuthorisedProducts.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/AuthorisedRegions.hibernate.spring.xml" />
+		
+		
+		<mapping resource="spring/oracle/mapping/Language.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/Currency.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/ConfigEkip.hibernate.spring.xml" />
+		
+		
+		
+		<mapping resource="spring/oracle/mapping/ConfiguredLists.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/ListTypes.hibernate.spring.xml" />
+		
+		
+		<mapping resource="spring/oracle/mapping/Services.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/SelectedServices.hibernate.spring.xml" />
+		
+		
+		<mapping resource="spring/oracle/mapping/PreconfiguredLists.hibernate.spring.xml" />
+		<mapping resource="spring/oracle/mapping/SelectedPreconfiguredLists.hibernate.spring.xml" />
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/function.xsd" editable="false" id="InsuranceInfo"
+   beanId="InsuranceInfoBlockService">
+   <graphic>
+      <borderVisible>false</borderVisible>
+      <collapsed>false</collapsed>
+      <collapsible>false</collapsible>
+      <fieldSetMode>false</fieldSetMode>
+      <headerVisible>false</headerVisible>
+      <hideLabel>true</hideLabel>
+      <width>170</width>
+   </graphic>
+   <areas>
+      <area id="mainAreaCustom">
+         <graphic>
+            <borderVisible>true</borderVisible>
+            <collapsed>false</collapsed>
+            <collapsible>false</collapsible>
+            <fieldSetMode>false</fieldSetMode>
+            <headerVisible>false</headerVisible>
+         </graphic>
+         <fields>
+               <field id="logoCustom" nature="image" sortNumber="1" columnNumber="1">
+
+               </field>
+               <field id="seguroNameCustom" nature="string" sortNumber="2" columnNumber="1" readOnly="true">
+
+               </field>
+               <field id="globalInstalmentICurSetupCLPCustom" nature="string" sortNumber="3" columnNumber="1" readOnly="true">
+
+               </field>
+               <field id="globalInstalmentICurSetupUFCustom" nature="string" sortNumber="4" columnNumber="1" readOnly="true">
+
+               </field>
+               <field id="priceUFCustom" nature="string" sortNumber="5" columnNumber="1" readOnly="true">
+
+               </field>
+               <field id="deductibleCodeCustom" nature="string" sortNumber="6" columnNumber="1" readOnly="true">
+
+               </field>
+               <field id="coverNumberCustom" nature="string" sortNumber="7" columnNumber="1" readOnly="true">
+
+               </field>
+               <field id="instalmentNumberCustom" nature="string" sortNumber="8" columnNumber="1" readOnly="true" >
+
+               </field>
+         </fields>
+      </area>
+      <area id="selection">
+         <graphic>
+            <borderVisible>false</borderVisible>
+            <collapsed>false</collapsed>
+            <collapsible>false</collapsible>
+            <fieldSetMode>false</fieldSetMode>
+            <headerVisible>false</headerVisible>
+         </graphic>
+         <fields>
+            <fieldgroup id="fieldgroup9">
+               <field id="selectionCheckboxCustom" nature="checkbox" sortNumber="9" columnNumber="1">
+                  <graphic>
+                     <width>45</width>
+                  </graphic>
+               </field>
+               <field id="selectionCustom" nature="string" sortNumber="10" columnNumber="1" readOnly="true">
+                  <graphic>
+                     <width>100</width>
+                  </graphic>
+               </field>
+            </fieldgroup>
+         </fields>
+      </area>
+   </areas>
+</form>

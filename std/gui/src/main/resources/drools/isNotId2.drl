@@ -1,0 +1,33 @@
+package drools
+
+import com.linedata.ekip.std.services.rulesengine.service.impl.KnowledgeBaseResponse;
+import com.linedata.ekip.std.services.rulesengine.bean.RulesContext;
+
+function boolean evaluateResult(Object id)
+{
+	  	boolean res = true;
+	  	if(id instanceof Long)
+	  	{
+	  		res = ((Long) id) != 2;
+	  	}
+	  	else if (id instanceof Integer)
+	  	{
+	  		res = ((Integer) id) != 2;
+	  	}
+	  	else
+	  	{
+	  		res = false;
+	  	}
+	  	
+		return res;
+}
+
+
+rule "isNotId2"
+when
+	RulesContext(id : screenContextRulesParam.entity.mappedAttributes['id'])
+    $response: KnowledgeBaseResponse()
+    eval(evaluateResult(id))
+then
+	$response.setVerified(true);
+end

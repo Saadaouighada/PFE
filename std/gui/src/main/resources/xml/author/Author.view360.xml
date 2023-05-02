@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view360
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/view360.xsd"
+	id="AuthorView360">
+    
+	<entity360 entity360BeanId="AuthorPivot360" />
+    
+</view360>

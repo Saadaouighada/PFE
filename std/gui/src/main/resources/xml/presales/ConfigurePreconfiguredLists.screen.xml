@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" fatherId="ConfigureEnvironmentUpdate"
+	id="ConfigurePreconfiguredLists">
+
+	<graphic>
+		<borderVisible>false</borderVisible>
+		<hideLabel>true</hideLabel>
+		<styleClass>test-k2</styleClass>
+		<headerVisible>false</headerVisible>
+	</graphic>
+
+	<grid id="PreconfListsGrid" fatherId="ServiceGrid">
+		<inParameters>
+			<inParameter eventType="SCREENOPENED"></inParameter>
+			<inParameter eventType="SCREENCONTEXT"></inParameter>
+		</inParameters>
+	</grid>
+</function>

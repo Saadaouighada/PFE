@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="EnvironmentConfigurationDetailsSynthese" beanId="EnvironmentConfigurationDetailsFunctionService">
+
+	<form fatherId="GeneralConfig" editable="false" id="GeneralConfig"
+		beanId="GeneralConfigBlockService" icon="icons/Biens16.png">
+		<graphic>
+			<headerVisible>true</headerVisible>
+			<collapsible>true</collapsible>
+			<borderVisible>true</borderVisible>
+			<collapsed>false</collapsed>
+		</graphic>
+		<inParameters>
+			<inParameter eventType="SCREENOPENED"></inParameter>
+			<inParameter eventType="SCREENCONTEXT"></inParameter>
+		</inParameters>
+	</form>
+
+
+	<grid id="ServiceGridUpdate" fatherId="ServiceGrid">
+		<graphic>
+			<headerVisible>true</headerVisible>
+			<collapsible>true</collapsible>
+			<borderVisible>true</borderVisible>
+			<collapsed>false</collapsed>
+		</graphic>
+		<inParameters>
+			<inParameter eventType="SCREENOPENED"></inParameter>
+			<inParameter eventType="SCREENCONTEXT"></inParameter>
+		</inParameters>
+	</grid>
+
+
+	<grid id="ListGridUpdateAsset" fatherId="ListGrid" beanId="AssetListGridBlockService">
+		<graphic>
+			<headerVisible>true</headerVisible>
+			<collapsible>true</collapsible>
+			<borderVisible>true</borderVisible>
+			<collapsed>false</collapsed>
+		</graphic>
+		<inParameters>
+			<inParameter eventType="SCREENOPENED"></inParameter>
+			<inParameter eventType="SCREENCONTEXT"></inParameter>
+		</inParameters>
+	</grid>
+
+	<grid id="ListGridUpdateTiers" fatherId="ListGrid" beanId="TiersListGridBlockService">
+		<graphic>
+			<headerVisible>true</headerVisible>
+			<collapsible>true</collapsible>
+			<borderVisible>true</borderVisible>
+			<collapsed>false</collapsed>
+		</graphic>
+		<inParameters>
+			<inParameter eventType="SCREENOPENED"></inParameter>
+			<inParameter eventType="SCREENCONTEXT"></inParameter>
+		</inParameters>
+	</grid>
+	<screenActions>
+	
+		<screenAction id="close" evaluateControls="false"
+			code="close" confirmationRequired="false"
+			sortNumber="2">
+			<actionResponses>
+				<onSuccess>
+					<displayMessages sortNumber="0" />
+					<openFunction closeActiveFunction="true"
+						context="SCREEN" functionId="Environment"
+						id="close" sortNumber="1" />
+				</onSuccess>
+			</actionResponses>
+		</screenAction>
+     <screenAction code="run" evaluateControls="false"  id="run"  sortNumber="2" confirmationRequired="false">
+         <actionResponses>
+            <onSuccess>
+               <refreshScreen disabled="false" sortNumber="0" />
+               <refreshObjectZone disabled="false" sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+   
+
+	</screenActions>
+</function>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create"
+    id="TestFormOverride"
+    overrideFatherId="TestForm">
+
+    <form id="testForm" editable="true">
+		<areas>
+            <area id="simpleArea">
+                <fields>
+                    <field id="simpleField3" nature="string" sortNumber="4" />
+                </fields>
+            </area>
+		</areas>
+	</form>
+
+</function>

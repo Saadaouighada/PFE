@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:security="http://www.springframework.org/schema/security" xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd" >
+
+    <security:http security="none" pattern="/login.jsp" />
+    <security:http security="none" pattern="/logout.jsp" />
+    <security:http security="none" pattern="/unauthorized.jsp" />
+    <security:http security="none" pattern="/images/logo.png" />
+    <security:http security="none" pattern="/changePassword.jsp" />
+
+    <security:http auto-config="true" create-session="always" use-expressions="true" access-denied-page="/unauthorized.jsp">
+
+        <security:intercept-url pattern="/j_spring_security_check" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/test-fwk.html" access="isAuthenticated()" />
+        <security:form-login login-page="/login.jsp" authentication-success-handler-ref="ChangePasswordAuthenticationHandler" default-target-url="/test-fwk.html"
+            always-use-default-target="true" authentication-failure-url="/login.jsp?error=true" />
+    </security:http>
+
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider user-service-ref="UserDetailsService">
+            <security:password-encoder hash="md5" />
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <bean id="UserDetailsService" class="com.linedata.ekip.std.security.UserDetailsManager" />
+
+    <bean id="ChangePasswordAuthenticationHandler" class="com.linedata.ekip.core.server.users.ChangePasswordAuthenticationHandler" />
+
+</beans>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://www.springframework.org/schema/jdbc
+        http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd">
+
+	<!-- Gestion de la configuration déportée sous forme de properties -->
+	<bean name="propertyPlaceholder"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>configuration/ws-config.properties</value>
+		</property>
+	</bean>
+
+	<!-- Use spring to emulate a business server by replacing cxf proxies by 
+		their implementation -->
+	<import
+		resource="classpath*:com/linedata/ekip/framework/services/rulesengine/service.impl.spring.xml" />
+	<!-- <import resource="classpath*:com/linedata/ekip/framework/services/rulesengine/service.client.spring.xml" 
+		/> -->
+
+	<import
+		resource="classpath*:spring/Tree360ServiceImpl.spring.xml" />
+	<import resource="classpath:spring/LockServiceImpl.spring.xml" />
+
+	<!-- In-memory database <jdbc:embedded-database id="dataSource" type="H2"> 
+		</jdbc:embedded-database> -->
+	
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.OracleDriver" />
+		<property name="url"
+			value="jdbc:oracle:thin:@callisto:1521:DEV042D" />
+		<property name="username" value="SALES360" />
+		<property name="password" value="galene" />
+	</bean>
+
+
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+<property name="dataSource" ref="dataSource" />
+</bean>
+
+	<bean id="ekipDaoTemplate"
+		class="com.linedata.framework.jdbc.core.DefaultJdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<import
+		resource="classpath:spring/EntityReferenceDescriptorConverter.spring.xml" />
+
+	<bean id="Tree360Manager"
+		class="com.linedata.ekip.std.services.core.tree360.service.impl.Tree360Manager" />
+
+	<bean id="Tree360Service"
+		class="com.linedata.ekip.std.services.core.tree360.service.impl.Tree360ServiceImpl">
+		<property name="frameworkJdbcTemplate" ref="ekipDaoTemplate" />
+	</bean>
+
+</beans>

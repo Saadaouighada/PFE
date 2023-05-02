@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans        
+         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context 
+             http://www.springframework.org/schema/context/spring-context-3.1.xsd
+         http://www.springframework.org/schema/jdbc
+         http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+           http://www.springframework.org/schema/tx 
+  http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+	<alias name="ekipDaoTemplate" alias="ApplicationJdbcTemplate" />
+
+	<bean id="dataSource"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/dataSource" />
+		<property name="resourceRef" value="true" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="classpath:spring/oracle/hibernate.spring.xml" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="transactionTemplate"
+		class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager" />
+	</bean>
+	<bean id="hibernateTemplate"
+		class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+
+	<bean id="ekipJdbcTemplate"
+		class="com.linedata.framework.jdbc.core.DefaultJdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- <bean id="h2Console" class="org.h2.tools.Server" factory-method="createWebServer" 
+		init-method="start" destroy-method="stop"> <constructor-arg value="-web,-webAllowOthers,-webPort,9000"/> 
+		</bean> <jdbc:initialize-database data-source="dataSource" ignore-failures="DROPS" 
+		enabled="true"> <jdbc:script location="classpath:testdb/CREATE_TABLE_OBJECT_CONFIG.sql" 
+		/> </jdbc:initialize-database> -->
+
+</beans>
+

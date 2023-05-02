@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans        
+         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+         
+	<bean id="EnvironmentFunctionService" class="com.linedata.presales.EnvironmentFunctionService"></bean>
+	<bean id="reportIhmformBranchBlockService" class="com.linedata.reportihm.reportIhmformBranchBlockService"></bean>
+	<bean id="CreateEnvironmentFunctionService" class="com.linedata.presales.CreateEnvironmentFunctionService"></bean>
+	<bean id="EnvironmentStatusHistoryBlockService" class="com.linedata.presales.EnvironmentStatusHistoryBlockService"></bean>
+	<bean id="ConfigureEnvironmentUpdateFunctionService" class="com.linedata.presales.ConfigureEnvironmentUpdateFunctionService"></bean>
+	<bean id="ConfigureEnvironmentSyntheseFunctionService" class="com.linedata.presales.ConfigureEnvironmentSyntheseFunctionService"></bean>
+	<bean id="GeneralConfigBlockService" class="com.linedata.presales.GeneralConfigBlockService"></bean>
+	<bean id="ServiceGridBlockService" class="com.linedata.presales.ServiceGridBlockService"></bean>
+	<bean id="ListGridBlockService" class="com.linedata.presales.ListGridBlockService"></bean>
+	<bean id="EnvironmentConfigurationDetailsFunctionService" class="com.linedata.presales.EnvironmentConfigurationDetailsFunctionService"></bean>
+	<bean id="EnvironmetStatusBlockService" class="com.linedata.presales.EnvironmetStatusBlockService"></bean>
+	<bean id="AssetListGridBlockService" class="com.linedata.presales.AssetListGridBlockService"></bean>
+	<bean id="TiersListGridBlockService" class="com.linedata.presales.TiersListGridBlockService"></bean>
+
+	<!-- XML-Beans -->
+	<bean id="ScreenLovService"
+		class="com.linedata.ekip.std.services.lov.ScreenLovServiceImpl" />
+
+	<bean id="CurrencyService"
+		class="com.linedata.ekip.std.services.CurrencyServiceImpl" />
+</beans>

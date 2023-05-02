@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<function  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   id="TestColumnEditSpec" overrideFatherId="TestColumnEdit">
+ 
+    <blockgroup id="testColumnEditFormGroup">
+       <form id="testColumnEditFormTestBlock">
+           <areas>
+            <area id="mainArea">
+               <fields>
+                  <field id="testField2" hidden="true" />
+               </fields>
+            </area>
+           </areas>
+       </form>
+       <form id="testNewBlock" fatherId="NewBlock">
+         <inParameters>
+            <inParameter eventType="SCREENOPENED"/>
+         </inParameters>
+           <areas>
+            <area id="mainArea">
+               <fields>
+                  <field id="testField2" nature="string" sortNumber="2" />
+               </fields>
+            </area>
+           </areas>
+       </form>
+       <form id="testColumnEditFormSpec" fatherId="TestBlock" editable="false" sortNumber="-1" columnNumber="4" advanced="true">
+           <graphic>
+               <headerVisible>true</headerVisible>
+               <collapsible>false</collapsible>
+               <borderVisible>false</borderVisible>
+               <fieldSetMode>false</fieldSetMode>
+               <width>1000</width>
+           </graphic>
+           <inParameters>
+              <inParameter eventType="ADVANCEDMODE" blockId="testColumnEditFormGroup" />
+           </inParameters>
+           <areas>
+            <area id="mainArea">
+              <graphic>
+                  <headerVisible>true</headerVisible>
+                  <collapsible>false</collapsible>
+                  <borderVisible>true</borderVisible>
+                  <fieldSetMode>false</fieldSetMode>
+              </graphic>
+               <fields>
+                  <field id="testField1" hidden="false" ></field>
+                  <field id="testField2" nature="string" />
+               </fields>
+            </area>
+           </areas>
+       </form>
+    </blockgroup>
+
+</function>

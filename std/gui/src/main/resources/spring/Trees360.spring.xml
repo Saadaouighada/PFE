@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans        
+         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<bean id="AuthorPivot360" class="com.linedata.ekip.testfwkgui.author.AuthorPivot360" />
+	<bean id="BookPivot360" class="com.linedata.ekip.testfwkgui.book.BookPivot360" />
+	<bean id="TestPivot360" class="com.linedata.testentity.tree360.TestPivot360" />
+
+   	<bean id="Tree360Manager" class="com.linedata.ekip.std.services.core.tree360.service.impl.Tree360Manager">
+	<property name="entities360">
+		<list>
+            <ref bean="AuthorPivot360"/>
+            <ref bean="BookPivot360"/>
+			<ref bean="TestPivot360"/>
+		</list>
+	</property>
+   </bean>
+   
+   <bean id="WorkflowActionService" class="com.linedata.testentity.tree360.impl.TestWorkflowActionServiceImpl" />
+
+</beans>

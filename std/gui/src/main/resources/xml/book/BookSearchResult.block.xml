@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://scheme.cf.linedata.com/scheme/function.xsd"
+  	id="BookSearchResult" type="resultGrid" forceFit="true"
+ 	beanId="BookSearchResultGridService" paging="remote" pageSize="10"
+  	textSelection="true" sortNumber="2" openFunctionMode="UPDATE"
+  	autoOpenUniqueResult="true">
+     <graphic>
+        <height>200</height>
+        <fieldSetMode>true</fieldSetMode>
+        <collapsible>false</collapsible>
+        <collapsed>false</collapsed>
+        <headerVisible>true</headerVisible>
+        <borderVisible>true</borderVisible>
+     </graphic>
+     <columns>
+        <column id="title" nature="string" sortNumber="1" filtered="true" linkEnabled="true" functionId="TestLov" context="SCREEN">
+           <graphic>
+              <width>100</width>
+           </graphic>
+        </column>
+        <column id="id" nature="string" sortNumber="2" filtered="true">
+           <graphic>
+              <width>100</width>
+           </graphic>
+        </column>
+       <column id="author" nature="fk" displayTemplate="{label}" sortNumber="2" filtered="true">
+           <graphic>
+              <width>100</width>
+           </graphic>
+        </column>
+        <column id="nbPages" nature="number" sortNumber="3" filtered="true">
+           <graphic>
+              <width>100</width>
+           </graphic>
+        </column>
+         <column id="creationDate" nature="date" sortNumber="4" filtered="true" labelSuppliedByService="true">
+           <graphic>
+              <width>100</width>
+           </graphic>
+        </column>
+        <column id="price" nature="amount" sortNumber="5" filtered="true">
+           <graphic>
+              <width>100</width>
+           </graphic>
+        </column>
+     </columns>
+     
+    <aggregationRows>
+      <aggregationRow type="SUM" id="totalCharges" linkEnabled="true" functionId="myFunction" linkContext="SCREEN">
+         <aggregationRowReference id="sumExpenses" refColumn="price" />
+      </aggregationRow>
+      <aggregationRow type="SUM" id="totalCharges" linkEnabled="true" functionId="myFunction" linkContext="SCREEN">
+         <aggregationRowReference id="sumnbPages" refColumn="nbPages" />
+      </aggregationRow>
+   </aggregationRows>
+  </grid>

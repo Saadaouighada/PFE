@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<globalmenu xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/GlobalMenu.xsd"
+	id="menu1">
+	<menuroot id="home" sortNumber="1">
+		<menugroup id="presales" sortNumber="0" columnNumber="2">
+
+			<menu id="sharedDocsMenu" sortNumber="1"
+				icon="icons/Ajout_contrat16.png">
+				<menuAction id="sharedDocsMenuAction"
+					actionTypeCode="redirect" openFunctionMode="CREATE"
+					functionId="Blanc">
+				</menuAction>
+			</menu>
+
+			<menu id="environmentsMenu" sortNumber="2"
+				icon="icons/Ajout_contrat16.png">
+				<menuAction id="environmentsMenuAction"
+					actionTypeCode="redirect" openFunctionMode="CREATE"
+					functionId="Environment">
+				</menuAction>
+			</menu>
+
+
+			<menu id="newEnvironmentMenu" sortNumber="3"
+				icon="icons/Ajout_contrat16.png">
+				<menuAction id="newEnvironmentMenuAction"
+					actionTypeCode="redirect" openFunctionMode="CREATE"
+					functionId="Environment">
+				</menuAction>
+			</menu>
+
+			<menu id="blogMenu" sortNumber="4"
+				icon="icons/Ajout_contrat16.png">
+				<menuAction id="blogMenuAction"
+					actionTypeCode="redirect" openFunctionMode="CREATE"
+					functionId="Blanc">
+				</menuAction>
+			</menu>
+			<menu id="branchCompare" sortNumber="5"
+				icon="icons/Ajout_contrat16.png">
+				<menuAction id="branchCompareAction"
+					actionTypeCode="redirect" openFunctionMode="CREATE"
+					functionId="reportihmCreation">
+				</menuAction>
+			</menu>
+			<menu id="branchCompareHistoric" sortNumber="5"
+				icon="icons/Ajout_contrat16.png">
+				<menuAction id="branchCompareAction"
+					actionTypeCode="redirect" openFunctionMode="CREATE"
+					functionId="comparebranchhistory">
+				</menuAction>
+			</menu>
+		</menugroup>
+	</menuroot>
+</globalmenu> 

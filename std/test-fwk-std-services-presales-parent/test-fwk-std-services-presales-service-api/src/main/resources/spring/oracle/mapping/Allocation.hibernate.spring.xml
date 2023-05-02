@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.linedata.presales.entities.impl.AllocationImpl"
+		table="allocation">
+		<id name="idAllocation" type="long" column="id_allocation">
+		<generator class="sequence">
+		<param name="sequence_name">SEQALLOCATION_ID</param>    
+		</generator>
+		</id>
+		<property name="idExterne" column="ID_Externe" type="string" />
+		<property name="name" column="NAME" type="string" />
+		<property name="startDate" column="START_DATE" type="date" />
+		<property name="endDate" column="END_DATE" type="date" />
+		<property name="codeStatus" column="CODE_STATUS" type="string" />
+		<property name="description" column="DESCRIPTION" type="string" />
+		<property name="login" column="LOGIN" type="string" />
+		<property name="password" column="PASSWORD" type="string" />
+	    <many-to-one name="user" class="com.linedata.presales.entities.impl.UsersImpl" fetch="select">
+        <column name="ID_USER"/>
+        </many-to-one>
+	    <many-to-one name="environment" class="com.linedata.presales.entities.impl.EnvironmentImpl" fetch="select">
+        <column name="ID_ENVIRONMENT"/>
+        </many-to-one>
+        
+        <many-to-one name="region" class="com.linedata.presales.entities.impl.RegionsImpl" fetch="select">
+        <column name="ID_REGION"/>
+        </many-to-one>
+        
+	</class>
+</hibernate-mapping>  

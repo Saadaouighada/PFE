@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view360
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/view360.xsd"
+	id="BookView360">
+    
+	<entity360 entity360BeanId="BookPivot360">
+      <child360>
+         <function360 context360BeanId="BookPivot360" functionId="OfferSuppDocFront" openFunctionMode="READONLY" id="suppdoc" icon="icons/Simulation16.png" />
+         <function360 context360BeanId="BookPivot360" functionId="OfferSuppDocFrontt" openFunctionMode="READONLY" id="suppdocc" icon="icons/Simulation16.png" />
+      </child360>
+   </entity360>
+    
+</view360>

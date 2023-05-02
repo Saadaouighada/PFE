@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.linedata.presales.entities.impl.LovDefenitionImpl"
+		table="LOV_DEFENITION">
+		<id name="id" type="long" column="id">
+		<generator class="sequence">
+		<param name="sequence_name">SEQLOV_DEFENITION_ID</param>    
+		</generator>
+		</id>
+
+		<property name="code" column="CODE" type="string" />
+		<property name="description" column="DESCRIPTION" type="string" />
+		<property name="codeStatut" column="CODE_STATUS" type="string" />
+		
+		<property name="dateCreation" column="DATE_CREATION" type="int" />
+		<property name="userCreation" column="USER_CREATION" type="string" />
+	</class>
+
+</hibernate-mapping>  

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/function.xsd"
+	type="create"
+    id="AuthorCreate"
+    beanId="AuthorCreateScreenService">
+   <graphic>
+      <headerVisible>true</headerVisible>
+      <borderVisible>true</borderVisible>
+   </graphic>
+
+   <form sortNumber="1" id="authorCreateForm" editable="true">
+      <graphic>
+         <headerVisible>true</headerVisible>
+         <collapsible>true</collapsible>
+         <borderVisible>true</borderVisible>
+         <fieldSetMode>true</fieldSetMode>
+      </graphic>
+      <fieldLinks>
+         <fieldLink id="get2From1" nature="CUSTOM"
+                    childFieldId="lastName2" fatherFieldId="lastName"
+                    beanId="AuthorCreateFieldLinkService" methodName="get2From1"/>
+      </fieldLinks>
+      <areas>
+      	 <area id="mainArea">
+      		<fields>
+      			<field id="firstName" nature="string" sortNumber="1"/>
+      			<field id="lastName" nature="string" sortNumber="2"/>                
+      			<field id="lastName2" nature="string" sortNumber="3"/>
+      		</fields>
+      	</area>
+      </areas>
+   </form>
+   <screenActions>
+        <screenAction id="saveAction" code="save" evaluateControls="false" />
+        <redirect id="toTestForm" target="MODAL" functionId="TestForm" openFunctionMode="CREATE" closeActiveFunction="true" />
+   </screenActions>
+</function>

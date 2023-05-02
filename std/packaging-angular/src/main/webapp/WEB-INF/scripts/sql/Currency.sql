@@ -1,0 +1,5 @@
+BEGIN
+DB_SSAL_TOOLS_UPDATE_SOC('&1','&2');
+commit;
+END;
+/

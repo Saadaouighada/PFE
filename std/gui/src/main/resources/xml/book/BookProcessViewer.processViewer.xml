@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<processViewer
+    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/summaryView.xsd"
+    id="BookProcessViewer">
+    
+   <steps>
+        <step id="createBook" actionCode="createBook"  icon="book-process"  evaluateControls="false" />
+        <step id="createAuthor" actionCode="createAuthor" icon="author-process" evaluateControls="false" optional="true" />
+        <step id="progressState" actionCode="progressState" icon="state-process" evaluateControls="false" />
+   </steps>
+   
+</processViewer>

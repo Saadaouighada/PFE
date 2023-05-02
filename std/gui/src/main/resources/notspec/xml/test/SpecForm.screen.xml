@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="SpecForm" beanId="TestFormScreenService" >
+    <graphic>
+        <headerVisible>true</headerVisible>
+        <borderVisible>false</borderVisible>
+    </graphic>
+
+    <form id="specForm" beanId="TestFormService" editable="true">
+        <graphic>
+            <headerVisible>false</headerVisible>
+            <collapsible>false</collapsible>
+            <borderVisible>false</borderVisible>
+            <fieldSetMode>false</fieldSetMode>
+        </graphic>
+        <inParameters>
+            <inParameter eventType="SCREENOPENED" />
+        </inParameters>
+		<areas>
+            <area id="simpleArea">
+                <fields>
+                    <field id="currency" nature="string" sortNumber="1" />
+                    <field id="simpleField1" nature="amount" sortNumber="2" currencyFieldId="currency" />
+                    <field id="simpleField2" nature="string" sortNumber="3" />
+                    <field id="simpleField3" nature="string" sortNumber="4" />
+                </fields>
+            </area>
+		</areas>
+	</form>
+</function>

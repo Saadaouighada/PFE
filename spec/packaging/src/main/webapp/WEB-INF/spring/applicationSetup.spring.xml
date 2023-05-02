@@ -1,0 +1,2196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd ">
+
+   <!-- Uniloan Server Setup -->
+   <bean id="ServerSetup" class="com.linedata.ekip.core.server.setup.ServerSetup">
+
+      <!-- xml screen files location -->
+      <property name="xmlDirectory">
+         <value>/xml</value>
+      </property>
+
+      <!-- properties screen files location -->
+      <property name="propertiesDirectory">
+         <value>/properties</value>
+      </property>
+
+     <property name="customXmlDirectory">
+         <value>/spec/xml</value>
+      </property>
+      
+      <property name="customPropertiesDirectory">
+         <value>/spec/properties</value>
+      </property>
+
+      <property name="summaryViewsConfigurationFileName">
+         <value>summaryViews.conf.xml</value>
+      </property>
+
+      <property name="lovServiceBeanId">
+         <value>ScreenLovService</value>
+      </property>
+
+
+      <!-- server name (in case of distributed cache and load balanced environnement -->
+      <property name="serverName">
+         <value>serveur2</value>
+      </property>
+
+      <!-- Default language used for login page only -->
+      <!-- Values will have to be fixed - ex : for French language value is FR -->
+      <property name="defaultLanguageCode">
+         <value>fr</value>
+      </property>
+
+      <!-- Message pour plus tard: -->
+      <!-- Pour activer les habilitations en Standalone, -->
+      <property name="disableAuthorizations">
+         <value>true</value>
+      </property>
+
+      <property name="disableBlockAuthorizations">
+         <value>true</value>
+      </property>
+
+
+   </bean>
+
+   <!-- Uniloan Client Setup -->
+   <bean id="ClientSetup" class="com.linedata.ekip.core.shared.setup.ClientSetup">
+
+      <!-- Timer Scheduling time (in ms) -->
+      <property name="timerScheduleTimeMs">
+         <value>120000</value>
+      </property>
+
+      <property name="screenProgressiveRenderingTimer">
+         <value>50</value>
+      </property>
+      <property name="widgetZoneUseless" value="false" />
+      <property name="widgetZoneCollapsed" value="false" />
+
+      <!-- Logger Setup -->
+      <!-- Max number of rows of Client Logger Window -->
+      <property name="ekipClientLogMaxRows">
+         <value>100</value>
+      </property>
+      <property name="logWindowsWidth">
+         <value>700</value>
+      </property>
+      <property name="logWindowsHeight">
+         <value>500</value>
+      </property>
+
+      <!-- Screen error panel setup -->
+      <property name="errorPanelSize">
+         <value>150</value>
+      </property>
+
+      <!-- Error message max length to display -->
+      <property name="errorMessageMaxLength">
+         <value>200</value>
+      </property>
+      <property name="applicationInfo" value="R${project.version}" />
+      <property name="labelAlign">
+         <value>RIGHT</value>
+      </property>
+
+      <!-- Support the character length syntax. 12C = 12 * characterWidth -->
+      <!-- or the standard syntax in pixel -->
+      <property name="defaultLabelWidth">
+         <value>15C</value>
+      </property>
+
+      <property name="characterWidth">
+         <value>8</value>
+      </property>
+
+      <property name="waitingIconPath">
+         <value>./gxt/images/gxt/icons/loading.gif</value>
+      </property>
+
+      <property name="topDefaultBlockMargin">
+         <value>10</value>
+      </property>
+      <property name="rightDefaultBlockMargin">
+         <value>10</value>
+      </property>
+      <property name="bottomDefaultBlockMargin">
+         <value>10</value>
+      </property>
+      <property name="leftDefaultBlockMargin">
+         <value>10</value>
+      </property>
+
+      <property name="topDefaultAreaMargin">
+         <value>3</value>
+      </property>
+      <property name="rightDefaultAreaMargin">
+         <value>3</value>
+      </property>
+      <property name="bottomDefaultAreaMargin">
+         <value>3</value>
+      </property>
+      <property name="leftDefaultAreaMargin">
+         <value>3</value>
+      </property>
+
+      <!-- Style apply to mandatory field label -->
+      <!-- may contain any valid css -->
+      <property name="mandatoryFieldLabelCssStyle">
+         <value>font-weight:bold;</value>
+      </property>
+
+      <property name="topDefaultColumnMargin">
+         <value>2</value>
+      </property>
+      <property name="rightDefaultColumnMargin">
+         <value>2</value>
+      </property>
+      <property name="bottomDefaultColumnMargin">
+         <value>2</value>
+      </property>
+      <property name="leftDefaultColumnMargin">
+         <value>2</value>
+      </property>
+
+      <property name="defaultBlockWidth">
+         <value>365</value>
+      </property>
+
+      <property name="defaultBlockHeight">
+         <value>200</value>
+      </property>
+
+      <property name="openingObjectMessage">
+         <value>true</value>
+      </property>
+
+      <property name="actionLaunchedMessage">
+         <value>true</value>
+      </property>
+
+      <property name="actionMessageDisplayTime">
+         <value>1500</value>
+      </property>
+
+      <property name="workQueueRefreshInterval">
+         <value>0</value>
+      </property>
+
+      <property name="dtkProductionMode">
+         <value>true</value>
+      </property>
+      <property name="availableLanguages">
+         <map>
+            <entry key="AN" value="en" />
+            <entry key="FR" value="fr" />
+            <entry key="PORT" value="pt" />
+            <entry key="ITAL" value="it" />
+            <entry key="FLAM" value="nl" />
+            <entry key="ALLE" value="de" />
+            <entry key="POL" value="pl" />
+            <entry key="ES" value="es" />
+         </map>
+      </property>
+      <property name="currenciesSetting">
+         <map value-type="java.util.Map">
+            <entry key="   ">
+               <map>
+                  <entry key="currencySymbol" value="   " />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="AED">
+               <map>
+                  <entry key="currencySymbol" value="AED" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="AFA">
+               <map>
+                  <entry key="currencySymbol" value="AFA" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ALL">
+               <map>
+                  <entry key="currencySymbol" value="ALL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="AMD">
+               <map>
+                  <entry key="currencySymbol" value="AMD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ANG">
+               <map>
+                  <entry key="currencySymbol" value="ANG" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="AOA">
+               <map>
+                  <entry key="currencySymbol" value="AOA" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="AON">
+               <map>
+                  <entry key="currencySymbol" value="AON" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="AOR">
+               <map>
+                  <entry key="currencySymbol" value="AOR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ARS">
+               <map>
+                  <entry key="currencySymbol" value="ARS" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ATS">
+               <map>
+                  <entry key="currencySymbol" value="ATS" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="AUD">
+               <map>
+                  <entry key="currencySymbol" value="AUD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="AWG">
+               <map>
+                  <entry key="currencySymbol" value="AWG" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="944">
+               <map>
+                  <entry key="currencySymbol" value="944" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BAD">
+               <map>
+                  <entry key="currencySymbol" value="BAD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BAM">
+               <map>
+                  <entry key="currencySymbol" value="BAM" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BBD">
+               <map>
+                  <entry key="currencySymbol" value="BBD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BDT">
+               <map>
+                  <entry key="currencySymbol" value="BDT" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BEF">
+               <map>
+                  <entry key="currencySymbol" value="BEF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BGL">
+               <map>
+                  <entry key="currencySymbol" value="BGL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BGN">
+               <map>
+                  <entry key="currencySymbol" value="BGN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BHD">
+               <map>
+                  <entry key="currencySymbol" value="BHD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="000" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BIF">
+               <map>
+                  <entry key="currencySymbol" value="BIF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BMD">
+               <map>
+                  <entry key="currencySymbol" value="BMD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BND">
+               <map>
+                  <entry key="currencySymbol" value="BND" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BOB">
+               <map>
+                  <entry key="currencySymbol" value="BOB" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BRE">
+               <map>
+                  <entry key="currencySymbol" value="BRE" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BRL">
+               <map>
+                  <entry key="currencySymbol" value="BRL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BSD">
+               <map>
+                  <entry key="currencySymbol" value="BSD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BTN">
+               <map>
+                  <entry key="currencySymbol" value="BTN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BUK">
+               <map>
+                  <entry key="currencySymbol" value="BUK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BWP">
+               <map>
+                  <entry key="currencySymbol" value="BWP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BYB">
+               <map>
+                  <entry key="currencySymbol" value="BYB" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="BZD">
+               <map>
+                  <entry key="currencySymbol" value="BZD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CAD">
+               <map>
+                  <entry key="currencySymbol" value="CAD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CDF">
+               <map>
+                  <entry key="currencySymbol" value="CDF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CHF">
+               <map>
+                  <entry key="currencySymbol" value="CHF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CLF">
+               <map>
+                  <entry key="currencySymbol" value="CLF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CLP">
+               <map>
+                  <entry key="currencySymbol" value="CLP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CNY">
+               <map>
+                  <entry key="currencySymbol" value="CNY" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="COP">
+               <map>
+                  <entry key="currencySymbol" value="COP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CRC">
+               <map>
+                  <entry key="currencySymbol" value="CRC" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CSD">
+               <map>
+                  <entry key="currencySymbol" value="CSD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CSK">
+               <map>
+                  <entry key="currencySymbol" value="CSK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CUP">
+               <map>
+                  <entry key="currencySymbol" value="CUP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CVE">
+               <map>
+                  <entry key="currencySymbol" value="CVE" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CYP">
+               <map>
+                  <entry key="currencySymbol" value="CYP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="000" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CZK">
+               <map>
+                  <entry key="currencySymbol" value="CZK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="DEM">
+               <map>
+                  <entry key="currencySymbol" value="DEM" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="DJF">
+               <map>
+                  <entry key="currencySymbol" value="DJF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="DKK">
+               <map>
+                  <entry key="currencySymbol" value="DKK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="DOP">
+               <map>
+                  <entry key="currencySymbol" value="DOP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="DZD">
+               <map>
+                  <entry key="currencySymbol" value="DZD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ECS">
+               <map>
+                  <entry key="currencySymbol" value="ECS" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="EEK">
+               <map>
+                  <entry key="currencySymbol" value="EEK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="EGP">
+               <map>
+                  <entry key="currencySymbol" value="EGP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ERB">
+               <map>
+                  <entry key="currencySymbol" value="ERB" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ERN">
+               <map>
+                  <entry key="currencySymbol" value="ERN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ESB">
+               <map>
+                  <entry key="currencySymbol" value="ESB" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ESP">
+               <map>
+                  <entry key="currencySymbol" value="ESP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ETB">
+               <map>
+                  <entry key="currencySymbol" value="ETB" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="EUR">
+               <map>
+                  <entry key="currencySymbol" value="EUR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="FFT">
+               <map>
+                  <entry key="currencySymbol" value="FFT" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="FIM">
+               <map>
+                  <entry key="currencySymbol" value="FIM" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="FJD">
+               <map>
+                  <entry key="currencySymbol" value="FJD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="FKP">
+               <map>
+                  <entry key="currencySymbol" value="FKP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="FRF">
+               <map>
+                  <entry key="currencySymbol" value="FRF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GBP">
+               <map>
+                  <entry key="currencySymbol" value="GBP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GEL">
+               <map>
+                  <entry key="currencySymbol" value="GEL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GHC">
+               <map>
+                  <entry key="currencySymbol" value="GHC" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GHS">
+               <map>
+                  <entry key="currencySymbol" value="GHS" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GIP">
+               <map>
+                  <entry key="currencySymbol" value="GIP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GMD">
+               <map>
+                  <entry key="currencySymbol" value="GMD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GNF">
+               <map>
+                  <entry key="currencySymbol" value="GNF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GRD">
+               <map>
+                  <entry key="currencySymbol" value="GRD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GTQ">
+               <map>
+                  <entry key="currencySymbol" value="GTQ" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GWP">
+               <map>
+                  <entry key="currencySymbol" value="GWP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GYD">
+               <map>
+                  <entry key="currencySymbol" value="GYD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="HKD">
+               <map>
+                  <entry key="currencySymbol" value="HKD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="HNL">
+               <map>
+                  <entry key="currencySymbol" value="HNL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="HRD">
+               <map>
+                  <entry key="currencySymbol" value="HRD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="HRK">
+               <map>
+                  <entry key="currencySymbol" value="HRK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="HTG">
+               <map>
+                  <entry key="currencySymbol" value="HTG" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="HUF">
+               <map>
+                  <entry key="currencySymbol" value="HUF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="IDR">
+               <map>
+                  <entry key="currencySymbol" value="IDR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="IEP">
+               <map>
+                  <entry key="currencySymbol" value="IEP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ILS">
+               <map>
+                  <entry key="currencySymbol" value="ILS" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="INR">
+               <map>
+                  <entry key="currencySymbol" value="INR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="IQD">
+               <map>
+                  <entry key="currencySymbol" value="IQD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="000" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="IRR">
+               <map>
+                  <entry key="currencySymbol" value="IRR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ISK">
+               <map>
+                  <entry key="currencySymbol" value="ISK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ITL">
+               <map>
+                  <entry key="currencySymbol" value="ITL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="JMD">
+               <map>
+                  <entry key="currencySymbol" value="JMD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="JOD">
+               <map>
+                  <entry key="currencySymbol" value="JOD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="000" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="JPY">
+               <map>
+                  <entry key="currencySymbol" value="JPY" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="KES">
+               <map>
+                  <entry key="currencySymbol" value="KES" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="KHR">
+               <map>
+                  <entry key="currencySymbol" value="KHR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="KMF">
+               <map>
+                  <entry key="currencySymbol" value="KMF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="KPW">
+               <map>
+                  <entry key="currencySymbol" value="KPW" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="KRW">
+               <map>
+                  <entry key="currencySymbol" value="KRW" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="KWD">
+               <map>
+                  <entry key="currencySymbol" value="KWD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="000" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="KYD">
+               <map>
+                  <entry key="currencySymbol" value="KYD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="KZT">
+               <map>
+                  <entry key="currencySymbol" value="KZT" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LAK">
+               <map>
+                  <entry key="currencySymbol" value="LAK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LBP">
+               <map>
+                  <entry key="currencySymbol" value="LBP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LKR">
+               <map>
+                  <entry key="currencySymbol" value="LKR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LRD">
+               <map>
+                  <entry key="currencySymbol" value="LRD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LSL">
+               <map>
+                  <entry key="currencySymbol" value="LSL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LSM">
+               <map>
+                  <entry key="currencySymbol" value="LSM" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LTL">
+               <map>
+                  <entry key="currencySymbol" value="LTL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LUC">
+               <map>
+                  <entry key="currencySymbol" value="LUC" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LUF">
+               <map>
+                  <entry key="currencySymbol" value="LUF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LUL">
+               <map>
+                  <entry key="currencySymbol" value="LUL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LVL">
+               <map>
+                  <entry key="currencySymbol" value="LVL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="LYD">
+               <map>
+                  <entry key="currencySymbol" value="LYD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="000" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MAD">
+               <map>
+                  <entry key="currencySymbol" value="MAD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MDL">
+               <map>
+                  <entry key="currencySymbol" value="MDL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MGA">
+               <map>
+                  <entry key="currencySymbol" value="MGA" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MGF">
+               <map>
+                  <entry key="currencySymbol" value="MGF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MKD">
+               <map>
+                  <entry key="currencySymbol" value="MKD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MLF">
+               <map>
+                  <entry key="currencySymbol" value="MLF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MMK">
+               <map>
+                  <entry key="currencySymbol" value="MMK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MNT">
+               <map>
+                  <entry key="currencySymbol" value="MNT" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MOP">
+               <map>
+                  <entry key="currencySymbol" value="MOP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MRO">
+               <map>
+                  <entry key="currencySymbol" value="MRO" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MTL">
+               <map>
+                  <entry key="currencySymbol" value="MTL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MUR">
+               <map>
+                  <entry key="currencySymbol" value="MUR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MVR">
+               <map>
+                  <entry key="currencySymbol" value="MVR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MWK">
+               <map>
+                  <entry key="currencySymbol" value="MWK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MXN">
+               <map>
+                  <entry key="currencySymbol" value="MXN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MXV">
+               <map>
+                  <entry key="currencySymbol" value="MXV" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MYR">
+               <map>
+                  <entry key="currencySymbol" value="MYR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MZM">
+               <map>
+                  <entry key="currencySymbol" value="MZM" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="MZN">
+               <map>
+                  <entry key="currencySymbol" value="MZN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="NAD">
+               <map>
+                  <entry key="currencySymbol" value="NAD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="NGN">
+               <map>
+                  <entry key="currencySymbol" value="NGN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="NIO">
+               <map>
+                  <entry key="currencySymbol" value="NIO" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="NLG">
+               <map>
+                  <entry key="currencySymbol" value="NLG" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="NOK">
+               <map>
+                  <entry key="currencySymbol" value="NOK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="NPR">
+               <map>
+                  <entry key="currencySymbol" value="NPR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="NZD">
+               <map>
+                  <entry key="currencySymbol" value="NZD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="OMR">
+               <map>
+                  <entry key="currencySymbol" value="OMR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="3" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="PAB">
+               <map>
+                  <entry key="currencySymbol" value="PAB" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="PEI">
+               <map>
+                  <entry key="currencySymbol" value="PEI" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="PEN">
+               <map>
+                  <entry key="currencySymbol" value="PEN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="PGK">
+               <map>
+                  <entry key="currencySymbol" value="PGK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="PHP">
+               <map>
+                  <entry key="currencySymbol" value="PHP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="PKR">
+               <map>
+                  <entry key="currencySymbol" value="PKR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="PLN">
+               <map>
+                  <entry key="currencySymbol" value="PLN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="PLZ">
+               <map>
+                  <entry key="currencySymbol" value="PLZ" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="PTE">
+               <map>
+                  <entry key="currencySymbol" value="PTE" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="PYG">
+               <map>
+                  <entry key="currencySymbol" value="PYG" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="QAR">
+               <map>
+                  <entry key="currencySymbol" value="QAR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ROL">
+               <map>
+                  <entry key="currencySymbol" value="ROL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ROU">
+               <map>
+                  <entry key="currencySymbol" value="ROU" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="RSD">
+               <map>
+                  <entry key="currencySymbol" value="RSD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="RUB">
+               <map>
+                  <entry key="currencySymbol" value="RUB" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="RUR">
+               <map>
+                  <entry key="currencySymbol" value="RUR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="RWF">
+               <map>
+                  <entry key="currencySymbol" value="RWF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SAR">
+               <map>
+                  <entry key="currencySymbol" value="SAR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SBD">
+               <map>
+                  <entry key="currencySymbol" value="SBD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SCR">
+               <map>
+                  <entry key="currencySymbol" value="SCR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SDD">
+               <map>
+                  <entry key="currencySymbol" value="SDD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SEK">
+               <map>
+                  <entry key="currencySymbol" value="SEK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SGD">
+               <map>
+                  <entry key="currencySymbol" value="SGD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SHP">
+               <map>
+                  <entry key="currencySymbol" value="SHP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SIT">
+               <map>
+                  <entry key="currencySymbol" value="SIT" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SKK">
+               <map>
+                  <entry key="currencySymbol" value="SKK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SLL">
+               <map>
+                  <entry key="currencySymbol" value="SLL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SOS">
+               <map>
+                  <entry key="currencySymbol" value="SOS" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SRG">
+               <map>
+                  <entry key="currencySymbol" value="SRG" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="STD">
+               <map>
+                  <entry key="currencySymbol" value="STD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SUR">
+               <map>
+                  <entry key="currencySymbol" value="SUR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SVC">
+               <map>
+                  <entry key="currencySymbol" value="SVC" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SYP">
+               <map>
+                  <entry key="currencySymbol" value="SYP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="SZL">
+               <map>
+                  <entry key="currencySymbol" value="SZL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="THB">
+               <map>
+                  <entry key="currencySymbol" value="THB" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="TND">
+               <map>
+                  <entry key="currencySymbol" value="TND" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="000" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="TOP">
+               <map>
+                  <entry key="currencySymbol" value="TOP" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="TRL">
+               <map>
+                  <entry key="currencySymbol" value="TRL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="TRY">
+               <map>
+                  <entry key="currencySymbol" value="TRY" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="TTD">
+               <map>
+                  <entry key="currencySymbol" value="TTD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="TWD">
+               <map>
+                  <entry key="currencySymbol" value="TWD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="TZS">
+               <map>
+                  <entry key="currencySymbol" value="TZS" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="UAH">
+               <map>
+                  <entry key="currencySymbol" value="UAH" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="UAK">
+               <map>
+                  <entry key="currencySymbol" value="UAK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="UGX">
+               <map>
+                  <entry key="currencySymbol" value="UGX" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="USD">
+               <map>
+                  <entry key="currencySymbol" value="USD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="UYU">
+               <map>
+                  <entry key="currencySymbol" value="UYU" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="VEB">
+               <map>
+                  <entry key="currencySymbol" value="VEB" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="VEF">
+               <map>
+                  <entry key="currencySymbol" value="VEF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="VND">
+               <map>
+                  <entry key="currencySymbol" value="VND" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="VUV">
+               <map>
+                  <entry key="currencySymbol" value="VUV" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="WST">
+               <map>
+                  <entry key="currencySymbol" value="WST" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="XAF">
+               <map>
+                  <entry key="currencySymbol" value="XAF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="XAU">
+               <map>
+                  <entry key="currencySymbol" value="XAU" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="3" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="XCD">
+               <map>
+                  <entry key="currencySymbol" value="XCD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="XEU">
+               <map>
+                  <entry key="currencySymbol" value="XEU" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="XOF">
+               <map>
+                  <entry key="currencySymbol" value="XOF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="XPF">
+               <map>
+                  <entry key="currencySymbol" value="XPF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="0" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="YDD">
+               <map>
+                  <entry key="currencySymbol" value="YDD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="000" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="YER">
+               <map>
+                  <entry key="currencySymbol" value="YER" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="YUM">
+               <map>
+                  <entry key="currencySymbol" value="YUM" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="YUN">
+               <map>
+                  <entry key="currencySymbol" value="YUN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ZAL">
+               <map>
+                  <entry key="currencySymbol" value="ZAL" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ZAR">
+               <map>
+                  <entry key="currencySymbol" value="ZAR" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ZMK">
+               <map>
+                  <entry key="currencySymbol" value="ZMK" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ZMW">
+               <map>
+                  <entry key="currencySymbol" value="ZMW" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ZRZ">
+               <map>
+                  <entry key="currencySymbol" value="ZRZ" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ZWD">
+               <map>
+                  <entry key="currencySymbol" value="ZWD" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="ZWN">
+               <map>
+                  <entry key="currencySymbol" value="ZWN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+         </map>
+      </property>
+
+      <!-- If true then the framework provide default confirmation message in the parametrized style see : 'actionMessageStyle' -->
+      <property name="defaultActionMessage">
+         <value>false</value>
+      </property>
+
+      <!-- infobox , popup -->
+      <property name="actionMessageStyle">
+         <value>infobox</value>
+      </property>
+      <property name="logInfoWidth">
+         <value>300</value>
+      </property>
+      <!-- Info log display time in ms -->
+      <property name="logInfoDisplayTime">
+         <value>10000</value>
+      </property>
+      <!-- Info log title color -->
+      <property name="logInfoTitleColor">
+         <value>red</value>
+      </property>
+      <property name="localLoggerActive">
+         <value>false</value>
+      </property>
+      <property name="maxPrimaryTabCount">
+         <value>6</value>
+      </property>
+      <property name="maxSecondaryTabCount">
+         <value>5</value>
+      </property>
+      <property name="dateYearAutoCompletionLimit">
+         <value>20</value>
+      </property>
+      <property name="confirmationBeforeAutomaticSaving">
+         <value>true</value>
+      </property>
+      <property name="othersWorkflowProcessTasksFunctionId" value="OthersWorkflowProcessTasks" />
+      <property name="workflowProcessEntityActionDefinitionId" value="WorkflowProcessEntityAction" />
+      <!-- nouveauté 1.0.20 -->
+      <property name="rateFieldDecimalPattern" value="00#####" />
+      <!-- FAS => precision de rateFieldDecimalPattern passee a 7 au lieu de 2 auparavant -->
+
+      <property name="percentageFieldDecimalPattern" value="00####" />
+      <property name="defaultTextAreaMaxRows">
+         <value>5</value>
+      </property>
+      <property name="defaultMultiSelectorHeight">
+         <value>300</value>
+      </property>
+
+      <!-- Dimensions of the modal popUps -->
+      <property name="modalWindowWidth">
+         <value>1200</value>
+      </property>
+      <property name="modalWindowHeight">
+         <value>600</value>
+      </property>
+
+      <property name="workflowActionsMenuIconPath">
+         <value>icons/work-queue16.png</value>
+      </property>
+
+      <property name="otherActionsMenuIconPath">
+         <value>icons/work-queue16.png</value>
+      </property>
+
+      <property name="defaultProgressiveRendering">
+         <value>true</value>
+      </property>
+
+      <!-- New 1.0.25 feature -->
+      <property name="defaultEnableAutoFocus">
+         <value>true</value>
+      </property>
+
+      <property name="maxObjectAccessHistorySize">
+         <value>100</value>
+      </property>
+
+      <property name="deactivateFieldSetMode">
+         <value>true</value>
+      </property>
+
+      <property name="helpUrl">
+         <value><![CDATA[http://confluence.cf.linedata.com/display/ldsplt/{screenId}]]></value>
+      </property>
+      <!-- 1.1.8 -->
+      <property name="defaultView360MaxSize">
+         <value>0</value>
+      </property>
+      <property name="defaultView360Size">
+         <value>0</value>
+      </property>
+
+   </bean>
+
+</beans>

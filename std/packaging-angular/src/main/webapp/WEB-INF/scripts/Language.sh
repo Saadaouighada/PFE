@@ -1,0 +1,1 @@
+exit | sqlplus ops\$ingenetudes/galene@$3/$4  @$2"\sql\Language.sql" $1

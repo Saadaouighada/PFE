@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="Blanc" beanId="EnvironmentFunctionService">
+
+	<graphic>
+		<borderVisible>false</borderVisible>
+		<hideLabel>true</hideLabel>
+		<styleClass>test-k2</styleClass>
+		<headerVisible>false</headerVisible>
+	</graphic>
+	  <grid id="test" buttonAdd="false" editable="false" buttonDelete="false" >
+     <graphic>
+        <height>200</height>
+        <fieldSetMode>true</fieldSetMode>
+        <collapsible>false</collapsible>
+        <collapsed>false</collapsed>
+        <headerVisible>true</headerVisible>
+        <borderVisible>true</borderVisible>
+     </graphic>
+           <inParameters>
+         <inParameter eventType="SCREENOPENED"></inParameter>
+         <inParameter eventType="SCREENCONTEXT"></inParameter>
+      </inParameters>
+     <columns>
+        <column id="test" nature="string" sortNumber="1">
+           <graphic>
+              <width>100</width>
+           </graphic>
+        </column>
+     </columns>
+  </grid>
+  
+
+ 
+</function>

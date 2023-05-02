@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<form xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="BookCreateForm" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   editable="true">
+   <graphic>
+      <headerVisible>false</headerVisible>
+      <collapsible>false</collapsible>
+      <borderVisible>false</borderVisible>
+      <fieldSetMode>false</fieldSetMode>
+   </graphic>
+     <fieldLinks>
+         <fieldLink id="getAuthorForBook" nature="CUSTOM"
+                     childFieldId="author" beanId="BookCreateFieldLinkService" methodName="getAthor" >
+                  <fieldLinkFather fatherFieldId="title"/>
+               </fieldLink>
+       </fieldLinks>
+   <areas>
+       <area id="mainArea">
+         <graphic>
+            <headerVisible>false</headerVisible>
+            <borderVisible>false</borderVisible>
+         </graphic>
+         <fields>
+            <field id="title" nature="string" sortNumber="2" columnNumber="1" upperCase="false" defaultValue="toto" saveInitialValue="true">
+               <controls>
+                  <control nature="MINLENGTH" id="titleminlength" value="3" />
+               </controls>
+            </field>
+            <field id="publishingDate" nature="date" sortNumber="2" columnNumber="1" />
+            <field id="author" nature="fk" functionId="AuthorSearch"
+                displayTemplate="{lastName}" sortNumber="2"
+                openFunctionMode="SEARCH"
+                fkSearchField="lastName"
+                fkCreationEntityEnable="true"
+                fkFunctionId="Author"
+                columnNumber="1"
+                readOnly="false">
+                <controls>
+                  <control nature="MANDATORY" id="authorMandatory" />
+                </controls>
+            </field>
+         </fields>
+      </area>
+   </areas>
+</form>

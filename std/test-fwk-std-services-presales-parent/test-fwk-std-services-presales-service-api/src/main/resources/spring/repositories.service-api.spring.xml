@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<!-- Repo -->
+	<bean id="genericRepo"
+		class="com.linedata.presales.repositories.impl.GenericRepoImpl" abstract="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="className" value="" />
+	</bean>
+	
+	<bean id="lovDefenitionIRepository"
+		class="com.linedata.presales.repositories.impl.LovDefenitionIRepositoryImpl" parent="genericRepo">
+		<property name="className" value="LovDefenitionImpl" />
+	</bean>
+	<bean id="lovEltRepository"
+		class="com.linedata.presales.repositories.impl.LovEltRepositoryImpl" parent="genericRepo">
+		<property name="className" value="LovEltImpl" />
+	</bean>
+	<bean id="lovEltLabelRepository"
+		class="com.linedata.presales.repositories.impl.LovEltLabelRepositoryImpl" parent="genericRepo">
+		<property name="className" value="LovEltLabelImpl" />
+	</bean>
+	<bean id="productsRepository"
+		class="com.linedata.presales.repositories.impl.ProductsRepositoryImpl" parent="genericRepo">
+		<property name="className" value="ProductsImpl" />
+	</bean>
+	<bean id="regionsRepository"
+		class="com.linedata.presales.repositories.impl.RegionsRepositoryImpl" parent="genericRepo">
+		<property name="className" value="RegionsImpl" />
+	</bean>
+	<bean id="usersRepository"
+		class="com.linedata.presales.repositories.impl.UsersRepositoryImpl" parent="genericRepo">
+		<property name="className" value="UsersImpl" />
+	</bean>
+	<bean id="environmentRepository"
+		class="com.linedata.presales.repositories.impl.EnvironmentRepositoryImpl" parent="genericRepo">
+		<property name="className" value="EnvironmentImpl" />
+	</bean>
+	<bean id="allocationRepository"
+		class="com.linedata.presales.repositories.impl.AllocationRepositoryImpl" parent="genericRepo">
+		<property name="className" value="AllocationImpl" />
+	</bean>
+	<bean id="authorisedProductsRepository"
+		class="com.linedata.presales.repositories.impl.AuthorisedProductsRepositoryImpl" parent="genericRepo">
+		<property name="className" value="AuthorisedProductsImpl" />
+	</bean>
+	<bean id="authorisedRegionsRepository"
+		class="com.linedata.presales.repositories.impl.AuthorisedRegionsRepositoryImpl" parent="genericRepo">
+		<property name="className" value="AuthorisedRegionsImpl" />
+	</bean>
+
+
+	<bean id="languageRepository"
+		class="com.linedata.presales.repositories.impl.LanguageRepositoryImpl" parent="genericRepo">
+		<property name="className" value="LanguageImpl" />
+	</bean>
+	<bean id="currencyRepository"
+		class="com.linedata.presales.repositories.impl.CurrencyRepositoryImpl" parent="genericRepo">
+		<property name="className" value="CurrencyImpl" />
+	</bean>
+	<bean id="configEkipRepository"
+		class="com.linedata.presales.repositories.impl.ConfigEkipRepositoryImpl" parent="genericRepo">
+		<property name="className" value="ConfigEkipImpl" />
+	</bean>
+
+
+	<bean id="listTypesRepository"
+		class="com.linedata.presales.repositories.impl.ListTypesRepositoryImpl" parent="genericRepo">
+		<property name="className" value="ListTypesImpl" />
+	</bean>
+	<bean id="configuredListsRepository"
+		class="com.linedata.presales.repositories.impl.ConfiguredListsRepositoryImpl" parent="genericRepo">
+		<property name="className" value="ConfiguredListsImpl" />
+	</bean>
+
+
+	<bean id="servicesRepository"
+		class="com.linedata.presales.repositories.impl.ServicesRepositoryImpl" parent="genericRepo">
+		<property name="className" value="ServicesImpl" />
+	</bean>
+	<bean id="selectedServicesRepository"
+		class="com.linedata.presales.repositories.impl.SelectedServicesRepositoryImpl" parent="genericRepo">
+		<property name="className" value="SelectedServicesImpl" />
+	</bean>
+
+	<bean id="preconfiguredListsRepository"
+		class="com.linedata.presales.repositories.impl.PreconfiguredListsRepositoryImpl" parent="genericRepo">
+		<property name="className" value="PreconfiguredListsImpl" />
+	</bean>
+	<bean id="selectedPreconfiguredListsRepository"
+		class="com.linedata.presales.repositories.impl.SelectedPreconfiguredListsRepositoryImpl" parent="genericRepo">
+		<property name="className" value="SelectedPreconfiguredListsImpl" />
+	</bean>
+
+
+
+
+</beans>

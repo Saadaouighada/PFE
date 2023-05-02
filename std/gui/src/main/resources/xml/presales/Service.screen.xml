@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   type="create" id="Service" beanId="ServiceFunctionService">
+
+<graphic>
+<graphic>
+     <headerVisible>true</headerVisible>
+      <borderVisible>true</borderVisible>
+</graphic>
+</graphic>
+
+  <grid id="list" fatherId="ServiceGrid">
+  <inParameters>
+         <inParameter eventType="SCREENOPENED"></inParameter>
+         <inParameter eventType="SCREENCONTEXT"></inParameter>
+      </inParameters>
+   </grid>
+        <screenActions>
+      <screenAction code="toGeneral" id="toGeneral"
+          evaluateControls="true" onTopMenu="true"
+         sortNumber="1">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="ConfigureEnvironmentUpdate" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+      <screenAction code="toService" id="toService"
+          evaluateControls="true" onTopMenu="true"
+         sortNumber="1">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="Service" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+     <screenAction code="save" id="save" icon="icons/Sauvegarde16.png" evaluateControls="true" 
+		       onTopMenu="true" sortNumber="1">
+		    <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true" context="SCREEN" functionId="Service" id="goToNotesUpdate" sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>       
+   
+      <screenAction id="toAssets" evaluateControls="true"  code="toAssets" sortNumber="1" >
+      <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="AddListType" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+      
+      <screenAction id="toType2" evaluateControls="true"  code="toType2" sortNumber="1" >
+      <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="AddListType" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+   
+   
+   
+   </screenActions>
+      <contextMenu id="contextMenu" evaluateControls="true" onTopMenu="true" sortNumber="1">
+      <actionGroup id="actionGroup" fatherId="" >
+         <actionMenu id="testNode2" actionType="SCREENACTION"
+            actionId="toAssets" sortNumber="1" />
+         <actionMenu id="testNode2" actionType="SCREENACTION"
+            actionId="toType2" sortNumber="1" />
+      </actionGroup>
+   </contextMenu>
+</function>

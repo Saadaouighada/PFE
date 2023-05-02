@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   type="create" id="AddListType" beanId="AddListTypeScreenService">
+
+   <graphic>
+      <borderVisible>true</borderVisible>
+      <hideLabel>true</hideLabel>
+      <styleClass>test-k2</styleClass>
+      <headerVisible>true</headerVisible>
+      
+         <styleClass>bttn</styleClass>
+     
+   </graphic>
+
+   <inParameters>
+      <inParameter eventType="SCREENOPENED" />
+      <inParameter eventType="SCREENCONTEXT" />
+   </inParameters>
+
+
+
+
+
+
+
+
+   <grid id="list" fatherId="ListGrid" editable="true" buttonAdd="true"
+      buttonDelete="true" beanId="ListGridBlockService">
+      <inParameters>
+         <inParameter eventType="SCREENOPENED"></inParameter>
+         <inParameter eventType="SCREENCONTEXT"></inParameter>
+      </inParameters>
+
+   </grid>
+
+
+
+   <screenActions>
+      <screenAction code="toGeneral" id="toGeneral"
+         evaluateControls="true" onTopMenu="true" sortNumber="0">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="ConfigureEnvironmentUpdate"
+                  id="goToNotesUpdate" sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+      <screenAction code="toService" id="toService"
+         evaluateControls="true" onTopMenu="true" sortNumber="0">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="ListType" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+      <screenAction code="save" id="save"
+         icon="icons/Sauvegarde16.png" evaluateControls="true" onTopMenu="true"
+         sortNumber="0">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="ListType" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+      <screenAction id="toAssets" evaluateControls="true"
+         code="toAssets">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="AddListType" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+      <screenAction id="toType2" evaluateControls="true"
+         code="toType2">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="AddListType" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+
+
+   </screenActions>
+
+
+   <contextMenu id="contextMenu" evaluateControls="true"
+      onTopMenu="true" sortNumber="1">
+      <actionGroup id="actionGroup" sortNumber="1">
+         <actionMenu id="testNode2" actionType="SCREENACTION"
+            actionId="toAssets" sortNumber="1" />
+         <actionMenu id="testNode2" actionType="SCREENACTION"
+            actionId="toType2" sortNumber="1" />
+      </actionGroup>
+
+
+
+
+   </contextMenu>
+
+
+</function>

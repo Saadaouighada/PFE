@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.linedata.test</groupId>
+   <artifactId>test-fwk-std-angular</artifactId>
+   <name>Test Framework STD packaging</name>
+   <packaging>war</packaging>
+
+   <parent>
+      <groupId>com.linedata.test</groupId>
+      <artifactId>test-fwk-std</artifactId>
+      <version>0.1-SNAPSHOT</version>
+   </parent>
+
+   <properties>
+		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+			<!-- Application metadata -->
+		<application.displayName>Linedata EKIP</application.displayName>
+		<application.displayNameExponent>360</application.displayNameExponent>
+		<application.displayNameSuffix>DEV</application.displayNameSuffix>
+		<application.displayVersion>${ekip.appl.version}-${client.code}-${project.version}</application.displayVersion>
+   </properties>
+
+   <dependencies>
+      <dependency>
+         <groupId>com.linedata.appfwk360.gui.commons</groupId>
+         <artifactId>appfwk360-gui-ngapp</artifactId>
+         <version>${framework.version}</version>
+         <type>war</type>
+      </dependency>
+      
+      <dependency>
+         <groupId>com.linedata.fwk360.gui</groupId>
+         <artifactId>fwk360-gui-license-dev</artifactId>
+         <type>jar</type>
+         <version>${framework.version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>com.linedata.lls.core</groupId>
+         <artifactId>lls-core-public</artifactId>
+         <version>${license-core.version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>com.linedata.lls.core</groupId>
+         <artifactId>lls-core-private</artifactId>
+         <version>${license-core.version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>com.linedata.fwk360.gui</groupId>
+         <artifactId>fwk360-gui-fundation</artifactId>
+         <version>${framework.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>com.linedata.fwk360.services</groupId>
+         <artifactId>fwk360-services-core-service</artifactId>
+         <version>${framework.version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>com.linedata.appfwk360.gui.commons</groupId>
+         <artifactId>appfwk360-gui-commons-core</artifactId>
+         <version>${framework.app.version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>com.linedata.fwk360.gui</groupId>
+         <artifactId>fwk360-gui-fundation</artifactId>
+         <version>${framework.version}</version>
+         <classifier>sources</classifier>
+         <scope>provided</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.linedata.fwk360.commons</groupId>
+         <artifactId>fwk360-commons</artifactId>
+         <version>${framework.version}</version>
+         <classifier>sources</classifier>
+         <scope>provided</scope>
+      </dependency>
+
+      <!-- CXF -->
+      <dependency>
+         <groupId>org.apache.cxf</groupId>
+         <artifactId>cxf-rt-frontend-jaxws</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.cxf</groupId>
+         <artifactId>cxf-rt-transports-http</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>com.linedata.fwk360.services</groupId>
+         <artifactId>fwk360-services-rules-engine</artifactId>
+         <version>${framework.version}</version>
+         <!-- <exclusions> <exclusion> <artifactId>ecj</artifactId> <groupId>org.eclipse.jdt.core.compiler</groupId> </exclusion> </exclusions> -->
+      </dependency>
+      <dependency>
+         <groupId>com.linedata.fwk360.commons</groupId>
+         <artifactId>fwk360-commons</artifactId>
+         <version>${framework.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>cglib</groupId>
+         <artifactId>cglib</artifactId>
+         <version>2.2</version>
+      </dependency>
+      <dependency>
+         <groupId>com.linedata.test</groupId>
+         <artifactId>test-fwk-std-gui</artifactId>
+         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>com.linedata.test</groupId>
+         <artifactId>test-fwk-std-gui</artifactId>
+         <version>${project.version}</version>
+         <classifier>sources</classifier>
+         <scope>provided</scope>
+      </dependency>
+
+   </dependencies>
+
+   <build>
+      <finalName>ngapp</finalName>
+      <!-- Generate compiled stuff in the folder used for developing mode -->
+      <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+
+      <plugins>
+
+
+   <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>gwt-maven-plugin</artifactId>
+            <!-- Plugin configuration. There are many available options, see gwt-maven-plugin documentation at codehaus.org -->
+            <configuration>
+               <runTarget>WEB-INF/index.html</runTarget>
+               <!--<bindAddress>0.0.0.0</bindAddress> -->
+               <hostedWebapp>${webappDirectory}</hostedWebapp>
+               <!-- localWorkers>1</localWorkers -->
+               <!-- Style values : OBF[USCATED], PRETTY, or DETAILED -->
+               <style>OBF</style>
+               <force>false</force>
+               <generateDirectory>target/generated-sources/gwt</generateDirectory>
+               <extraJvmArgs>-Xms1024m -Xmx3072m -XX:PermSize=1024m -XX:MaxPermSize=1536m</extraJvmArgs>
+            </configuration>
+         </plugin>
+         <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>copy-resources</id>
+                  <!-- here the phase you need -->
+                  <phase>validate</phase>
+                  <goals>
+                     <goal>copy-resources</goal>
+                  </goals>
+                  <configuration>
+                     <outputDirectory>${webappDirectory}</outputDirectory>
+                     <resources>
+                        <resource>
+                           <directory>${basedir}/src/main/webapp</directory>
+                           <filtering>true</filtering>
+                        </resource>
+                     </resources>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>unpack-drools-resources</id>
+                  <phase>process-resources</phase>
+                  <goals>
+                     <goal>unpack</goal>
+                  </goals>
+                  <configuration>
+                     <artifactItems>
+                        <artifactItem>
+                           <groupId>com.linedata.appfwk360.gui.commons</groupId>
+                           <artifactId>appfwk360-gui-commons-core</artifactId>
+                           <version>${framework.app.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+         g               <artifactItem>
+                           <groupId>com.linedata.test</groupId>
+                           <artifactId>test-fwk-std-gui</artifactId>
+                           <version>${project.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+                     </artifactItems>
+                     <overWrite>false</overWrite>
+                     <type>jar</type>
+                     <includes>**/*.drl</includes>
+                     <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+                  </configuration>
+               </execution>
+               
+               <execution>
+                  <id>unpack-spring-resources</id>
+                  <phase>process-resources</phase>
+                  <goals>
+                     <goal>unpack</goal>
+                  </goals>
+                  <configuration>
+                     <artifactItems>
+                        <artifactItem>
+                           <groupId>com.linedata.fwk360.gui</groupId>
+                           <artifactId>fwk360-gui-fundation</artifactId>
+                           <version>${framework.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+                        <artifactItem>
+                           <groupId>com.linedata.fwk360.services</groupId>
+                           <artifactId>fwk360-services-core-service</artifactId>
+                           <version>${framework.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+                        <artifactItem>
+                           <groupId>com.linedata.fwk360.services</groupId>
+                           <artifactId>fwk360-services-rules-engine</artifactId>
+                           <version>${framework.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+                        <artifactItem>
+                           <groupId>com.linedata.test</groupId>
+                           <artifactId>test-fwk-std-gui</artifactId>
+                           <version>${project.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+                     </artifactItems>
+                     <overWrite>false</overWrite>
+                     <type>jar</type>
+                     <includes>**/*.spring.xml</includes>
+                     <outputDirectory>${webappDirectory}/WEB-INF/spring</outputDirectory>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>unpack-screen-resources</id>
+                  <phase>process-resources</phase>
+                  <goals>
+                     <goal>unpack</goal>
+                  </goals>
+                  <configuration>
+                     <artifactItems>
+                        <artifactItem>
+                           <groupId>com.linedata.fwk360.gui</groupId>
+                           <artifactId>fwk360-gui-fundation</artifactId>
+                           <version>${framework.version}</version>
+                        </artifactItem>
+                        <artifactItem>
+                           <groupId>com.linedata.appfwk360.gui.commons</groupId>
+                           <artifactId>appfwk360-gui-commons-core</artifactId>
+                           <version>${framework.app.version}</version>
+                        </artifactItem>
+                        <artifactItem>
+                           <groupId>com.linedata.test</groupId>
+                           <artifactId>test-fwk-std-gui</artifactId>
+                           <version>${project.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+                     </artifactItems>
+                     <overWrite>false</overWrite>
+                     <type>jar</type>
+                     <includes>**/*.screenentities.xml,**/*.globalmenu.xml,**/*.screen.xml,**/*.block.xml,**/*.field.xml,**/*.globalmenu*.properties,**/error*.properties,**/*.screen*.properties,**/*.messages*.properties,
+                        **/*.block*.properties,**/*.field*.properties,**/global*.properties,**/*.conf.xml,**/*.summary.xml,**/*.summary*.properties,**/*.view360.xml,**/*.view360*.properties,**/*.tree360.xml,
+                        **/*.entity360Configuration.xml,**/*.entity360Configuration*.properties,**/*.workflowFunctions.xml,
+                        **/*.widgetComponent.xml,**/*.widgetComponent*.properties,**/*.service*.properties,**/*.entityActionDefinition.xml,**/*.entityActionDefinition*.properties,**/*.designSetup.xml
+                        , **/*.iconmapping.xml, **/*.functionMapping.xml, **/*.actionGroup.xml, **/*.actionGroup*.properties, **/*.hotKeyGroup.xml</includes>
+                     <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>unpack-others-resources</id>
+                  <phase>process-resources</phase>
+                  <goals>
+                     <goal>unpack</goal>
+                  </goals>
+                  <configuration>
+                     <artifactItems>
+                        <artifactItem>
+                           <groupId>com.linedata.fwk360.gui</groupId>
+                           <artifactId>fwk360-gui-fundation</artifactId>
+                           <version>${framework.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+                        <artifactItem>
+                           <groupId>com.linedata.test</groupId>
+                           <artifactId>test-fwk-std-gui</artifactId>
+                           <version>${project.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+                     </artifactItems>
+                     <overWrite>false</overWrite>
+                     <type>jar</type>
+                     <includes>**/*.css, **/*.jpg, **/*.png, **/*.gif</includes>
+                     <outputDirectory>${webappDirectory}</outputDirectory>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+               <packagingExcludes>WEB-INF/lib/activation-*.jar, WEB-INF/lib/jsr173-*.jar, WEB-INF/lib/stax-api-*.jar, WEB-INF/lib/xml-api*.jar,
+                  WEB-INF/lib/wsdl4j-qname-*.jar, WEB-INF/lib/servlet-api-*.jar, WEB-INF/lib/jetty-util-*.jar, WEB-INF/lib/jetty-*.jar, WEB-INF/lib/xmlParserAPIs-*.jar,
+                  WEB-INF/lib/xmlbeans-*.jar</packagingExcludes>
+               <webResources>
+                  <resource>
+                     <directory>${basedir}/src/main/webapp</directory>
+                     <filtering>true</filtering>
+                  </resource>
+               </webResources>
+               <overlays>   
+	               	<overlay>      
+	               		<groupId>com.linedata.appfwk360.gui.commons</groupId>
+	            		<artifactId>appfwk360-gui-ngapp</artifactId>
+	           			<includes>
+	           				<include>ngapp/WEB-INF/index.html</include>
+	   				        <include>*.js</include>
+				        </includes>         
+				        <filtered>true</filtered>
+			        </overlay>   
+		        	<overlay>      
+			        	<groupId>com.linedata.appfwk360.gui.commons</groupId>
+			        	<artifactId>appfwk360-gui-ngapp</artifactId>   
+		        	</overlay>
+	        	</overlays>
+            </configuration>
+         </plugin>
+         <!-- <plugin> <groupId>com.linedata.fwk360.gui.tools.plugin</groupId> <artifactId>fwk360-gui-tools-plugin</artifactId> <version>${framework.version}</version> <executions> 
+            <execution> <id>storeScreen</id> <phase>verify</phase> <goals> <goal>resolve</goal> </goals> <configuration> <outputDirectory>${basedir}/target/generated-sources/doc</outputDirectory> 
+            </configuration> </execution> </executions> </plugin> -->
+      </plugins>
+   </build>
+
+   <profiles>
+      <profile>
+         <id>delivery</id>
+         <build>
+            <resources>
+               <resource>
+                  <directory>src/main/java</directory>
+                  <includes>
+                     <include>com/linedata/ekip/core/client/**</include>
+                     <include>com/linedata/ekip/core/shared/**</include>
+                  </includes>
+               </resource>
+               <resource>
+                  <directory>src/main/resources</directory>
+                  <excludes>
+                     <exclude>**/*.screen.xml</exclude>
+                  </excludes>
+               </resource>
+            </resources>
+
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-compiler-plugin</artifactId>
+                  <configuration>
+                     <excludes>
+                        <exclude>src/main/java/**/*.java</exclude>
+                     </excludes>
+                  </configuration>
+               </plugin>
+               <plugin>
+                  <artifactId>maven-resources-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>copy-resources</id>
+                        <phase>compile</phase>
+                        <goals>
+                           <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                           <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+                           <resources>
+                              <resource>
+                                 <directory>${project.build.directory}/generated-sources/resources</directory>
+                              </resource>
+                           </resources>
+                        </configuration>
+                     </execution>
+                  </executions>
+               </plugin>
+               <plugin>
+                  <groupId>com.linedata.lls.plugins</groupId>
+                  <artifactId>lls-injector-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>generate-sources</id>
+                        <phase>process-resources</phase>
+                        <configuration>
+                           <mappingFile>./filesToInject.xml</mappingFile>
+                           <defaultProductName>EKIP360</defaultProductName>
+                           <defaultModuleName>STD</defaultModuleName>
+                           <defaultFeatureName>CORE</defaultFeatureName>
+                        </configuration>
+                        <goals>
+                           <goal>process-resources</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+   </profiles>
+
+</project>

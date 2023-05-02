@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/function.xsd"
+	type="create" id="TestSearchForm" beanId="TestSearchFormScreenService">
+   <graphic>
+      <headerVisible>true</headerVisible>
+      <borderVisible>true</borderVisible>
+   </graphic>
+
+   <form sortNumber="1" id="criteria" type="searchForm" columnNumber="1"
+   		beanId="TestSearchFormCriteriaFormService" searchEventOnLoad="true"
+   		disableMandatoryCheck="false">
+      <graphic>
+         <headerVisible>true</headerVisible>
+         <collapsible>true</collapsible>
+         <borderVisible>true</borderVisible>
+         <fieldSetMode>true</fieldSetMode>
+      </graphic>
+      <inParameters>
+         <inParameter eventType="SCREENOPENED" />
+      </inParameters>
+      <areas>
+      	<area id="mainArea">
+      		<fields>
+      			<field id="criteria1" nature="string" sortNumber="1"></field>
+      		</fields>
+      	</area>
+      </areas>
+   </form>
+
+   <grid id="result" type="resultGrid" forceFit="true"
+   		beanId="TestSearchFormResultGridService" paging="local" pageSize="10"
+   		textSelection="true" sortNumber="2" openFunctionMode="UPDATE"
+   		idActionOnDoubleClick="doSomethingScreenAction">
+      <graphic>
+         <height>278</height>
+         <fieldSetMode>true</fieldSetMode>
+         <collapsible>false</collapsible>
+         <collapsed>false</collapsed>
+         <headerVisible>true</headerVisible>
+         <borderVisible>true</borderVisible>
+      </graphic>
+      <inParameters>
+         <inParameter eventType="SEARCH" blockId="criteria" />
+      </inParameters>
+      <columns>
+         <column id="resultCol1" nature="string" sortNumber="1">
+            <graphic>
+               <width>100c</width>
+            </graphic>
+         </column>
+         <column id="resultCol2" nature="string" sortable="false" sortNumber="2">
+            <graphic>
+               <width>100c</width>
+            </graphic>
+         </column>
+      </columns>
+   </grid>
+
+	<screenActions>
+		<screenAction id="doSomethingScreenAction" code="doSomething" icon="icons/Simulation16.png" evaluateControls="false" />
+	</screenActions>
+
+</function>

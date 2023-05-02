@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="ConfigureEnvironmentUpdate"
+	beanId="ConfigureEnvironmentUpdateFunctionService">
+
+
+
+
+
+
+	<screenActions>
+		<screenAction code="general" id="general"
+			evaluateControls="false" confirmationRequired="false"
+			onTopMenu="true" sortNumber="1">
+			<actionResponses>
+				<onSuccess>
+					<displayMessages sortNumber="0" />
+					<openFunction closeActiveFunction="true"
+						context="SCREEN" functionId="ConfigureEnvironmentGeneral"
+						id="general" sortNumber="1" />
+				</onSuccess>
+			</actionResponses>
+		</screenAction>
+
+
+
+		<screenAction code="services" id="services"
+			evaluateControls="false" confirmationRequired="false"
+			onTopMenu="true" sortNumber="2">
+			<actionResponses>
+				<onSuccess>
+					<displayMessages sortNumber="0" />
+					<openFunction closeActiveFunction="true"
+						context="SCREEN" functionId="ConfigureEnvironmentServices"
+						id="services" sortNumber="1" />
+				</onSuccess>
+			</actionResponses>
+		</screenAction>
+
+		<screenAction code="generate" id="generate"
+			icon="icons/Sauvegarde16.png" evaluateControls="false"
+			onTopMenu="true" sortNumber="4">
+			<actionResponses>
+				<onSuccess>
+					<displayMessages sortNumber="0" />
+					<openFunction closeActiveFunction="true"
+						openFunctionMode="SCREEN"
+						functionId="ConfigureEnvironmentSynthese" id="generate"
+						sortNumber="1" />
+				</onSuccess>
+			</actionResponses>
+		</screenAction>
+
+
+		<screenAction id="lists1" evaluateControls="true"
+			code="lists1" sortNumber="3">
+			<actionResponses>
+				<onSuccess>
+					<displayMessages sortNumber="0" />
+					<openFunction closeActiveFunction="true"
+						context="SCREEN" functionId="ConfigureEnvironmentLists"
+						id="goToNotesUpdate" sortNumber="1" />
+				</onSuccess>
+			</actionResponses>
+		</screenAction>
+
+
+		<screenAction id="lists2" evaluateControls="true"
+			code="lists2" sortNumber="3">
+			<actionResponses>
+				<onSuccess>
+					<displayMessages sortNumber="0" />
+					<openFunction closeActiveFunction="true"
+						context="SCREEN" functionId="ConfigureEnvironmentLists"
+						id="goToNotesUpdate" sortNumber="1" />
+				</onSuccess>
+			</actionResponses>
+		</screenAction>
+
+
+	</screenActions>
+
+	<contextMenu id="contextMenu" evaluateControls="true"
+		onTopMenu="true" sortNumber="3">
+		<actionGroup id="actionGroup" fatherId="">
+			<actionMenu id="testNode2" actionType="SCREENACTION"
+				actionId="lists1" sortNumber="1" />
+			<actionMenu id="testNode2" actionType="SCREENACTION"
+				actionId="lists2" sortNumber="1" />
+		</actionGroup>
+	</contextMenu>
+
+
+</function>

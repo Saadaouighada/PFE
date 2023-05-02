@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" fatherId="ConfigureEnvironmentUpdate"
+	id="ConfigureEnvironmentLists">
+
+	<graphic>
+		<borderVisible>false</borderVisible>
+		<hideLabel>true</hideLabel>
+		<styleClass>test-k2</styleClass>
+		<headerVisible>false</headerVisible>
+	</graphic>
+
+	<grid id="ListGridUpdate" fatherId="ListGrid">
+		<inParameters>
+			<inParameter eventType="SCREENOPENED"></inParameter>
+			<inParameter eventType="SCREENCONTEXT"></inParameter>
+		</inParameters>
+	</grid>
+
+<!-- 	<screenActions> -->
+<!-- 		<screenAction code="selectPL" id="selectPL" -->
+<!-- 			icon="icons/Sauvegarde16.png" evaluateControls="false" -->
+<!-- 			onTopMenu="true" sortNumber="2" columnNumber="1"> -->
+<!-- 			<actionResponses> -->
+<!-- 				<onSuccess> -->
+<!-- 					<displayMessages  /> -->
+<!-- 					<openFunction closeActiveFunction="true" -->
+<!-- 						openFunctionMode="SCREEN" -->
+<!-- 						functionId="ConfigurePreconfiguredLists" id="selectPL" -->
+<!-- 						sortNumber="1" /> -->
+<!-- 				</onSuccess> -->
+<!-- 			</actionResponses> -->
+<!-- 		</screenAction> -->
+<!-- 	</screenActions> -->
+</function>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+   <!-- Appenders -->
+   <appender name="ekip360GuiLog" class="org.apache.log4j.DailyRollingFileAppender">
+      <param name="file" value="../logs/FWK-TEST.log" />
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%d %5p [%F:%L] - %m%n" />
+      </layout>
+   </appender>
+<!--
+ <appender name="aop360Log" class="org.apache.log4j.DailyRollingFileAppender">
+      <param name="file" value="/data/ekip/CPLR5INT-tomcat-9/logs/AOP-EKIP360-GUI.log" />
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%d %5p [%F:%L] - %m%n" />
+      </layout>
+   </appender>
+-->
+<!--
+ <logger name="com.linedata.framework.aop.aspectj">
+      <level value="INFO" />
+      <appender-ref ref="aop360Log" />
+   </logger>
+-->
+   <!-- Loggers -->
+   <logger name="com.linedata">
+      <level value="DEBUG" />
+      <appender-ref ref="ekip360GuiLog" />
+   </logger>
+
+   <logger name="org.apache.commons">
+      <level value="ERROR" />
+      <appender-ref ref="ekip360GuiLog" />
+   </logger>
+
+   <logger name="org.apache.cxf">
+      <level value="ERROR" />
+      <appender-ref ref="ekip360GuiLog" />
+   </logger>
+   
+   <logger name="org.hibernate">
+      <level value="WARN" />
+      <appender-ref ref="ekip360GuiLog" />
+   </logger>
+
+   <logger name="org.springframework">
+      <level value="WARN" />
+      <appender-ref ref="ekip360GuiLog" />
+   </logger>
+
+   <logger name="net.sf.ehcache">
+      <level value="WARN" />
+      <appender-ref ref="ekip360GuiLog" />
+   </logger>
+
+   <logger name="org.dozer">
+      <level value="WARN" />
+      <appender-ref ref="ekip360GuiLog" />
+   </logger>
+
+   <logger name="com.linedata.ekip.core.server.thread.impl">
+     <level value="INFO" />
+     <appender-ref ref="ekip360DevLog" />
+     <appender-ref ref="stdout" />
+   </logger>
+
+   <logger name="com.linedata.ekip.core.server.screenManager.impl">
+     <level value="INFO" />
+     <appender-ref ref="ekip360DevLog" />
+     <appender-ref ref="stdout" />
+   </logger>
+
+   <logger name="com.linedata.ekip.core.server.dataservice.impl">
+     <level value="DEBUG" />
+     <appender-ref ref="ekip360GuiLog" />
+   </logger> 
+
+</log4j:configuration> 

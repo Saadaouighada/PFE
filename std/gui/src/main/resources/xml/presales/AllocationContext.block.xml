@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<form id="allocationContext" editable="false"
+	beanId="AllocationContextBlockService">
+	<graphic>
+		<collapsible>false</collapsible>
+		<borderVisible>true</borderVisible>
+		<fieldSetMode>true</fieldSetMode>
+		<collapsed>false</collapsed>
+	</graphic>
+	<inParameters>
+		<inParameter eventType="SCREENOPENED" />
+		<inParameter eventType="SCREENCONTEXT" />
+	</inParameters>
+	<areas>
+		<area id="mainArea">
+			<fields>
+				<fieldgroup id="fieldgrpTest" columnNumber="4">
+					<field id="business" nature="string" columnNumber="1"
+						sortNumber="1">
+						<graphic>
+							<width>50</width>
+						</graphic>
+					</field>
+
+					<field id="startDate" nature="string" columnNumber="1"
+						sortNumber="1">
+						<graphic>
+							<width>50</width>
+						</graphic>
+					</field>
+
+					<field id="endDate" nature="string" columnNumber="1"
+						sortNumber="1">
+						<graphic>
+							<width>50</width>
+						</graphic>
+					</field>
+
+					<field id="region" nature="string" columnNumber="1"
+						sortNumber="1">
+						<graphic>
+							<width>50</width>
+						</graphic>
+					</field>
+
+				</fieldgroup>
+			</fields>
+		</area>
+	</areas>
+</form>

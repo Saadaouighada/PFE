@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.linedata.presales.entities.impl.ConfigEkipImpl"
+		table="CONFIG_EKIP ">
+		<id name="idConfig" type="long" column="ID_CONFIG_EKIP">
+		<generator class="sequence">
+		<param name="sequence_name">SEQCONFIG_EKIP_ID </param>    
+		</generator>
+		</id>
+		<property name="idExterne" column="ID_Externe" type="string" />
+		<property name="companyName" column="COMPANY_NAME" type="string" />
+		<property name="codeColor" column="CODE_COLOR" type="string" />
+		<property name="codeCurrencyFormat" column="CODE_CURRENCY_FORMAT" type="string" />
+		<property name="codeDateFormat" column="CODE_DATE_FORMAT" type="string" />
+		<property name="companyLogo" column="COMPANY_LOGO" type="blob" lazy="false" />
+		
+	    <many-to-one name="allocation" class="com.linedata.presales.entities.impl.AllocationImpl" fetch="select">
+        <column name="ID_ALLOCATION" not-null="true" />
+        </many-to-one>
+	    <many-to-one name="currency" class="com.linedata.presales.entities.impl.CurrencyImpl" fetch="select">
+        <column name="ID_CURRENCY" not-null="true" />
+        </many-to-one>
+	    <many-to-one name="language" class="com.linedata.presales.entities.impl.LanguageImpl" fetch="select">
+        <column name="ID_LANGUAGE" not-null="true" />
+        </many-to-one>        
+	</class>
+</hibernate-mapping>  

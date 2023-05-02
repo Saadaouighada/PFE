@@ -1,0 +1,28 @@
+package drools
+
+import com.linedata.ekip.std.services.rulesengine.service.impl.KnowledgeBaseResponse;
+import com.linedata.ekip.commons.shared.context.ActionContext;
+import com.linedata.ekip.std.services.rulesengine.bean.RulesContext;
+import com.linedata.ekip.std.services.rulesengine.bean.OthersRulesParam;
+import com.linedata.ekip.std.services.rulesengine.bean.parameter.EntityRulesParam;
+import com.linedata.ekip.std.services.rulesengine.bean.parameter.RulesParam;
+import com.linedata.ekip.std.services.rulesengine.bean.ScreenContextRulesParam;
+import com.linedata.ekip.std.services.rulesengine.bean.parameter.UntypedRulesParam;
+import org.springframework.context.ApplicationContext;
+import java.util.ArrayList;
+import java.util.List;
+
+function boolean evaluateResult(OthersRulesParam othersRulesParam)
+{
+	return true;
+}
+
+
+rule "isMandatory"
+when
+	(RulesContext(true, $params: othersRulesParam ))     
+    response: KnowledgeBaseResponse( )
+    eval(evaluateResult($params))		
+then
+	response.setVerified(true);
+end

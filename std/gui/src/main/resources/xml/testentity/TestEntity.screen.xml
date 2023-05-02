@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/function.xsd"
+	type="screen" id="TestEntity" beanId="TestEntityScreenService">
+   <graphic>
+      <headerVisible>true</headerVisible>
+      <borderVisible>true</borderVisible>
+   </graphic>
+
+   <form sortNumber="1" id="testEntityForm" beanId="TestEntityFormService">
+      <graphic>
+         <headerVisible>true</headerVisible>
+         <collapsible>true</collapsible>
+         <borderVisible>true</borderVisible>
+         <fieldSetMode>true</fieldSetMode>
+      </graphic>
+      <inParameters>
+         <inParameter eventType="SCREENCONTEXT" />
+      </inParameters>
+      <areas>
+      	<area id="mainArea">
+      		<fields>
+      			<field id="id" nature="string" sortNumber="1" >
+                  <controls>
+                     <control nature="MANDATORY" id="authorMandatory" />
+                  </controls>
+                </field>
+      			<field id="label" nature="string" sortNumber="2">
+                  <controls>
+                     <control nature="MANDATORY" id="authorMandatory" />
+                  </controls>
+                </field>
+      			<field id="description" nature="string" sortNumber="3"/>
+      		</fields>
+      	</area>
+      </areas>
+   </form>
+
+	<screenActions>
+		<screenAction
+            id="doSomethingScreenAction"
+            code="doSomething"
+            icon="icons/Simulation16.png"
+            evaluateControls="false"
+            notInMenu="false">
+            <availabilities>
+               <openingModesAvailability />
+            </availabilities>
+            <actionResponses>
+                <onFailure>
+                    <displayErrors />
+                    <refreshSummaryView />                    
+                </onFailure>
+            </actionResponses>
+        </screenAction>
+    <!--
+        <workflowAction entityLocation="SCREENCONTEXT" id="workflowActionsList" />
+    -->
+        <entityAction id="doSomething" entityLocation="SCREENCONTEXT" icon="icons/Simulation16.png">
+		    <disabledContextualActions>		
+		       <disabledContextualAction>doSomething</disabledContextualAction>
+            </disabledContextualActions>
+             <availabilities>
+               <fieldValueAvailability fieldId="id" valueToCompareWith="1" formId="testEntityForm" relationalOperator="EQUAL"/>
+            </availabilities>
+        </entityAction>
+	</screenActions>
+    <contextMenu id="contextMenu">
+      <actionGroup id="testEntityGroup" fatherId="TestEntityGroup">
+         <actionMenu id="testNode2" sortNumber="-1">
+            <actionMenu id="testLeaf3" actionType="ENTITYACTION" actionId="doSomethingElse" sortNumber="1">
+            </actionMenu>
+<!--             <actionMenu id="testLeaf4" actionType="ENTITYACTION" actionId="doSomething" sortNumber="2"/> -->
+         </actionMenu>
+      </actionGroup>
+    </contextMenu>
+</function>

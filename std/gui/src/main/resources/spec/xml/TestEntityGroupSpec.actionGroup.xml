@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionGroup xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   id="TestEntityGroupSpec"
+   fatherId="TestEntityGroup"
+   icon="icons/Biens16.png">
+   <actionMenu id="testNode3" sortNumber="3">
+<!--          <actionMenu id="testLeaf1" actionType="ENTITYACTION" actionId="doSomething" sortNumber="1"/> -->
+         <actionMenu id="testLeaf2" actionType="ENTITYACTION" actionId="doSomethingElse" sortNumber="2">
+         </actionMenu>
+   </actionMenu>
+</actionGroup>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   type="create" id="DisplayAllocation" >
+
+<graphic>
+<graphic>
+     <headerVisible>true</headerVisible>
+      <borderVisible>true</borderVisible>
+</graphic>
+</graphic>
+
+    <form id="displayAllocations" editable="flase" beanId="DisplayAllocationBlockService" icon="icons/Biens16.png">
+         <graphic>
+    <headerVisible>true</headerVisible>
+         <collapsible>true</collapsible>
+         <borderVisible>true</borderVisible>
+         <fieldSetMode>true</fieldSetMode>
+        </graphic>
+        
+
+    <inParameters>
+            <inParameter eventType="SCREENOPENED" />
+            <inParameter eventType="SCREENCONTEXT" />
+        </inParameters>
+      <areas>
+         <area id="mainArea">
+            <fields>
+               <field id="business" nature="string" sortNumber="1"/>
+               <field id="owner" nature="string" sortNumber="2"/>
+                              <field id="region" nature="string" sortNumber="3"/>
+               
+               <field id="prospect" nature="string" sortNumber="4"/>
+            
+               <field id="startDate" nature="date" sortNumber="5"/>
+             
+               <field id="endDate" nature="date" sortNumber="6"/>
+               <field id="status" nature="string" sortNumber="7"/>
+                 
+               <field id="description" nature="textarea" sortNumber="8"/>
+                 
+               <field id="server" nature="string" sortNumber="9"/>
+               <field id="login" nature="string" sortNumber="10"/>
+               <field id="password" nature="string" sortNumber="11"/>
+            </fields>
+         </area>
+      </areas>
+   </form>
+</function>

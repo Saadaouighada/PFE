@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/function.xsd"
+	type="screen"
+    id="BookOverrideSpec"
+    overrideFatherId="Book">
+   
+   
+<!--       <screenAction id="delBook"> -->
+<!--          <conditionnalHidden> -->
+<!--             <rules operator="OR"> -->
+<!--                <rule id="isId2" ruleId="isId2" disabled="false"/> -->
+<!--                <rule id="isId3" ruleId="isId3" disabled="false"/> -->
+<!--             </rules> -->
+<!--          </conditionnalHidden> -->
+<!--       </screenAction> -->
+
+<form sortNumber="2" id="bookForm">
+      <areas>
+         <area id="mainArea">
+            <fields>
+               <field id="nbPages" hidden="true"/>
+            </fields>
+         </area>
+      </areas>
+   </form>
+   
+  <screenActions>
+      <redirect id="toAuthorCreate" functionId="AuthorCreate" openFunctionMode="CREATE" >
+         <conditionnalHidden>
+            <rules operator="OR">
+               <rule id="isId2" ruleId="isId2" disabled="false"/>
+               <rule id="isId3" ruleId="isId3" disabled="false"/>
+            </rules>
+         </conditionnalHidden>
+      </redirect>
+   </screenActions>
+</function>

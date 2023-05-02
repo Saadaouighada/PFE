@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<globalmenu xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/GlobalMenu.xsd"
+	id="menu1">
+	<menuroot id="home" sortNumber="1">
+		<menugroup id="test" sortNumber="1" columnNumber="3">
+            <menu id="testSearchFormMenu" sortNumber="1"
+                icon="icons/Ajout_contrat16.png">
+                <menuAction id="testSearchFormMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="TestSearchForm" />
+            </menu>
+            <menu id="testFormMenu" sortNumber="2"
+                icon="icons/Ajout_contrat16.png">
+                <menuAction id="testFormMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="TestForm" >
+                    <othersParameters>
+                        <otherParameter value="linedata" key="param1" />
+                        <otherParameter value="fr" key="lang" />
+                    </othersParameters>
+                </menuAction>
+            </menu>
+            <menu id="testBlockDispatcherMenu" sortNumber="3"
+                icon="icons/Ajout_contrat16.png">
+                <menuAction id="testBlockDispatcherMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="TestBlockDispatcher" />
+            </menu>
+            <menu id="testExternalBlockMenu" sortNumber="4"
+                icon="icons/Ajout_contrat16.png">
+                <menuAction id="testExternalBlockMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="TestExternalBlock" />
+            </menu>
+            <menu id="testColumnEditMenu" sortNumber="5"
+                icon="icons/Ajout_contrat16.png">
+                <menuAction id="testColumnEditMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="UPDATE" functionId="TestColumnEdit" >
+                </menuAction>
+            </menu>
+            <menu id="testTreeGridMenu" sortNumber="6"
+                icon="icons/Ajout_contrat16.png">
+                <menuAction id="testTreeGridMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="TestTreeGrid" >
+                </menuAction>
+            </menu>
+		</menugroup>
+        <menugroup id="testEntity" sortNumber="2" columnNumber="2">
+            <menu id="testEntitySearchMenu" sortNumber="1" icon="icons/Ajout_contrat16.png">
+                <menuAction id="testEntitySearchMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="TestEntitySearch">
+                </menuAction>
+            </menu>
+        </menugroup>
+        <menugroup id="book" sortNumber="3" columnNumber="2">
+            <menu id="bookSearchMenu" sortNumber="1" icon="icons/recherche_contrat16.png">
+                <menuAction id="bookSearchMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="BookSearch">
+                </menuAction>
+            </menu>
+            <menu id="bookCreateMenu" sortNumber="2" icon="icons/Ajout_contrat16.png">
+                <menuAction id="bookCreateMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="BookCreate">
+                </menuAction>
+            </menu>
+        </menugroup>
+        <menugroup id="author" sortNumber="4" columnNumber="2">
+            <menu id="authorSearchMenu" sortNumber="1" icon="icons/RechTiers16.png">
+                <menuAction id="authorSearchMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="AuthorSearch">
+                </menuAction>
+            </menu>
+            <menu id="authorCreateMenu" sortNumber="2" icon="icons/Ajout_tiers16.png">
+                <menuAction id="authorCreateMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="AuthorCreate">
+                </menuAction>
+            </menu>
+        </menugroup>
+        <!--
+        <menugroup id="spec" sortNumber="4" columnNumber="2">
+            <menu id="specFormMenu" sortNumber="2"
+                icon="icons/Ajout_contrat16.png">
+                <menuAction id="specFormMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="SpecForm" >
+                </menuAction>
+            </menu>
+        </menugroup>
+        -->
+        <menugroup id="mapping" sortNumber="5" columnNumber="1">
+            <menu id="mappingMenu" sortNumber="1"
+                icon="icons/Ajout_contrat16.png">
+                <menuAction id="mappingMenuAction" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="TestMapping" >
+                </menuAction>
+            </menu>
+            <menu id="mappingMenu2" sortNumber="1"
+                icon="icons/Ajout_contrat16.png">
+                <menuAction id="mappingMenuAction2" actionTypeCode="redirect"
+                    openFunctionMode="CREATE" functionId="TestMapping2" >
+                </menuAction>
+            </menu>
+        </menugroup>
+	</menuroot>
+</globalmenu> 

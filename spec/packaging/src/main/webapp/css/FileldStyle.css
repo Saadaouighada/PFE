@@ -1,0 +1,13 @@
+/** Add css rules here for your application. */
+
+/** red color for field component  
+**/
+div.red-color-field, .red-color-field input{
+	color: red;	
+}
+/** green color for field component  
+**/
+div.green-color-field, .green-color-field input{
+	color: green;	 
+}
+

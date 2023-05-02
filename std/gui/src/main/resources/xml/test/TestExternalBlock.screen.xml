@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="TestExternalBlock" beanId="TestExternalBlockScreenService">
+   <graphic>
+      <headerVisible>true</headerVisible>
+      <borderVisible>false</borderVisible>
+   </graphic>
+<!-- 
+   <form id="OthersForm" beanId="OthersFormService" sortNumber="1">
+      <graphic>
+         <headerVisible>false</headerVisible>
+         <collapsible>false</collapsible>
+         <borderVisible>false</borderVisible>
+         <fieldSetMode>false</fieldSetMode>
+      </graphic>
+      <inParameters>
+        <inParameter actionOnEvent="DATA" eventType="SCREENCONTEXT" />
+      </inParameters>
+      <areas>
+         <area id="mainArea">
+          <graphic>
+            <headerVisible>false</headerVisible>
+            <collapsible>false</collapsible>
+            <borderVisible>false</borderVisible>
+            <fieldSetMode>false</fieldSetMode>
+          </graphic>
+            <fields>
+               <field  id="inputParam" nature="string" sortNumber="1" />
+            </fields>
+         </area>
+      </areas>
+   </form>
+    <externalBlock id="testEexternal" beanId="TestExternalBlockService" sortNumber="2" hidden="false">
+        <graphic>
+             <headerVisible>true</headerVisible>
+             <borderVisible>true</borderVisible>
+             <fieldSetMode>false</fieldSetMode>
+             <collapsible>true</collapsible>
+             <collapsed>false</collapsed>
+             <height>300</height>
+        </graphic>
+        <inParameters>
+            <inParameter eventType="SCREENOPENED" />
+        </inParameters>
+    </externalBlock>
+-->
+    <externalBlock id="testEexternal2" sortNumber="2">
+        <graphic>
+             <headerVisible>true</headerVisible>
+             <borderVisible>true</borderVisible>
+             <fieldSetMode>false</fieldSetMode>
+             <collapsible>false</collapsible>
+             <collapsed>false</collapsed>
+             <height>600</height>
+        </graphic>
+        <baseUrl>http://127.0.0.1:8282/bloc-externe.html</baseUrl>
+<!--         <baseUrl>http://google.fr</baseUrl> -->
+        <method>GET</method>
+      <queryString>
+         <queryElement key="inputParam" value="{user.userId}"/>
+      </queryString>
+    </externalBlock>
+	<screenActions>
+      <screenAction id="testAction" code="testAction" evaluateControls="false" />
+    </screenActions>
+</function>

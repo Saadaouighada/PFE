@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityActionDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/EntityActionDefinition.xsd"
+   id="TestEntityAction" beanId="TestEntityService">
+    <actionEntry actionCode="doSomething" methodName="doSomething" icon="icons/Simulation16.png" />
+    <actionEntry actionCode="doSomethingElse" methodName="doSomethingElse" icon="icons/Simulation16.png" />
+
+</entityActionDefinition>

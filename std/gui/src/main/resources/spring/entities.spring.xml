@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <bean id="AuthorReferenceFactory" class="com.linedata.ekip.testfwkgui.author.AuthorReferenceFactory">
+      <property name="className" value="com.linedata.ekip.testfwkgui.author.impl.AuthorReferenceImpl" />
+   </bean>
+
+   <bean id="BookReferenceFactory" class="com.linedata.ekip.testfwkgui.book.BookReferenceFactory">
+      <property name="className" value="com.linedata.ekip.testfwkgui.book.impl.BookReferenceImpl" />
+   </bean>
+
+   <bean id="TestReferenceFactory" class="com.linedata.testentity.tree360.TestReferenceFactory">
+      <property name="className" value="com.linedata.testentity.tree360.impl.TestReferenceImpl" />
+   </bean>
+
+</beans>

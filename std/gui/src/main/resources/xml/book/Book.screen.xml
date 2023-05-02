@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/function.xsd"
+	type="screen"
+    id="Book"
+    beanId="BookScreenService" withAnchorPanel="true">
+   <graphic>
+      <headerVisible>true</headerVisible>
+      <borderVisible>true</borderVisible>
+   </graphic>
+
+   <form id="OthersForm" beanId="OthersFormService" sortNumber="1">
+      <graphic>
+         <headerVisible>false</headerVisible>
+         <collapsible>false</collapsible>
+         <borderVisible>false</borderVisible>
+         <fieldSetMode>false</fieldSetMode>
+      </graphic>
+      <inParameters>
+        <inParameter actionOnEvent="DATA" eventType="SCREENCONTEXT" />
+      </inParameters>
+      <areas>
+         <area id="mainArea">
+          <graphic>
+            <headerVisible>false</headerVisible>
+            <collapsible>false</collapsible>
+            <borderVisible>false</borderVisible>
+            <fieldSetMode>false</fieldSetMode>
+          </graphic>
+            <fields>
+               <field  id="contextParam" nature="string" sortNumber="1" />
+            </fields>
+         </area>
+      </areas>
+   </form>
+
+   <form sortNumber="2" id="bookForm" beanId="BookFormService" editable="false">
+      <graphic>
+         <headerVisible>true</headerVisible>
+         <collapsible>true</collapsible>
+         <borderVisible>true</borderVisible>
+         <fieldSetMode>true</fieldSetMode>
+      </graphic>
+      <inParameters>
+         <inParameter eventType="SCREENCONTEXT" />
+         <inParameter eventType="SCREENOPENED" />
+      </inParameters>
+      <areas>
+      	<area id="mainArea">
+      		<fields>
+      			<field id="author" nature="fk" displayTemplate="{lastName}-{firstName}" sortNumber="1"/>
+      			<field id="title" nature="string" sortNumber="2" readOnly="false"/>
+      			<fieldgroup id="nbPages" sortNumber="3">
+                  <field id="title" nature="string" sortNumber="2" readOnly="false"/>
+                  <field id="author" nature="fk" displayTemplate="{lastName}-{firstName}" sortNumber="1"/>
+               </fieldgroup>
+      		</fields>
+      	</area>
+      </areas>
+   </form>
+   
+   <screenActions>
+<!--       <screenAction id="delBookWhen2" code="delBook" > -->
+<!--          <conditionnalHidden> -->
+<!--             <rule id="isNotId2" ruleId="isNotId2" disabled="false" /> -->
+<!--          </conditionnalHidden> -->
+<!--       </screenAction> -->
+<!--       <screenAction id="delBook" code="delBook" > -->
+<!--          <conditionnalHidden> -->
+<!--             <rule id="isId2" ruleId="isId2" disabled="false" /> -->
+<!--          </conditionnalHidden> -->
+<!--       </screenAction> -->
+      <screenAction id="toAuthor" code="toAuthor">
+      </screenAction>
+      <redirect id="toAuthorCreate" functionId="AuthorCreate" openFunctionMode="CREATE" >
+         <conditionnalHidden>
+            <rule id="isId2" ruleId="isId2" disabled="false" />
+         </conditionnalHidden>
+      </redirect>
+   </screenActions>
+   
+    <contextMenu id="contextMenu">
+      <actionGroup id="TestFormGroup" fatherId="TestFormGroup">
+         <actionMenu id="testNode2" sortNumber="-1">
+            <actionMenu id="testLeaf1" actionType="SCREENACTION" actionId="testScreenAction" sortNumber="1"/>
+         </actionMenu>
+      </actionGroup>
+   </contextMenu>
+</function>

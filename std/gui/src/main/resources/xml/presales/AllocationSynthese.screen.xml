@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   type="create" id="AllocationSynthese" beanId="ConfigureEnvironmentFunctionService" >
+
+   <graphic>
+      <borderVisible>true</borderVisible>
+      <hideLabel>true</hideLabel>
+      <styleClass>test-k2</styleClass>
+      <headerVisible>true</headerVisible>
+
+      
+
+   </graphic>
+
+   <inParameters>
+      <inParameter eventType="SCREENOPENED" />
+      <inParameter eventType="SCREENCONTEXT" />
+   </inParameters>
+
+
+   <form id="generalForm" editable="false"
+      beanId="GeneralFormBlockService" icon="icons/Biens16.png">
+      <graphic>
+         <headerVisible>true</headerVisible>
+         <collapsible>true</collapsible>
+         <borderVisible>true</borderVisible>
+         <fieldSetMode>true</fieldSetMode>
+         <collapsed>false</collapsed>
+      </graphic>
+
+      <inParameters>
+         <inParameter eventType="SCREENOPENED"></inParameter>
+         <inParameter eventType="SCREENCONTEXT"></inParameter>
+      </inParameters>
+      <areas>
+         <area id="settings">
+            <fields>
+               <field id="name" nature="string" sortNumber="1">
+
+               </field>
+
+               <field id="language" nature="string" sortNumber="2">
+
+               </field>
+
+               <field id="currency" nature="string" sortNumber="3">
+
+               </field>
+
+               <field id="color" nature="string" sortNumber="5">
+
+               </field>
+
+
+
+            </fields>
+         </area>
+
+
+      </areas>
+   </form>
+
+
+
+
+
+   <grid id="Syntheselist" fatherId="ListGrid" editable="false"  beanId="SyntheselistBlockService"
+       >
+      <inParameters>
+         <inParameter eventType="SCREENOPENED"></inParameter>
+         <inParameter eventType="SCREENCONTEXT"></inParameter>
+      </inParameters>
+       <columns>
+      <column id="type" nature="string" sortNumber="3">
+         <graphic>
+            <width>100</width>
+         </graphic>
+      </column>
+      </columns>
+
+   </grid>
+
+
+
+   <screenActions>
+      <screenAction code="toGeneral" id="toGeneral"
+         evaluateControls="true" onTopMenu="true" sortNumber="0">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="ConfigureEnvironmentUpdate"
+                  id="goToNotesUpdate" sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+      <screenAction code="toService" id="toService"
+         evaluateControls="true" onTopMenu="true" sortNumber="0">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="ListType" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+     
+
+      <screenAction id="toAssets" evaluateControls="true"
+         code="toAssets">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="AddListType" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+      <screenAction id="toType2" evaluateControls="true"
+         code="toType2">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages sortNumber="0" />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="AddListType" id="goToNotesUpdate"
+                  sortNumber="1" />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+
+
+   </screenActions>
+
+
+   <contextMenu id="contextMenu" evaluateControls="true"
+      onTopMenu="true" sortNumber="1">
+      <actionGroup id="actionGroup" sortNumber="1">
+         <actionMenu id="testNode2" actionType="SCREENACTION"
+            actionId="toAssets" sortNumber="1" />
+         <actionMenu id="testNode2" actionType="SCREENACTION"
+            actionId="toType2" sortNumber="1" />
+      </actionGroup>
+
+
+
+
+   </contextMenu>
+
+
+</function>

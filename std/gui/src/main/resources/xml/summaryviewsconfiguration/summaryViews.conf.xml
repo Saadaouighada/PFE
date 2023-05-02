@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<summaryViewsConfiguration xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/summaryViewsConfiguration.xsd">
+
+   <summaryViewProperty summaryViewId="TestDataSummary" objectType="TEST" />
+   <summaryViewProperty summaryViewId="BookProcessViewer" objectType="book" />
+
+</summaryViewsConfiguration>

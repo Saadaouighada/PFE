@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create"
+    id="BookCreate"
+    beanId="BookCreateScreenService"
+    origin="SPEC">
+
+	<summaryForm id="BookSummaryForm" sortNumber="-200">
+		<graphic>
+			<headerVisible>true</headerVisible>
+			<fieldSetMode>false</fieldSetMode>
+			<collapsible>true</collapsible>
+			<borderVisible>true</borderVisible>
+			<collapsed>false</collapsed>
+		</graphic>
+		<summaryAreas>
+			<summaryArea id="area01" sortnumber="10">
+				<graphic>
+					<headerVisible>false</headerVisible>
+					<fieldSetMode>false</fieldSetMode>
+					<collapsible>false</collapsible>
+					<borderVisible>true</borderVisible>
+					<collapsed>false</collapsed>
+					<leftMargin>0</leftMargin>
+					<rightMargin>0</rightMargin>
+				</graphic>
+			     <summaryFields>
+					  <summaryField id="authorSummary" columnNumber="1" sortNumber="10"
+	                  targetFormId="bookCreateForm" targetFieldId="author"
+	                  displayTemplate="{firstName}"/>
+	             </summaryFields>
+	         </summaryArea>
+         </summaryAreas>
+     </summaryForm>
+     
+   <form id="buttonBlock" sortNumber="-1">
+      <graphic>
+         <borderVisible>false</borderVisible>
+         <styleClass>left-button-block</styleClass>
+      </graphic>
+      <areas>
+         <area id="buttonArea">
+            <graphic>
+               <headerVisible>false</headerVisible>
+            </graphic>
+            <fields>
+               <field id="button1" nature="button" buttonActionCode="save"/>
+               <field id="button2" nature="button" buttonActionCode="save"/>
+               <field id="button3" nature="button" buttonActionCode="save"/>
+            </fields>
+         </area>
+      </areas>
+   </form>
+   
+   <blockgroup id="bookCreateFormGroup">
+      <form sortNumber="1" id="bookCreateForm" fatherId="BookCreateForm" editable="true" beanId="BookCreateFormService">
+         <inParameters>
+            <inParameter eventType="SCREENCONTEXT" actionOnEvent="DATA" />
+            <inParameter eventType="NORMALMODE" blockId="bookCreateFormGroup" actionOnEvent="DATA" resetData="false"/>
+         </inParameters>
+      </form>
+      <form sortNumber="1" id="bookCreateFormAdvanced" fatherId="BookCreateFormAdvanced" editable="true" beanId="BookCreateFormService" advanced="true">
+         <inParameters>
+            <inParameter eventType="SCREENOPENED" actionOnEvent="DATA" />
+            <inParameter eventType="ADVANCEDMODE" blockId="bookCreateFormGroup" actionOnEvent="DATA" resetData="false"/>
+            <inParameter eventType="VALUECHANGED" blockId="bookCreateFormAdvanced" fieldId="type" actionOnEvent="DROOLS" />
+         </inParameters>
+      </form>
+   </blockgroup>
+   
+   <screenActions>
+        <screenAction id="saveAction" code="save" evaluateControls="false" freezeOnExecute="true">
+<!--          <actionResponses> -->
+<!--             <onSuccess> -->
+<!--                <refreshScreens> -->
+<!--                   <functionIds> -->
+<!--                      <functionId>BookSearch</functionId> -->
+<!--                      <functionId>AuthorCreate</functionId> -->
+<!--                      <functionId>TestMapping2</functionId> -->
+<!--                   </functionIds> -->
+<!--                </refreshScreens> -->
+<!--                <closeScreen/> -->
+<!--             </onSuccess> -->
+<!--          </actionResponses> -->
+        </screenAction>
+        <redirect id="toAuthorCreate" target="MODAL" functionId="AuthorCreate" openFunctionMode="CREATE" />
+   </screenActions>
+</function>

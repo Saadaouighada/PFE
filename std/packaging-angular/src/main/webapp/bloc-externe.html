@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html >
+
+<head>
+    <meta charset="utf-8"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="main container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+                <h2>Bloc externe</h2>
+                <form id="message-params">
+                    <div class="form-group">
+                        <label for="redirectFunctionId">redirectFunctionId</label>
+                        <input type="text" id="redirectFunctionId" name="redirectFunctionId" value="StandardAllocatedLoanCreation" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="openFunctionMode">openFunctionMode</label>
+                        <input type="text" id="openFunctionMode" name="openFunctionMode" value="CREATE" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="entityType">Entity Type</label>
+                        <input type="text" id="entityType" name="entityType" value="contrat" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="id">Id</label>
+                        <input type="text" id="id" name="id" value="123456" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="contextParam">Context Param</label>
+                        <input type="text" id="contextParam" name="contextParam" value="test" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Open object</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="/scripts/jquery-util.js"></script>
+    <script src="/scripts/bloc-externe.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<entity360Configuration
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/entity360Configuration.xsd"
+    entity360BeanId="AuthorPivot360">
+    
+    <entity360Functions>
+        <entity360Function functionId="Author" precedency="1" />
+    </entity360Functions>
+
+</entity360Configuration>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/function.xsd"
+	type="search"
+    id="BookSearch"
+    beanId="BookSearchScreenService">
+   <graphic>
+      <headerVisible>true</headerVisible>
+      <borderVisible>true</borderVisible>
+   </graphic>
+   
+   <form sortNumber="1" id="criteria" type="searchForm" columnNumber="1"
+   		beanId="BookSearchCriteriaFormService" searchEventOnLoad="false"
+   		disableMandatoryCheck="true"
+   		editable="true" icon="icons/Plus16.png">
+      <graphic>
+         <headerVisible>true</headerVisible>
+         <collapsible>false</collapsible>
+         <borderVisible>true</borderVisible>
+         <fieldSetMode>false</fieldSetMode>
+      </graphic>
+      <inParameters>
+         <inParameter eventType="SCREENOPENED" />
+<!--          <inParameter eventType="SCREENCONTEXT" /> -->
+      </inParameters>
+      <areas>
+      	<area id="mainArea">
+      		<fields>
+            
+             <fieldgroup id="fieldgroup3" columnNumber="3">
+            
+                <field id="author" sortNumber="1" columnNumber="1"
+                nature="fk" functionId="AuthorSearch"
+                   displayTemplate="{lastName}"
+                   openFunctionMode="SEARCH"
+                   fkFunctionId="Author"
+                   fkSearchField="lastName"
+                   readOnly="false"/>
+                <field id="priceCrit" nature="amount" sortNumber="2" columnNumber="2" />
+                <field id="title" nature="string" sortNumber="3" columnNumber="3" />
+                
+            </fieldgroup>
+            
+                <field id="biglov6" columnNumber="1"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        displayTemplate="{label}" defaultValue="null"/>
+                        
+                <field id="testColumnRemoteLov"
+                        nature="lov"
+                        lov="TestRemoteLov"
+                        valueField="value"
+                        displayTemplate="{value} - {label}"
+                        autoComplete="remote"
+                        sortNumber="7"
+                        columnNumber="2"
+                        completionMinLength="1"
+                        clearValueIfNotInStore="false"
+                        beanId="TestFormRemoteLovService"
+                        methodName="getMyRemoteCombo1" />
+                        
+      		</fields>
+      	</area>
+      </areas>
+   </form>
+   	<grid id="result" fatherId="BookSearchResult" buttonAdd="true" buttonDelete="true">
+		<inParameters>
+			<inParameter eventType="SEARCH" blockId="criteria" />
+		</inParameters>
+	</grid>
+<!--
+   <grid id="result" type="resultGrid" forceFit="true"
+   		beanId="BookSearchResultGridService" paging="remote" pageSize="10"
+   		textSelection="true" sortNumber="2" openFunctionMode="UPDATE"
+   		autoOpenUniqueResult="false">
+      <graphic>
+         <height>200</height>
+         <fieldSetMode>true</fieldSetMode>
+         <collapsible>false</collapsible>
+         <collapsed>false</collapsed>
+         <headerVisible>true</headerVisible>
+         <borderVisible>true</borderVisible>
+      </graphic>
+      <inParameters>
+         <inParameter eventType="SEARCH" blockId="criteria" />
+      </inParameters>
+      <columns>
+         <column id="title" nature="string" sortNumber="1" filtered="true">
+            <graphic>
+               <width>100</width>
+            </graphic>
+         </column>
+      </columns>
+   </grid>
+-->
+
+</function>

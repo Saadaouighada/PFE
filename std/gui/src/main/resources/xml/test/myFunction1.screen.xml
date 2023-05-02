@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   id="myFunction1"
+   type="create">
+   
+   <form id="myForm1" beanId="form1BlockService">
+      <inParameters>
+         <inParameter eventType="SCREENOPENED" />
+      </inParameters>
+      <areas>
+         <area id="myArea1">
+            <fields>
+               <field id="string-field-1" nature="string" />
+               <field id="string-field-2" nature="string" />
+               <field id="number-field-1" nature="number" />
+            </fields>
+         </area>
+      </areas>
+   </form>
+
+</function>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/function.xsd"
+    type="create" id="TestTreeGrid" beanId="TestTreeGridScreenService">
+   <graphic>
+      <headerVisible>true</headerVisible>
+      <borderVisible>true</borderVisible>
+   </graphic>
+
+   <treeGrid id="MainTreeGrid"
+        fatherId="MainTreeGrid"
+        rowsAutoExpand="NONE"
+        firstRowAutoSelected="true"
+        forceFit="true" highlightMode="true" highlightStyle="ekip-gray-highlight">
+   </treeGrid>
+
+   <screenActions>
+      <screenAction id="testScreenAction" code="testScreenAction" evaluateControls="false">
+         <actionResponses>
+            <onSuccess>
+               <openExternal>
+                 	<baseUrl>https://www.google.fr/search</baseUrl>
+                 	<queryString>
+                 		<queryElement key="q" value="linedata" />
+                 	</queryString>
+               </openExternal>
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+   </screenActions>
+
+</function>

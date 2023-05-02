@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="comparebranchhistory" beanId="EnvironmentFunctionService">
+
+	<graphic>
+		<borderVisible>false</borderVisible>
+		<hideLabel>true</hideLabel>
+		<styleClass>test-k2</styleClass>
+		<headerVisible>false</headerVisible>
+	</graphic>
+	<form id="EnvironmetStatus" beanId="EnvironmetStatusBlockService"
+		editable="false">
+		<graphic>
+			<collapsible>false</collapsible>
+			<borderVisible>true</borderVisible>
+			<fieldSetMode>true</fieldSetMode>
+			<collapsed>false</collapsed>
+		</graphic>
+		<inParameters>
+			<inParameter eventType="SCREENOPENED" />
+			<inParameter eventType="SCREENCONTEXT" />
+		</inParameters>
+		<areas>
+			<area id="mainArea">
+				<fields>
+				
+					<field id="configuredEnvironements" columnNumber="3"
+						nature="number" sortNumber="1" />
+				</fields>
+			</area>
+		</areas>
+	</form>
+
+
+	<grid id="EnvironmentStatusHistoryGrid"
+		idActionOnDoubleClick="environmentStatusDetails" buttonAdd="false"
+		editable="false" buttonDelete="false"
+		beanId="EnvironmentStatusHistoryBlockService">
+		<graphic>
+			<height>200</height>
+			<fieldSetMode>true</fieldSetMode>
+			<collapsible>false</collapsible>
+			<collapsed>false</collapsed>
+			<headerVisible>true</headerVisible>
+			<borderVisible>true</borderVisible>
+		</graphic>
+		<inParameters>
+			<inParameter eventType="SCREENOPENED"></inParameter>
+			<inParameter eventType="SCREENCONTEXT"></inParameter>
+		</inParameters>
+		<columns>
+			<column id="name" nature="string" sortNumber="1">
+				<graphic>
+					<width>100</width>
+				</graphic>
+			</column>
+			<column id="owner" nature="string" sortNumber="2">
+				<graphic>
+					<width>100</width>
+				</graphic>
+			</column>
+			<column id="startDate" nature="string" sortNumber="3">
+				<graphic>
+					<width>100</width>
+				</graphic>
+			</column>
+			<column id="endDate" nature="string" sortNumber="4">
+				<graphic>
+					<width>100</width>
+				</graphic>
+			</column>
+			<column id="region" nature="string" sortNumber="5">
+				<graphic>
+					<width>100</width>
+				</graphic>
+			</column>
+			<column id="description" nature="string" sortNumber="6">
+				<graphic>
+					<width>100</width>
+				</graphic>
+			</column>
+			<column id="status" nature="string" sortNumber="7"
+				hidden="true">
+				<graphic>
+					<width>100</width>
+				</graphic>
+			</column>
+		</columns>
+	</grid>
+
+	<screenActions>
+		<screenAction code="toEnvironment" id="toEnvironment"
+			evaluateControls="false">
+			<actionResponses>
+				<onSuccess>
+					<openFunction closeActiveFunction="true"
+						context="SCREEN" functionId="Environment" />
+				</onSuccess>
+			</actionResponses>
+		</screenAction>
+
+
+	<screenAction code="Comparerlesbranches"
+			id="Comparerlesbranches" evaluateControls="false">
+			<actionResponses>
+				<onSuccess>
+					<openFunction closeActiveFunction="false"
+						target="MODAL" context="SCREEN" functionId="CreateEnvironment" />
+				</onSuccess>
+			</actionResponses>
+		</screenAction>
+
+
+
+	</screenActions>
+
+</function>

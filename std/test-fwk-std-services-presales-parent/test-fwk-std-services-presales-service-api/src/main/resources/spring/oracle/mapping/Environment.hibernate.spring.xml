@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.linedata.presales.entities.impl.EnvironmentImpl"
+		table="environment">
+		<id name="idEnvironment" type="long" column="ID_ENVIRONMENT">
+		<generator class="sequence">
+		<param name="sequence_name">SEQENVIRONMENT_ID</param>    
+		</generator>
+		</id>
+		<property name="idExterne" column="ID_Externe" type="string" />
+		<property name="name" column="NAME" type="string" />
+		<property name="codeStatus" column="code_Status" type="string" />
+		<property name="databaseName" column="database_Name" type="string" />
+		<property name="databaseServer" column="database_Server" type="string" />
+		<property name="applicationServer" column="application_Server" type="string" />
+		<property name="applicationServerDirectory" column="application_Server_Directory" type="string" />
+		<property name="applicationServerPort" column="application_Server_Port" type="string" />
+		<property name="databaseServerPort" column="database_Server_Port" type="string" />
+
+	    <many-to-one name="product" class="com.linedata.presales.entities.impl.ProductsImpl" fetch="select">
+        <column name="id_product" not-null="true" />
+        </many-to-one>
+
+        
+	</class>
+</hibernate-mapping>  

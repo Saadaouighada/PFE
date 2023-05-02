@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<treeGrid
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/function.xsd"
+    id="MainTreeGrid"
+    beanId="TestTreeGridService"
+    forceFit="true"
+    sortNumber="1"
+    openFunctionMode="UPDATE"
+    enableFullscreen="true"
+    fullscreenWidth="3000px">
+  <graphic>
+     <height>400</height>
+     <headerVisible>false</headerVisible>
+     <collapsible>false</collapsible>
+     <borderVisible>false</borderVisible>
+     <collapsed>false</collapsed>
+  </graphic>
+  <inParameters>
+     <inParameter eventType="SCREENOPENED" />
+  </inParameters>
+  <columns>
+     <column id="treeCol1" nature="string" sortNumber="1" filtered="true">
+        <graphic>
+           <width>100c</width>
+        </graphic>
+     </column>
+     <column id="treeCol2" nature="label" sortable="true" sortNumber="2">
+        <graphic>
+           <width>100c</width>
+        </graphic>
+     </column>
+     <column id="treeCol3" nature="string" sortable="false" sortNumber="3">
+        <graphic>
+           <width>500c</width>
+        </graphic>
+     </column>
+     <column id="treeCol4" nature="string" sortable="false" sortNumber="4">
+        <graphic>
+           <width>500c</width>
+        </graphic>
+     </column>
+     <column id="treeCol5" nature="string" sortable="false" sortNumber="5">
+        <graphic>
+           <width>500c</width>
+        </graphic>
+     </column>
+  </columns>
+</treeGrid>

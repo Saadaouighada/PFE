@@ -1,0 +1,57 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Test framework</display-name>
+    
+    <!--  mapping with spring files -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/import.spring.xml</param-value>
+    </context-param>
+    <!-- Filter mappings for spring security -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--  Use with Spring to load any spring files -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>        
+    </listener>
+
+    <!--  Main servlet. Use to dispatch all service call from client to server side -->
+    <servlet>
+        <servlet-name>RPCServletDispatcher</servlet-name>
+        <servlet-class>com.linedata.ekip.core.server.RPCServletDispatcher</servlet-class>
+        <!-- This servlet must be the first instantiated servlet because some maintenance threads are starts in the servlet constructor -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <servlet-class>com.linedata.ekip.core.server.fileupload.FileUploadServlet</servlet-class>
+    </servlet>
+    
+    
+    <servlet-mapping>
+        <servlet-name>RPCServletDispatcher</servlet-name>
+        <url-pattern>*.rpc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>test-fwk.html</welcome-file>
+    </welcome-file-list>
+</web-app>

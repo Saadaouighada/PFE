@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true" xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+   xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+   <!-- PartyService -->
+	<!-- Service -->
+	<bean id="LovDefenitionService" class="com.linedata.presales.service.impl.LovDefenitionServiceImpl">
+		<property name="lovDefenitionIRepository"
+			ref="lovDefenitionIRepository" />
+	</bean>
+	<bean id="LovEltLabelService" class="com.linedata.presales.service.impl.LovEltLabelServiceImpl">
+		<property name="lovEltLabelRepository"
+			ref="lovEltLabelRepository" />
+	</bean>
+	<bean id="LovEltService" class="com.linedata.presales.service.impl.LovEltServiceImpl">
+		<property name="lovEltRepository"
+			ref="lovEltRepository" />
+	</bean>
+		
+		<bean id="ProductsService" class="com.linedata.presales.service.impl.ProductsServiceImpl">
+		<property name="productsRepository"
+			ref="productsRepository" />
+	</bean>
+	<bean id="RegionsService" class="com.linedata.presales.service.impl.RegionsServiceImpl">
+		<property name="regionsRepository"
+			ref="regionsRepository" />
+	</bean>
+	<bean id="UsersService" class="com.linedata.presales.service.impl.UsersServiceImpl">
+		<property name="usersRepository"
+			ref="usersRepository" />
+	</bean>
+	
+		<bean id="EnvironmentService" class="com.linedata.presales.service.impl.EnvironmentServiceImpl">
+		<property name="environmentRepository"
+			ref="environmentRepository" />
+	</bean>
+	<bean id="AllocationService" class="com.linedata.presales.service.impl.AllocationServiceImpl">
+		<property name="allocationRepository"
+			ref="allocationRepository" />
+	</bean>
+	
+
+		<bean id="AuthorisedRegionsService" class="com.linedata.presales.service.impl.AuthorisedRegionsServiceImpl">
+		<property name="authorisedRegionsRepository"
+			ref="authorisedRegionsRepository" />
+	</bean>
+	<bean id="AuthorisedProductsService" class="com.linedata.presales.service.impl.AuthorisedProductsServiceImpl">
+		<property name="authorisedProductsRepository"
+			ref="authorisedProductsRepository" />
+	</bean>
+	
+
+
+		<bean id="LanguageService" class="com.linedata.presales.service.impl.LanguageServiceImpl">
+		<property name="languageRepository"
+			ref="languageRepository" />
+	</bean>
+	<bean id="CurrencyyService" class="com.linedata.presales.service.impl.CurrencyServiceImpl">
+		<property name="currencyRepository"
+			ref="currencyRepository" />
+	</bean>
+	<bean id="ConfigEkipService" class="com.linedata.presales.service.impl.ConfigEkipServiceImpl">
+		<property name="configEkipRepository"
+			ref="configEkipRepository" />
+	</bean>
+	
+	
+	<bean id="ListTypesService" class="com.linedata.presales.service.impl.ListTypesServiceImpl">
+		<property name="listTypesRepository"
+			ref="listTypesRepository" />
+	</bean>
+	<bean id="ConfiguredListsService" class="com.linedata.presales.service.impl.ConfiguredListsServiceImpl">
+		<property name="configuredListsRepository"
+			ref="configuredListsRepository" />
+	</bean>
+	
+	<bean id="ServicesService" class="com.linedata.presales.service.impl.ServicesServiceImpl">
+		<property name="servicesRepository"
+			ref="servicesRepository" />
+	</bean>
+	<bean id="SelectedServicesService" class="com.linedata.presales.service.impl.SelectedServicesServiceImpl">
+		<property name="selectedServicesRepository"
+			ref="selectedServicesRepository" />
+	</bean>
+	
+	<bean id="PreconfiguredListsService" class="com.linedata.presales.service.impl.PreconfiguredListsServiceImpl">
+		<property name="preconfiguredListsRepository"
+			ref="preconfiguredListsRepository" />
+	</bean>
+	<bean id="SelectedPreconfiguredListsService" class="com.linedata.presales.service.impl.SelectedPreconfiguredListsServiceImpl">
+		<property name="selectedPreconfiguredListsRepository"
+			ref="selectedPreconfiguredListsRepository" />
+	</bean>	
+
+	
+</beans>

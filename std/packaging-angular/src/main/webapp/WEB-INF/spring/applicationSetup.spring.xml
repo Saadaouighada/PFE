@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
+
+  <bean id="ExternalServerSetup" class="com.linedata.ekip.core.server.setup.ExternalServerSetup">
+    </bean>
+	
+	<!-- Ekip Server Setup -->
+  <bean id="ServerSetup" class="com.linedata.ekip.core.server.setup.ServerSetup">
+
+		<!-- xml screen files location -->
+		<property name="xmlDirectory">
+			<value>/xml</value>
+		</property>
+
+		<!-- properties screen files location -->
+		<property name="propertiesDirectory">
+			<value>/properties</value>
+		</property>
+
+       <property name="disableAuthorizationsThread">
+         <value>true</value>
+      </property>
+      <property name="authorizationsThreadRetryDelay">
+         <value>5000</value>
+      </property>
+      
+      <property name="customPropertiesDirectory">
+         <value>ngapp-spec/screencustom/properties</value>
+      </property>
+
+
+
+     <!-- properties screen files location -->
+      <property name="customXmlDirectory">
+         <value>ngapp-spec/screencustom/xml</value>
+      </property>
+
+
+
+     <property name="designSetupXmlDirectory">
+         <value>ngapp-spec/designSetup</value>
+      </property>
+
+
+
+     <property name="iconMappingXmlDirectory">
+         <value>ngapp-spec/iconMapping</value>
+      </property>  
+
+
+
+     <property name="hotkeyGroupXmlDirectory">
+         <value>ngapp-spec/hotkeyGroup</value>
+      </property>
+
+
+
+
+		<property name="summaryViewsConfigurationFileName">
+			<value>summaryViews.conf.xml</value>
+		</property>
+
+		<property name="lovServiceBeanId">
+			<value>ScreenLovService</value>
+		</property>
+
+
+		<!-- server name (in case of distributed cache and load balanced environnement -->
+		<property name="serverName">
+			<value>serveur2</value>
+		</property>
+
+		<!-- Default language used for login page only -->
+		<!-- This setting must be set by one Ekip Consultant -->
+		<!-- Values will have to be fixed - ex : for French language value is FR -->
+		<property name="defaultLanguageCode">
+			<value>EN</value>
+		</property>
+		<property name="disableAuthorizations">
+			<value>true</value>
+		</property>
+
+		<property name="disableBlockAuthorizations">
+			<value>true</value>
+		</property>
+
+		<property name="disableScreenActionsAuthorizations">
+			<value>true</value>
+		</property>
+
+	</bean>
+
+	<!-- Ekip Client Setup -->
+	 <bean id="ClientSetup" class="com.linedata.ekip.core.shared.setup.ClientSetup">
+
+		<property name="screenProgressiveRenderingTimer">
+			<value>50</value>
+		</property>
+		<property name="widgetZoneUseless" value="false" />
+		<property name="widgetZoneCollapsed" value="false" />
+
+		<!-- Name of the cookie used for the redirection after de-connection -->
+		<property name="redirectCookieName">
+			<value>ekip_redirectCookieName</value>
+		</property>
+		<property name="applicationInfo" value="5.1.0.7-CPLUS-2.0.0-SNAPSHOT-Sem16" />
+		<property name="labelAlign">
+			<value>RIGHT</value>
+
+		</property>
+
+		<property name="defaultWelcomePage" value="Ekip360WelcomePage" />
+
+
+		<property name="waitingIconPath">
+			<value>./gxt/images/gxt/icons/loading.gif</value>
+		</property>
+
+		<!-- Style apply to mandatory field label -->
+		<!-- may contain any valid css -->
+		<property name="mandatoryFieldLabelCssStyle">
+			<value>font-weight:bold;</value>
+		</property>
+
+		<property name="openingObjectMessage">
+			<value>true</value>
+		</property>
+
+		<property name="actionLaunchedMessage">
+			<value>true</value>
+		</property>
+
+		<property name="actionMessageDisplayTime">
+			<value>1500</value>
+		</property>
+
+		<property name="workQueueRefreshInterval">
+			<value>0</value>
+		</property>
+		<property name="welcomePageClosable">
+			<value>true</value>
+		</property>
+		<property name="dtkProductionMode">
+			<value>true</value>
+		</property>
+
+
+		<property name="availableLanguages">
+			<map>
+				<!-- key="code Ekip" , value="code 360" -->
+				<entry key="AN" value="en" />
+				<entry key="FR" value="fr" />
+				<entry key="PORT" value="pt" />
+				<entry key="ITAL" value="it" />
+				<entry key="FLAM" value="flam" />
+				<entry key="ALLE" value="de" />
+				<entry key="POL" value="pl" />
+				<entry key="ES" value="es" />
+			</map>
+		</property>
+		<property name="currenciesSetting">
+			<map value-type="java.util.Map">
+				<entry key="EUR">
+					<map>
+						<entry key="currencySymbol" value="€" />
+						<entry key="currencySymbolPosition" value="END" />
+						<entry key="decimalPartPattern" value="00" />
+						<entry key="decimalPartSeparator" value="," />
+						<entry key="groupingSeparator" value=" " />
+					</map>
+				</entry>
+				<entry key="USD">
+
+					<map>
+						<entry key="currencySymbol" value="$" />
+						<entry key="currencySymbolPosition" value="START" />
+						<entry key="decimalPartPattern" value="00" />
+						<entry key="decimalPartSeparator" value="," />
+						<entry key="groupingSeparator" value=" " />
+					</map>
+
+				</entry>
+				<entry key="CHF">
+					<map>
+						<entry key="currencySymbol" value="CHF" />
+						<entry key="currencySymbolPosition" value="END" />
+						<entry key="decimalPartPattern" value="00" />
+						<entry key="decimalPartSeparator" value="," />
+						<entry key="groupingSeparator" value=" " />
+					</map>
+				</entry>
+				<entry key="GBP">
+					<map>
+						<entry key="currencySymbol" value="£" />
+						<entry key="currencySymbolPosition" value="END" />
+						<entry key="decimalPartPattern" value="00" />
+						<entry key="decimalPartSeparator" value="," />
+						<entry key="groupingSeparator" value=" " />
+					</map>
+				</entry>
+				<entry key="PLN">
+					<map>
+						<entry key="currencySymbol" value="PLN" />
+						<entry key="currencySymbolPosition" value="END" />
+						<entry key="decimalPartPattern" value="00" />
+						<entry key="decimalPartSeparator" value="," />
+						<entry key="groupingSeparator" value=" " />
+					</map>
+				</entry>
+				<entry key="UAH">
+					<map>
+						<entry key="currencySymbol" value="UAH" />
+						<entry key="currencySymbolPosition" value="END" />
+						<entry key="decimalPartPattern" value="00" />
+						<entry key="decimalPartSeparator" value="," />
+						<entry key="groupingSeparator" value=" " />
+					</map>
+				</entry>
+				<entry key="FRF">
+					<map>
+						<entry key="currencySymbol" value="FRF" />
+						<entry key="currencySymbolPosition" value="END" />
+						<entry key="decimalPartPattern" value="00" />
+						<entry key="decimalPartSeparator" value="," />
+						<entry key="groupingSeparator" value=" " />
+					</map>
+				</entry>
+				<entry key="CLP">
+					<map>
+						<entry key="currencySymbol" value="$" />
+						<entry key="currencySymbolPosition" value="START" />
+						<entry key="groupingSeparator" value="." />
+					</map>
+				</entry>
+				<entry key="TND">
+					<map>
+						<entry key="currencySymbolPosition" value="START" />
+						<entry key="decimalPartPattern" value="000" />
+						<entry key="decimalPartSeparator" value="." />
+						<entry key="groupingSeparator" value="'" />
+					</map>
+				</entry>
+				<entry key="???">
+					<map>
+						<entry key="currencySymbolPosition" value="END" />
+						<entry key="decimalPartPattern" value="00" />
+						<entry key="decimalPartSeparator" value="." />
+						<entry key="groupingSeparator" value=" " />
+						<entry key="integerPartPattern" value="###,###,###,###,##0" />
+					</map>
+				</entry>
+			</map>
+		</property>
+
+		<!-- If true then the framework provide default confirmation message in the parametrized style see : 'actionMessageStyle' -->
+		<property name="defaultActionMessage">
+			<value>false</value>
+		</property>
+
+		<!-- infobox , popup -->
+		<property name="actionMessageStyle">
+			<value>infobox</value>
+		</property>
+		<property name="maxPrimaryTabCount">
+			<value>6</value>
+		</property>
+		<property name="maxSecondaryTabCount">
+			<value>5</value>
+		</property>
+		<property name="dateYearAutoCompletionLimit">
+			<value>20</value>
+		</property>
+		<property name="confirmationBeforeAutomaticSaving">
+			<value>true</value>
+		</property>
+		<property name="othersWorkflowProcessTasksFunctionId" value="OthersWorkflowProcessTasks" />
+		<property name="workflowProcessEntityActionDefinitionId" value="WorkflowProcessEntityAction" />
+		<property name="processSummaryFunctionId" value="ProcessSummary" />
+		<!-- nouveauté 1.0.20 -->
+		<property name="rateFieldDecimalPattern" value="00" />
+
+		<property name="percentageFieldDecimalPattern" value="00####" />
+		<property name="defaultTextAreaMaxRows">
+			<value>5</value>
+		</property>
+		<property name="printScreenFeature">
+			<value>true</value>
+		</property>
+
+		<property name="workflowActionsMenuIconPath">
+			<value>icons/work-queue16.png</value>
+		</property>
+
+		<property name="otherActionsMenuIconPath">
+			<value>icons/work-queue16.png</value>
+		</property>
+
+		<property name="defaultProgressiveRendering">
+			<value>true</value>
+		</property>
+
+		<property name="enableAdvancedSearch">
+			<value>true</value>
+		</property>
+
+		<!-- New 1.0.25 feature -->
+		<property name="defaultEnableAutoFocus">
+			<value>true</value>
+		</property>
+
+		<property name="maxObjectAccessHistorySize">
+			<value>100</value>
+		</property>
+
+		<property name="lovListSorted">
+			<value>true</value>
+		</property>
+		<!-- Date minimum acceptable dans l'application -->
+		<property name="dateMin">
+			<value>01/01/1900</value>
+		</property>
+		<!-- Date maximum acceptable dans l'application -->
+		<property name="dateMax">
+			<value>01/01/2500</value>
+		</property>
+		<!-- Montant minimum acceptable dans l'application -->
+		<property name="amountMax">
+			<value>999999999999999</value>
+		</property>
+		<property name="screensRefreshOnAction">
+			<value>false</value>
+		</property>
+
+		<property name="forceScreenRefresh">
+			<value>false</value>
+		</property>
+		<property name="helpUrl">
+			<value><![CDATA[http://confluence.cf.linedata.com/display/ldsplt/{screenId}]]></value>
+		</property>
+		<property name="availableWidgetList">
+			<list>
+				<value>AdminWidget</value>
+				<value>FavoriteObjectsManager</value>
+				<value>ObjectAccessHistoryManager</value>
+				<value>QuickAccessFunctionsManager</value>
+				<value>WorkQueueManager</value>
+				<value>CustomizableWidget</value>
+			</list>
+		</property>
+		<!-- Timer Scheduling time (in ms) -->
+		<property name="timerScheduleTimeMs" value="120000" />
+		<property name="maxPingBeforeAutomaticLogout" value="0" />
+		<property name="useLongEditor" value="true" />
+		<property name="applicationName" value="ekip360-gui"></property>
+
+		<property name="initialValue">
+			<value>true</value>
+		</property>
+
+		<property name="activeGridExport">
+			<value>true</value>
+		</property>
+
+		<property name="activeShortcutNumberField" value="true" />
+		<property name="modalWindowWidth">
+			<value>1200</value>
+		</property>
+		<property name="modalWindowHeight">
+			<value>600</value>
+		</property>
+	</bean>
+	
+	<bean id="ExternalClientSetup" class="com.linedata.ekip.core.shared.setup.ExternalClientSetup">
+
+    <property name="activeGridExport">
+        <value>true</value>
+    </property>
+
+    <property name="localGridMode">
+        <value>false</value>
+    </property>
+
+   <!-- Timer Scheduling time (in ms) -->
+      <property name="timerScheduleTimeMs">
+         <value>120000</value>
+      </property>
+      <property name="automaticChainWorkflowActivities">
+         <value>true</value>
+      </property>
+    <!--  <property name="screenProgressiveRenderingTimer"> -->
+    <!--     <value>50</value>  -->
+    <!--  </property>  -->
+      <property name="widgetZoneUseless" value="false" />
+      <property name="widgetZoneCollapsed" value="false" />
+  <!-- Screen error panel setup -->
+	   <property name="labelAlign">
+         <value>RIGHT</value>
+      </property>
+      <property name="environmentInfo">
+         <value>CPLR5INT</value>
+      </property>   
+
+     <property name="waitingIconPath">
+         <value>./gxt/images/gxt/icons/loading.gif</value>
+      </property>
+<!-- Style apply to mandatory field label -->
+      <!-- may contain any valid css -->
+      <property name="mandatoryFieldLabelCssStyle">
+         <value>font-weight:bold;</value>
+      </property>
+
+      <property name="lovListSorted">
+         <value>true</value>
+      </property>
+	        <!-- Date minimum acceptable dans l'application -->
+      <property name="dateMin">
+         <value>01/01/1900</value>
+      </property>
+      <!-- Date maximum acceptable dans l'application -->
+      <property name="dateMax">
+         <value>01/01/2100</value>
+      </property>
+      <property name="amountMin">
+         <value>-999999999999999</value>
+      </property>
+      <!-- Date maximum acceptable dans l'application -->
+      <property name="amountMax">
+         <value>999999999999999</value>
+      </property>
+	  <property name="maxObjectAccessHistorySize">
+         <value>100</value>
+      </property>
+	  <property name="dateYearAutoCompletionLimit">
+         <value>20</value>
+      </property>
+
+
+	  <property name="currenciesSetting">
+         <map value-type="java.util.Map" >
+		 <entry key="EUR">
+               <map>
+                  <entry key="currencySymbol" value="€" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="USD">
+
+               <map>
+                  <entry key="currencySymbol" value="$" />
+                  <entry key="currencySymbolPosition" value="START" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+
+            </entry>
+            <entry key="CHF">
+               <map>
+                  <entry key="currencySymbol" value="CHF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="GBP">
+               <map>
+                  <entry key="currencySymbol" value="£" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="." />
+                  <entry key="groupingSeparator" value="," />
+               </map>
+            </entry>
+            <entry key="PLN">
+               <map>
+                  <entry key="currencySymbol" value="PLN" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="UAH">
+               <map>
+                  <entry key="currencySymbol" value="UAH" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="FRF">
+               <map>
+                  <entry key="currencySymbol" value="FRF" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="," />
+                  <entry key="groupingSeparator" value=" " />
+               </map>
+            </entry>
+            <entry key="CLP">
+               <map>
+                  <entry key="currencySymbol" value="$" />
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="" />
+                  <entry key="decimalPartSeparator" value="" />
+                  <entry key="groupingSeparator" value="." />
+               </map>
+            </entry>
+            <entry key="TND">
+               <map>
+                  <entry key="currencySymbolPosition" value="START" />
+                  <entry key="decimalPartPattern" value="000" />
+                  <entry key="decimalPartSeparator" value="." />
+                  <entry key="groupingSeparator" value="'" />
+               </map>
+            </entry>
+            <entry key="???">
+               <map>
+                  <entry key="currencySymbolPosition" value="END" />
+                  <entry key="decimalPartPattern" value="00" />
+                  <entry key="decimalPartSeparator" value="." />
+                  <entry key="groupingSeparator" value=" " />
+                  <entry key="integerPartPattern" value="###,###,###,###,##0" />
+               </map>
+            </entry>
+		 </map>
+      </property>
+
+
+      <property name="availableLanguages">
+         <map>
+            <entry key="AN" value="en" />
+            <entry key="FR" value="fr" />
+            <entry key="PORT" value="pt" />
+            <entry key="ITAL" value="it" />
+            <entry key="FLAM" value="flam" />
+            <entry key="ALLE" value="de" />
+            <entry key="POL" value="pl" />
+            <entry key="ES" value="es" />
+         </map>
+      </property>
+      <property name="workQueueRefreshInterval">
+         <value>0</value>
+      </property>
+      <property name="disableScreenWhenLoading">
+         <value>false</value>
+      </property>
+	  <property name="maxPingBeforeAutomaticLogout">
+         <value>0</value>
+      </property>
+	  <property name="workflowActionsMenuIconPath">
+         <value>icons/work-queue16.png</value>
+      </property>
+
+      <property name="otherActionsMenuIconPath">
+         <value>icons/work-queue16.png</value>
+      </property>
+	   <property name="rateFieldDecimalPattern" value="00#####" />
+      <!-- FAS => precision de rateFieldDecimalPattern passee a 7 au lieu de 2 auparavant -->
+	  <property name="percentageFieldDecimalPattern" value="00####" />
+	  
+	  <property name="defaultView360Collapsed">
+         <value>false</value>
+      </property>
+      <property name="screensRefreshOnAction">
+         <value>false</value>
+      </property>
+	  <property name="defaultTextAreaMaxRows">
+         <value>5</value>
+      </property>
+	  <property name="defaultProgressiveRendering">
+         <value>true</value>
+      </property>
+	  
+	  <property name="defaultHeaderColumnSelection">
+         <value>false</value>
+      </property>
+      
+	  <!--<property name="defaultMaxPageBlocks">
+         <value>10</value>
+      </property>-->
+	  <!-- Dimensions of the modal popUps -->
+      <property name="modalWindowWidth">
+         <value>1200</value>
+      </property>
+      <property name="modalWindowHeight">
+         <value>600</value>
+      </property>
+     <property name="showMessageDisplayTime">
+         <value>0</value>
+     </property>
+     <property name="dtkProductionMode">
+         <value>true</value>
+      </property> 
+	  
+      
+      <property name="GAAutomaticRefresh">
+         <value>true</value>
+      </property>      
+      <property name="defaultWelcomePage">
+         <value>UserPendingSynthesis</value>
+      </property>
+	<property name="allowOrigins">
+		<list>
+			<value>http://ma1ekcpl01:8100</value>
+			<value>http://localhost:8080</value>
+			<value>http://localhost:4200</value>
+		</list>
+	</property>
+
+</bean>
+</beans>

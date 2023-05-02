@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="ConfigureEnvironment" beanId="ConfigureEnvironmentFunctionService">
+
+	<graphic>
+		<borderVisible>false</borderVisible>
+		<hideLabel>true</hideLabel>
+		<styleClass>test-k2</styleClass>
+		<headerVisible>false</headerVisible>
+	</graphic>
+	<form id="context" fatherId="allocationContext">
+			<inParameters>
+			<inParameter eventType="SCREENOPENED"/>
+			<inParameter eventType="SCREENCONTEXT"/>
+		</inParameters>
+	</form>
+<form id="settingsForm" editable="false"
+      beanId="SettingsFormBlockService" icon="icons/Biens16.png">
+      <graphic>
+         <headerVisible>true</headerVisible>
+         <collapsible>true</collapsible>
+         <borderVisible>true</borderVisible>
+         <fieldSetMode>true</fieldSetMode>
+         <collapsed>false</collapsed>
+      </graphic>
+
+      <inParameters>
+         <inParameter eventType="SCREENOPENED"></inParameter>
+         <inParameter eventType="SCREENCONTEXT"></inParameter>
+      </inParameters>
+      <areas>
+         <area id="settings">
+            <fields>
+               <field id="name" nature="lov" lov="CompanyLov"
+                  displayTemplate="{id} - {value}" valueField="value"
+                  sortNumber="1">
+                  <controls>
+                     <control nature="MANDATORY" id="nameMandatory" />
+                  </controls>
+               </field>
+
+               <field id="language" nature="lov" lov="LanguageLov"
+                  sortNumber="2" displayTemplate="{id} - {value}"
+                  valueField="value" defaultValue="English">
+                  <controls>
+                     <control nature="MANDATORY" id="languageMandatory" />
+                  </controls>
+               </field>
+
+               <field id="currency" nature="lov" lov="CurrencyLov"
+                  displayTemplate="{id} - {value}" valueField="value"
+                  sortNumber="3">
+                  <controls>
+                     <control nature="MANDATORY" id="currencyMandatory" />
+                  </controls>
+               </field>
+
+               <field id="color" nature="lov" lov="ColorLov"
+                  displayTemplate="{id} - {value}" valueField="value"
+                  sortNumber="5">
+                  <controls>
+                     <control nature="MANDATORY" id="colorMandatory" />
+                  </controls>
+               </field>
+
+               <field id="logo" nature="file" sortNumber="6">
+                  <controls>
+                     <control nature="MANDATORY" id="logoMandatory" />
+                  </controls>
+               </field>
+
+            </fields>
+         </area>
+
+
+      </areas>
+   </form>
+
+     <screenActions>
+      <screenAction code="toGeneral" id="toGeneral" sortNumber="-1"
+           onTopMenu="true">
+         <actionResponses>
+            <onSuccess>
+               <displayMessages  />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="ConfigureEnvironmentUpdate" id="goToNotesUpdate"
+                   />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+
+
+      
+
+      <screenAction id="toAssets"  code="toAssets" evaluateControls="true" >
+      <actionResponses>
+            <onSuccess>
+               <displayMessages  />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="AddListType" id="goToNotesUpdate"
+                  />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+      
+      <screenAction id="toType2"   code="toType2" evaluateControls="true" >
+      <actionResponses>
+            <onSuccess>
+               <displayMessages  />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="AddListType" id="goToNotesUpdate"
+                   />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+   
+   
+   <screenAction code="toService" id="toService"  evaluateControls="true" 
+           onTopMenu="true"
+         >
+         <actionResponses>
+            <onSuccess>
+               <displayMessages  />
+               <openFunction closeActiveFunction="true"
+                  context="SCREEN" functionId="Service" id="goToNotesUpdate"
+                   />
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+   
+   
+   </screenActions> 
+   
+   
+   <contextMenu id="contextMenu" evaluateControls="true"  >
+      <actionGroup id="actionGroup"  onTopMenu="false">
+         <actionMenu id="testNode2" actionType="SCREENACTION"
+            actionId="toAssets"  />
+         <actionMenu id="testNode2" actionType="SCREENACTION"
+            actionId="toType2"  />
+      </actionGroup>
+   </contextMenu>
+   
+</function>

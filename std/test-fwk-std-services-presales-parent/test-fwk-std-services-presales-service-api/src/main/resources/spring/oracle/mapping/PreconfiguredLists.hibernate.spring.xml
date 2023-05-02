@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.linedata.presales.entities.impl.PreconfiguredListsImpl"
+		table="PRECONFIGURED_LISTS">
+		<id name="idPreconfiguredList" type="long" column="ID_PRECONF_LIST">
+		<generator class="sequence">
+		<param name="sequence_name">SEQPRECONFIGURED_LIST_ID</param>    
+		</generator>
+		</id>
+		<property name="values" column="VALUE" type="blob" />
+		<property name="description" column="DESCRIPTION" type="string" />
+		<property name="idExterne" column="ID_Externe" type="string" />
+	    <many-to-one name="listType" class="com.linedata.presales.entities.impl.ListTypesImpl"  fetch="select">
+        <column name="LIST_TYPE_ID" not-null="true" />
+        </many-to-one>
+	</class>
+</hibernate-mapping>  

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.linedata.presales.entities.impl.ConfiguredListsImpl"
+		table="CONFIGURED_LISTS">
+		<id name="idConfiguredList" type="long" column="ID_CONFIGURED_LIST">
+			<generator class="sequence">
+				<param name="sequence_name">SEQCONFIGURED_LIST_ID</param>
+			</generator>
+		</id>
+		<property name="code" column="CODE" type="string" />
+		<property name="description" column="DESCRIPTION"	type="string" />
+		<property name="idExterne" column="ID_Externe"	type="string" />		
+		<many-to-one name="allocation" class="com.linedata.presales.entities.impl.AllocationImpl" fetch="select">
+			<column name="ID_ALLOCATION" not-null="true" />
+		</many-to-one>
+		<many-to-one name="listType" class="com.linedata.presales.entities.impl.ListTypesImpl" fetch="select">
+			<column name="ID_LIST_TYPE" not-null="true" />
+		</many-to-one>
+	</class>
+
+</hibernate-mapping>  

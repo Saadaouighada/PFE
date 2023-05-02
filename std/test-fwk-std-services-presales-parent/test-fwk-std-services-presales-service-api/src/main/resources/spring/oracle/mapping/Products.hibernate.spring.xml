@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.linedata.presales.entities.impl.ProductsImpl"
+		table="PRODUCT">
+		<id name="idProduct" type="long" column="ID_PRODUCT">
+		<generator class="sequence">
+		<param name="sequence_name">SEQPRODUCT_ID</param>    
+		</generator>
+		</id>
+		<property name="idExterne" column="ID_Externe" type="string" />
+		<property name="codeProduct" column="CODE_PRODUCT" type="string" />
+		<property name="descriptionFile" column="DESCRIPTION_FILE" type="blob" />
+		<property name="codeStatus" column="CODE_STATUS" type="string" />
+	</class>
+</hibernate-mapping>  

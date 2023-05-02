@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<form xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   id="NewBlock"
+   beanId="TestBlockFormService"
+   editable="true">
+  <graphic>
+      <headerVisible>true</headerVisible>
+      <collapsible>false</collapsible>
+      <borderVisible>false</borderVisible>
+      <fieldSetMode>false</fieldSetMode>
+  </graphic>
+   <areas>
+      <area id="mainArea">
+         <graphic>
+            <headerVisible>true</headerVisible>
+            <collapsible>false</collapsible>
+            <borderVisible>true</borderVisible>
+            <fieldSetMode>false</fieldSetMode>
+         </graphic>
+         <fields>
+            <field id="testField1" nature="string" sortNumber="1" />
+         </fields>
+      </area>
+   </areas>
+</form>

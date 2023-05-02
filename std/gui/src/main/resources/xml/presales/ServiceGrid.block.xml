@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grid id="ServiceGrid" editable="true" type="resultGrid" forceFit="true" pageSize="10"
+   textSelection="true"  sortNumber="2" openFunctionMode="UPDATE" beanId="ServiceGridBlockService"
+  buttonAdd="false" buttonDelete="false">
+   <graphic>
+      <height>200</height>      
+      <fieldSetMode>false</fieldSetMode>
+      <collapsible>false</collapsible>
+      <collapsed>false</collapsed>
+      <headerVisible>false</headerVisible>
+      <borderVisible>true</borderVisible>
+   </graphic>
+   <columns>
+      <column id="checkbox" nature="checkbox" sortNumber="0">
+         <graphic>
+            <width>100</width>
+         </graphic>
+      </column>
+      <column id="description" nature="string" sortNumber="1">
+         <graphic>
+            <width>100</width>
+         </graphic>
+      </column>
+   </columns>
+</grid>

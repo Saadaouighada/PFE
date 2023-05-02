@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="TestForm" beanId="TestFormScreenService" editableFocusForm="testForm" editableFocusField="valeurMin">
+
+<graphic>
+   <borderVisible>false</borderVisible>
+   <hideLabel>true</hideLabel>
+   <styleClass>test-k2</styleClass>
+   <headerVisible>false</headerVisible>
+</graphic>
+
+    <form id="testForm" editable="true" beanId="TestFormService" icon="icons/Biens16.png">
+        <graphic>
+            <headerVisible>true</headerVisible>
+            <collapsible>true</collapsible>
+            <borderVisible>true</borderVisible>
+            <fieldSetMode>true</fieldSetMode>
+            <collapsed>true</collapsed>
+        </graphic>
+        
+        <inParameters>
+            <inParameter eventType="SCREENOPENED" />
+<!--             <inParameter actionOnEvent="DROOLS" eventType="VALUECHANGED" blockId="testForm" fieldId="testAmount"/> -->
+        </inParameters>
+        <!--
+		<fieldLinks>
+			<fieldLink nature="CUSTOM" id="getTestGrossAmountFromPercentage"
+				fatherFieldId="testPercentage" childFieldId="testGrossAmount"
+			    beanId="TestFieldLinkService" methodName="getTestAmountFromPercentage" noChangeEvent="true">
+		    </fieldLink>
+		    <fieldLink nature="CUSTOM" id="getTestAmountFromPercentage"
+		    	fatherFieldId="testPercentage" childFieldId="testAmount"
+		    	beanId="TestFieldLinkService" methodName="getTestAmountFromPercentage" noChangeEvent="true">
+		    </fieldLink>
+		    <fieldLink nature="CUSTOM" id="getTestPercentageFromGrossAmount"
+		    	fatherFieldId="testGrossAmount" childFieldId="testPercentage"
+		       	beanId="TestFieldLinkService" methodName="getTestPercentageFromAmount" noChangeEvent="true">
+		    </fieldLink>
+		    <fieldLink nature="CUSTOM" id="getTestPercentageFromAmount"
+		    	childFieldId="testPercentage"
+		    	beanId="TestFieldLinkService" methodName="getTestPercentageFromAmount" noChangeEvent="true">
+		    	<fieldLinkFather fatherFieldId="testGrossAmount"/>
+		    	<fieldLinkFather fatherFieldId="testAmount"/>
+		    </fieldLink>
+            <fieldLink id="" nature="CUSTOM" fatherFieldId="simpleCombo1" childFieldId="testPercentage"
+                beanId="TestFieldLinkService" methodName="getTrucFromCombo"/>
+			<fieldLink nature="CONDITIONNALMANDATORY" id="mandatoryFile" disabled="false"
+				childFieldId="testFileFieldLinkMandatory"
+				fatherFieldId="testSwitchMandatory"
+				beanId="TestFieldLinkService" methodName="isFileMandatory" />
+			<fieldLink nature="CONDITIONNALMANDATORY" id="mandatoryString" disabled="false"
+				childFieldId="testStringMandatory"
+				fatherFieldId="testSwitchMandatory"
+				beanId="TestFieldLinkService" methodName="isFileMandatory" />
+    	</fieldLinks>
+            -->
+		<areas>
+            <area id="simpleArea2">
+                <fields>
+                <field id="valeurMin" nature="string"  sortNumber="4" defaultValue="valeur min" readOnly="false" >
+                      <controls>
+                        <control nature="MANDATORY" id="valeurMinMandatory" />
+                      </controls>
+                  </field>
+                  <field id="valeurMax" nature="string" sortNumber="5" defaultValue="test test" readOnly="true" >
+                  <controls>
+                        <control nature="MANDATORY" id="valeurMinMandatory" />
+                      </controls>
+                  </field>
+                  
+                   <field id="attachedDocument" nature="file" sortNumber="6" />
+                   <field id="testAmount" nature="amount" sortNumber="1" defaultValue="100" decimalPartPattern="00"/>
+                 </fields>
+            </area>
+			
+			
+		</areas>
+	</form>
+   
+   <grid id="testColumnEditGrid2"
+              beanId="TestColumnEditGridService2"
+              editable="false"
+              columnNumber="2"
+              openScreenForModify="false"
+              enableFullscreen="false"
+              fullscreenWidth="1900px"
+              buttonAdd="true"
+              grouping="false"
+              paging="local"
+              idActionOnDoubleClick="testScreenActionJavaPostAction">
+            <graphic>
+                <headerVisible>true</headerVisible>
+                <collapsible>true</collapsible>
+                <borderVisible>false</borderVisible>
+                <height>574</height>
+                <collapsed>true</collapsed>
+            </graphic>
+<!--             <gridScreenActions> -->
+<!--                <screenAction id="test" code="test"> -->
+<!--                   <conditionnalReadOnly> -->
+<!--                      <rule id="isCol3100" ruleId="isCol3100" /> -->
+<!--                   </conditionnalReadOnly> -->
+<!--                </screenAction> -->
+<!--             </gridScreenActions> -->
+            <inParameters>
+                <inParameter eventType="SCREENOPENED" />
+                <inParameter eventType="SCREENCONTEXT" />
+                <inParameter eventType="SELECTIONCHANGED" blockId="testColumnEditGrid2" actionOnEvent="DROOLS"></inParameter>
+                <!--
+                <inParameter eventType="GRIDAFTEREDIT" blockId="testColumnEditGrid" resetData="false">
+                    <editedColumns>
+                        <editedColumn columnId="testColumn2"/>
+                    </editedColumns>
+                </inParameter>
+                -->
+            </inParameters>
+            <columns>
+                <column id="test2Column1" nature="string" sortNumber="2" readOnly="true" />
+                <column id="test2Column2" nature="amount" sortNumber="3" readOnly="true" />
+                <column id="test2Column3" nature="amount" sortNumber="4" decimalPartPattern="00"
+               currencyCodeProperty="test2Currency"
+                />
+<!--                 <column id="test2ColumnProgress" nature="progress" sortNumber="4" /> -->
+<!--                 <column id="test2ColumnBook" nature="fk" functionId="BookSearch" -->
+<!--                     displayTemplate="{title}" sortNumber="5" readOnly="false" -->
+<!--                     openFunctionMode="SEARCH" -->
+<!--                     fkSearchField="title"/> -->
+<!--                 <column id="test2ColumnDate" nature="date" sortNumber="6" /> -->
+                <column id="test2Currency" nature="string" sortNumber="6" />
+            </columns>
+        </grid>
+        
+	<screenActions>
+      <screenAction id="testScreenAction" code="testScreenAction" formToFocusOn="bookForm" fieldToFocusOn="title">
+<!--          <othersParameters> -->
+<!--             <otherParameter key="test" value="toto"/> -->
+<!--          </othersParameters> -->
+         <actionResponses>
+            <onSuccess>
+<!--                <addFunctionalContext> -->
+<!--                   <functionalContextElement key="test">toto</functionalContextElement> -->
+<!--                </addFunctionalContext> -->
+<!--                <openExternal> -->
+<!--                  	<baseUrl>https://www.google.fr/search</baseUrl> -->
+<!--                  	<queryString> -->
+<!--                  		<queryElement key="q" value="linedata" /> -->
+<!--                  	</queryString> -->
+<!--                </openExternal> -->
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+      <screenAction id="testScreenActionJavaPostAction" code="testScreenActionJavaPostAction" evaluateControls="false" >
+          <actionResponses>
+            <onSuccess>
+            </onSuccess>
+         </actionResponses>
+      </screenAction>
+      <redirect id="testFocusField2" functionId="TestColumnEdit" sortNumber="1" formToFocusOn="testColumnEditForm" fieldToFocusOn="gridColumnIdField" openFunctionMode="CREATE"/>
+      <entryPointAction id="testEntryPointAction" icon="icons/Plus16.png" entryPoint="testEntry" actionExplorer="true"/>
+        <!-- 
+        <externalRedirect id="testExternalRedirect" context="SCREEN">
+        	<baseUrl>https://www.google.fr/search</baseUrl>
+        	<queryString>
+        		<queryElement key="q" value="{screen.others.param1}" />
+                <queryElement key="lang" value="{user.languageCode}" />
+                <queryElement key="test" value="test" />
+        	</queryString>
+        </externalRedirect>
+        -->
+	</screenActions>
+   
+   <contextMenu id="contextMenu">
+      <actionGroup id="TestFormGroup" fatherId="TestFormGroup">
+         <actionMenu id="testNode2" sortNumber="-1">
+            <actionMenu id="testLeaf1" actionType="SCREENACTION" actionId="testScreenAction" sortNumber="1"/>
+         </actionMenu>
+      </actionGroup>
+   </contextMenu>
+
+</function>

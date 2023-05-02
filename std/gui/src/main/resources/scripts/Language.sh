@@ -1,0 +1,1 @@
+exit | sqlplus ops\$ingenetudes/galene@ma1ekdemo01/MA1DEMO4  @"C:/Users/NJlaiel/Desktop/test_db/Language.sql" $1

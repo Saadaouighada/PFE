@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="TestColumnEdit" beanId="TestColumnEditScreenService" editableFocusField="blockIdField" editableFocusForm="testColumnEditForm">
+    <graphic>
+        <headerVisible>true</headerVisible>
+        <borderVisible>false</borderVisible>
+    </graphic>
+
+    <blockgroup id="testColumnEditFormGroup" sortNumber="1" >
+        <graphic>
+             <headerVisible>false</headerVisible>
+             <collapsible>false</collapsible>
+             <borderVisible>false</borderVisible>
+             <fieldSetMode>false</fieldSetMode>
+        </graphic>
+        <form id="testColumnEditForm" beanId="TestColumnEditFormService" editable="true" columnNumber="1">
+            <graphic>
+                <headerVisible>true</headerVisible>
+                <collapsible>false</collapsible>
+                <borderVisible>false</borderVisible>
+                <fieldSetMode>false</fieldSetMode>
+            </graphic>
+            <inParameters>
+                
+                    <inParameter eventType="SCREENOPENED" />
+                    <inParameter eventType="SCREENCONTEXT" />
+                    <inParameter eventType="VALUECHANGED" blockId="testColumnEditForm2" fieldId="sumTestColumn3Field" maskBlock="true"/>
+                    <inParameter eventType="NORMALMODE" blockId="testColumnEditFormGroup" />
+                    <!--
+                <inParameter eventType="GRIDAFTEREDIT" blockId="testColumnEditGrid2" resetData="true">
+                    <editedColumns>
+                        <editedColumn columnId="test2Column3"/>
+                        <editedColumn columnId="test2ColumnBook"/>
+                    </editedColumns>
+                </inParameter>
+                -->
+            </inParameters>
+    		<areas>
+                <area id="mainArea">
+                    <fields>
+                        <field id="sumTestColumn2Field" nature="amount" sortNumber="1" />
+                        <field id="blockIdField" nature="string" sortNumber="2" />
+                        <field id="gridColumnIdField" nature="string" sortNumber="3" />
+                        <field id="gridRowIndexField" nature="number" sortNumber="4" />
+                        <field id="bookField" nature="fk" functionId="BookSearch"
+                            displayTemplate="{title}" sortNumber="5" readOnly="false"
+                            openFunctionMode="SEARCH"
+                            fkSearchField="title"/>
+                        <field id="currency" nature="string" sortNumber="6" />
+                        <field id="testColumnRemoteLov"
+                        nature="lov"
+                        lov="TestRemoteLov"
+                        valueField="value"
+                        displayTemplate="{value} - {label}"
+                        autoComplete="remote"
+                        sortNumber="7"
+                        completionMinLength="1"
+                        clearValueIfNotInStore="false"
+                        beanId="TestFormRemoteLovService"
+                        methodName="getMyRemoteCombo1">
+                     </field>
+                    </fields>
+                </area>
+    		</areas>
+    	</form>
+        <form id="testColumnEditForm2" beanId="TestColumnEditForm2Service" editable="true" columnNumber="2">
+            <graphic>
+                <headerVisible>true</headerVisible>
+                <collapsible>false</collapsible>
+                <borderVisible>false</borderVisible>
+                <fieldSetMode>false</fieldSetMode>
+            </graphic>
+            <inParameters>
+            <inParameter eventType="NORMALMODE" blockId="testColumnEditFormGroup" />
+            <!--
+                <inParameter eventType="GRIDAFTEREDIT" blockId="testColumnEditGrid" resetData="false">
+                    <editedColumns>
+                        <editedColumn columnId="testColumnCheck"/>
+                    <editedColumn columnId="testColumn3"/>
+                    </editedColumns>
+                </inParameter>
+            -->
+            </inParameters>
+            <areas>
+                <area id="mainArea">
+                    <fields>
+                        <field id="sumTestColumn3Field" nature="amount" sortNumber="1" />
+                        <field id="blockIdField" nature="string" sortNumber="2" />
+                        <field id="gridColumnIdField" nature="string" sortNumber="3" />
+                        <field id="gridRowIndexField" nature="number" sortNumber="4" />
+                    </fields>
+                </area>
+            </areas>
+        </form>
+       <form id="testColumnEditFormTestBlock" fatherId="TestBlock" editable="false" sortNumber="-1" columnNumber="3">
+           <graphic>
+               <headerVisible>true</headerVisible>
+               <collapsible>false</collapsible>
+               <borderVisible>false</borderVisible>
+               <fieldSetMode>false</fieldSetMode>
+           </graphic>
+           <inParameters>
+              <inParameter eventType="SCREENOPENED" />
+           </inParameters>
+           <areas>
+            <area id="mainArea">
+              <graphic>
+                  <headerVisible>true</headerVisible>
+                  <collapsible>false</collapsible>
+                  <borderVisible>true</borderVisible>
+                  <fieldSetMode>false</fieldSetMode>
+              </graphic>
+               <fields>
+                  <field id="testField2" nature="string" sortNumber="2"/>
+                  <field id="testField3" nature="string" sortNumber="3"/>
+               </fields>
+            </area>
+           </areas>
+       </form>
+    </blockgroup>
+    <blockgroup id="testColumnEditGridGroup" sortNumber="2">
+        <graphic>
+            <headerVisible>true</headerVisible>
+            <collapsible>true</collapsible>
+            <collapsed>false</collapsed>
+            <borderVisible>true</borderVisible>
+            <fieldSetMode>false</fieldSetMode>
+        </graphic>
+        <grid id="testColumnEditGrid"
+              beanId="TestColumnEditGridService"
+              editable="true"
+              buttonAdd="false"
+              buttonDelete="false"
+              columnNumber="1"
+              forceFit="true"
+              enableFullscreen="true"
+              advanced="true">
+            <graphic>
+                <headerVisible>true</headerVisible>
+                <collapsible>false</collapsible>
+                <borderVisible>false</borderVisible>
+                <height>400</height>
+                <width>1000</width>
+            </graphic>
+            <inParameters>
+                <inParameter eventType="ADVANCEDMODE" blockId="testColumnEditGridGroup"/>
+            </inParameters>
+            <fieldLinks>
+                <fieldLink id="get1FromCheck"
+                           nature="CUSTOM"
+                           childFieldId="testColumn1"
+                           fatherFieldId="testColumnCheck"
+                           beanId="TestColumnEditGridFieldLinkService"
+                           methodName="get1FromCheck" />
+                <fieldLink id="unlock2FromCheck"
+                           nature="CUSTOMUNLOCK"
+                           childFieldId="testColumn2Check"
+                           fatherFieldId="testColumnCheck"
+                           beanId="TestColumnEditGridFieldLinkService"
+                           methodName="unlock2FromCheck" />
+                           <!-- 
+                <fieldLink id="get3From1"
+                           nature="CUSTOM"
+                           childFieldId="testColumn3"
+                           fatherFieldId="testColumn1"
+                           beanId="TestColumnEditGridFieldLinkService"
+                           methodName="get3From1" />
+                            -->
+               <fieldLink id="getType2FromType" nature="CUSTOM"
+                     childFieldId="type2" beanId="BookCreateFieldLinkService" methodName="getType2FromType" >
+                  <fieldLinkFather fatherFieldId="type"/>
+               </fieldLink>
+            </fieldLinks>
+            <columns>
+               <column id="testColumnCheck" nature="checkbox" sortNumber="1" />
+                <column id="testColumn1" nature="string" sortNumber="2" >
+                  <controls>
+                     <control nature="MINLENGTH" id="testcolumn1minlength" value="3" />
+                  </controls>
+                </column>
+                <column id="testColumn2" nature="number" sortNumber="3" />
+             	<column id="type"
+                     nature="lov"
+                     lov="BookType"
+                     valueField="id"
+                     displayTemplate="{value} - {label}"
+                     autoComplete="local"
+                     sortNumber="3"
+                     groupable="true"
+                     clearValueIfNotInStore="false"
+                     filtered="true">
+                     <graphic>
+                        <width>70</width>
+                     </graphic>
+                </column>
+                <column id="testColumn2Check" nature="checkbox" sortNumber="5" />
+             	<column id="testColumnRemoteLov"
+                     nature="lov"
+                     lov="TestRemoteLov"
+                     valueField="value"
+                     displayTemplate="{value} - {label}"
+                     autoComplete="remote"
+                     sortNumber="7"
+                     completionMinLength="1"
+                     clearValueIfNotInStore="false"
+                     beanId="TestFormRemoteLovService"
+                     methodName="getMyRemoteCombo1">
+                </column>
+                <column id="test2ColumnProgress" nature="progress" sortNumber="9">
+                   <graphic>
+                      <width>100</width>
+                   </graphic>
+                </column>
+                <column id="type2" nature="string" sortNumber="10" />
+            </columns>
+        </grid>
+        <grid id="testColumnEditGrid2"
+              beanId="TestColumnEditGridService2"
+              editable="true"
+              columnNumber="2"
+              openScreenForModify="false"
+              enableFullscreen="false"
+              fullscreenWidth="1900px"
+              buttonAdd="true"
+              grouping="false"
+              paging="local"
+              >
+            <graphic>
+                <headerVisible>true</headerVisible>
+                <collapsible>false</collapsible>
+                <borderVisible>false</borderVisible>
+                <height>574</height>
+            </graphic>
+<!--             <gridScreenActions> -->
+<!--                <screenAction id="test" code="test"> -->
+<!--                   <conditionnalReadOnly> -->
+<!--                      <rule id="isCol3100" ruleId="isCol3100" /> -->
+<!--                   </conditionnalReadOnly> -->
+<!--                </screenAction> -->
+<!--             </gridScreenActions> -->
+            <inParameters>
+                <inParameter eventType="SCREENOPENED" />
+                <inParameter eventType="SCREENCONTEXT" />
+                <inParameter eventType="SELECTIONCHANGED" blockId="testColumnEditGrid2" actionOnEvent="DROOLS"></inParameter>
+                <!--
+                <inParameter eventType="GRIDAFTEREDIT" blockId="testColumnEditGrid" resetData="false">
+                    <editedColumns>
+                        <editedColumn columnId="testColumn2"/>
+                    </editedColumns>
+                </inParameter>
+                -->
+            </inParameters>
+            <columns>
+                <column id="test2Column1" nature="string" sortNumber="2" readOnly="true"/>
+                <column id="test2Column2" nature="amount" sortNumber="3" readOnly="true" />
+                <column id="test2Column3" nature="amount" sortNumber="4" decimalPartPattern="00"
+					currencyCodeProperty="test2Currency"
+                />
+<!--                 <column id="test2ColumnProgress" nature="progress" sortNumber="4" /> -->
+<!--                 <column id="test2ColumnBook" nature="fk" functionId="BookSearch" -->
+<!--                     displayTemplate="{title}" sortNumber="5" readOnly="false" -->
+<!--                     openFunctionMode="SEARCH" -->
+<!--                     fkSearchField="title"/> -->
+<!--                 <column id="test2ColumnDate" nature="date" sortNumber="6" /> -->
+                <column id="test2Currency" nature="string" sortNumber="6" />
+            </columns>
+	      <buttonAddAction>
+		      <redirect id="toAuthorCreate" functionId="AuthorCreate" openFunctionMode="CREATE" >
+		      </redirect>
+	      </buttonAddAction>
+        </grid>
+    </blockgroup>
+    <screenActions>
+        <screenAction id="testScreenAction" code="testScreenAction" evaluateControls="true" />
+    </screenActions>
+</function>

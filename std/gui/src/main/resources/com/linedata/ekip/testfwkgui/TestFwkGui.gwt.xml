@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='testfwkgui'>
+    <inherits name="com.linedata.ekip.core.Ekip" />
+    
+    <extend-property name="locale" values="en" />
+
+    <source path='client' />
+    <source path='shared' />
+</module>

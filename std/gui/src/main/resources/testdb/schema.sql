@@ -1,0 +1,14 @@
+
+CREATE TABLE AUDITEVENT
+(
+  ID            NUMBER(19),
+  VERSION       TIMESTAMP(6),
+  LOGIN 		VARCHAR(50),
+  EVENTDATE     DATETIME,
+  EVENTTYPE     VARCHAR(50),
+  PRIMARY KEY (ID)
+);
+
+insert into AUDITEVENT(ID, LOGIN) values(1, 'toto');
+
+commit;

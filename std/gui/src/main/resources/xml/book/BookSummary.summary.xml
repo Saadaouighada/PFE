@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<summaryView
+    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/summaryView.xsd"
+    id="BookSummary">
+   <graphic>
+      <headerVisible>true</headerVisible>
+      <borderVisible>true</borderVisible>
+   </graphic>
+   <blockgroup id="Vbox">
+      <graphic>
+         <headerVisible>false</headerVisible>
+         <collapsible>false</collapsible>
+         <borderVisible>false</borderVisible>
+         <collapsed>false</collapsed>
+         <styleClass>plt-sv-blockgroup</styleClass>
+         <bottomMargin>0</bottomMargin>
+         <topMargin>0</topMargin>
+         <leftMargin>0</leftMargin>
+         <rightMargin>0</rightMargin>
+         <fieldSetMode>true</fieldSetMode>
+      </graphic>
+   <form id="customer" beanId="BookSummaryFormService" columnNumber="1">
+       <graphic>
+            <borderVisible>true</borderVisible>
+            <headerVisible>false</headerVisible>
+            <collapsible>false</collapsible>
+            <width>200</width>
+            <height>100</height>
+            <labelWidth>10c</labelWidth>
+            <fieldSetMode>true</fieldSetMode>
+            <styleClass>plt-sv plt-sv-block</styleClass>
+         </graphic>
+      <inParameters>
+        <inParameter actionOnEvent="DATA" eventType="SCREENCONTEXT" />
+      </inParameters>
+      <areas>
+         <area id="mainArea">
+        <graphic>
+                  <borderVisible>false</borderVisible>
+                  <headerVisible>false</headerVisible>
+                  <fieldSetMode>false</fieldSetMode>
+                  <styleClass>plt-sv</styleClass>
+                  <bottomMargin>0</bottomMargin>
+                  <topMargin>0</topMargin>
+                  <leftMargin>0</leftMargin>
+                  <rightMargin>0</rightMargin>
+                  <collapsible>false</collapsible>
+               </graphic>
+            <fields>
+               <field  id="title" nature="string" sortNumber="1" />
+               <field id="testProgress1" nature="progress" sortNumber="2"/>
+            </fields>
+         </area>
+      </areas>
+   </form>
+
+   <form id="network" beanId="BookSummaryFormService" columnNumber="2">
+    <graphic>
+            <borderVisible>true</borderVisible>
+            <headerVisible>false</headerVisible>
+            <collapsible>false</collapsible>
+            <width>200</width>
+            <height>100</height>
+            <labelWidth>10c</labelWidth>
+            <fieldSetMode>true</fieldSetMode>
+            <styleClass>plt-sv plt-sv-block</styleClass>
+         </graphic>
+      <inParameters>
+        <inParameter actionOnEvent="DATA" eventType="SCREENCONTEXT" />
+      </inParameters>
+      <areas>
+         <area id="mainArea">
+          <graphic>
+                  <borderVisible>false</borderVisible>
+                  <headerVisible>false</headerVisible>
+                  <fieldSetMode>false</fieldSetMode>
+                  <styleClass>plt-sv</styleClass>
+                  <bottomMargin>0</bottomMargin>
+                  <topMargin>0</topMargin>
+                  <leftMargin>0</leftMargin>
+                  <rightMargin>0</rightMargin>
+                  <collapsible>false</collapsible>
+               </graphic>
+            <fields>
+               <field  id="title" nature="string" sortNumber="1" />
+            </fields>
+         </area>
+      </areas>
+   </form>
+   </blockgroup>
+</summaryView>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="CreateEnvironment" beanId="CreateEnvironmentFunctionService">
+
+	<graphic>
+		<headerVisible>true</headerVisible>
+		<borderVisible>true</borderVisible>
+	</graphic>
+
+	<form id="createFormEnvironment" editable="true"
+		beanId="TestFormService" icon="icons/Biens16.png">
+		<graphic>
+			<headerVisible>true</headerVisible>
+			<collapsible>true</collapsible>
+			<borderVisible>true</borderVisible>
+			<fieldSetMode>true</fieldSetMode>
+		</graphic>
+
+		<inParameters>
+			<inParameter eventType="SCREENOPENED" />
+			<inParameter eventType="SCREENCONTEXT" />
+		</inParameters>
+		<areas>
+			<area id="mainArea">
+				<fields>
+					<field id="name" nature="string" columnNumber="1" sortNumber="1">
+					</field>
+					<field id="endDate" nature="date" sortNumber="2" columnNumber="1">
+					</field>
+					<field id="server" nature="lov" sortNumber="3" lov="ServerLov" displayTemplate="{id} - {value}"
+						valueField="value" columnNumber="1"/>
+					<field id="region" nature="lov" sortNumber="1" lov="RegionLov" displayTemplate="{id} - {longLabel}"
+						valueField="id" columnNumber="2"/>
+					<field id="login" nature="string" sortNumber="2" columnNumber="2"/>	
+					<field id="description" nature="textarea" sortNumber="3" columnNumber="2"/>
+				</fields>
+			</area>
+		</areas>
+	</form>
+	<screenActions>
+		<screenAction code="save" id="save" icon="icons/Sauvegarde16.png" evaluateControls="false"
+			onTopMenu="true" sortNumber="1">
+			<actionResponses>
+				<onSuccess>
+					<displayMessages sortNumber="0" />
+					<openFunction closeActiveFunction="true" context="SCREEN" functionId="Environment"
+						id="save" sortNumber="1"/>
+				</onSuccess>
+			</actionResponses>
+		</screenAction>
+	</screenActions>
+</function>

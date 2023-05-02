@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form id="GeneralConfig" editable="true"
+	beanId="GeneralConfigBlockService" icon="icons/Biens16.png">
+	<graphic>
+		<headerVisible>true</headerVisible>
+		<collapsible>true</collapsible>
+		<borderVisible>true</borderVisible>
+		<fieldSetMode>true</fieldSetMode>
+		<collapsed>false</collapsed>
+	</graphic>
+
+	<inParameters>
+		<inParameter eventType="SCREENOPENED"></inParameter>
+		<inParameter eventType="SCREENCONTEXT"></inParameter>
+	</inParameters>
+	<areas>
+		<area id="settings">
+			<fields>
+				<field id="name" nature="string" sortNumber="1"
+					columnNumber="1">
+				</field>
+
+				<field id="language" nature="lov" lov="LanguageLov"
+					sortNumber="1" columnNumber="2" displayTemplate="{id} - {value}"
+					valueField="value" defaultValue="English">
+				</field>
+
+				<field id="currency" nature="lov" lov="CurrencyLov"
+					displayTemplate="{id} - {value}" valueField="value" sortNumber="2"
+					columnNumber="1" defaultValue="American dollar">
+				</field>
+
+				<field id="color" nature="lov" lov="ColorLov"
+					displayTemplate="{id} - {value}" valueField="value" sortNumber="2"
+					columnNumber="2" defaultValue="red">
+				</field>
+
+				<field id="currencyFormat" nature="lov"
+					lov="CurrencyFormatLov" displayTemplate="{id} - {value}"
+					valueField="value" sortNumber="3" columnNumber="1"
+					defaultValue="$.$">
+				</field>
+
+				<field id="dateFormat" nature="lov" lov="DateFormatLov"
+					displayTemplate="{id} - {value}" defaultValue="15/12/2022"
+					sortNumber="3" columnNumber="2">
+				</field>
+
+				<field id="logo" nature="file" sortNumber="4" columnNumber="1">
+				</field>
+			</fields>
+		</area>
+
+	</areas>
+</form>

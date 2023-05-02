@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	<!-- Databse connexions -->
+	<bean id="connexion"
+		class="com.linedata.presales.entities.impl.OracleHibernateConnexionImpl"></bean>
+	<!-- Repo -->
+	<bean id="genericRepo"
+		class="com.linedata.presales.repositories.impl.GenericRepoImpl">
+		<property name="connexion" ref="connexion" />
+	</bean>
+	<bean id="lovDefenitionIRepository"
+		class="com.linedata.presales.repositories.impl.LovDefenitionIRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="lovEltRepository"
+		class="com.linedata.presales.repositories.impl.LovEltRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="lovEltLabelRepository"
+		class="com.linedata.presales.repositories.impl.LovEltLabelRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="productsRepository"
+		class="com.linedata.presales.repositories.impl.ProductsRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="regionsRepository"
+		class="com.linedata.presales.repositories.impl.RegionsRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="usersRepository"
+		class="com.linedata.presales.repositories.impl.UsersRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="environmentRepository"
+		class="com.linedata.presales.repositories.impl.EnvironmentRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="allocationRepository"
+		class="com.linedata.presales.repositories.impl.AllocationRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="authorisedProductsRepository"
+		class="com.linedata.presales.repositories.impl.AuthorisedProductsRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="authorisedRegionsRepository"
+		class="com.linedata.presales.repositories.impl.AuthorisedRegionsRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+
+
+
+	<bean id="languageRepository"
+		class="com.linedata.presales.repositories.impl.LanguageRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="currencyRepository"
+		class="com.linedata.presales.repositories.impl.CurrencyRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="configEkipRepository"
+		class="com.linedata.presales.repositories.impl.ConfigEkipRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+
+
+
+	<bean id="servicesRepository"
+		class="com.linedata.presales.repositories.impl.ServicesRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="selectedServicesRepository"
+		class="com.linedata.presales.repositories.impl.SelectedServicesRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+
+
+	<bean id="listTypesRepository"
+		class="com.linedata.presales.repositories.impl.ListTypesRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+	<bean id="configuredListsRepository"
+		class="com.linedata.presales.repositories.impl.ConfiguredListsRepositoryImpl">
+		<property name="genericRepo" ref="genericRepo" />
+	</bean>
+
+</beans>

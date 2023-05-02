@@ -1,0 +1,71 @@
+package drools
+
+import com.linedata.ekip.std.services.rulesengine.service.impl.KnowledgeBaseResponse;
+import com.linedata.ekip.commons.shared.context.ActionContext;
+import com.linedata.ekip.core.shared.data.Data;
+import com.linedata.ekip.std.services.rulesengine.bean.RulesContext;
+import com.linedata.ekip.std.converter.StringConverter;
+import com.linedata.ekip.std.services.rulesengine.bean.OthersRulesParam;
+import com.linedata.ekip.std.services.rulesengine.bean.parameter.EntityRulesParam;
+import com.linedata.ekip.std.services.rulesengine.bean.parameter.RulesParam;
+import com.linedata.ekip.std.services.rulesengine.bean.ScreenContextRulesParam;
+import com.linedata.ekip.std.services.rulesengine.bean.parameter.UntypedRulesParam;
+import org.springframework.context.ApplicationContext;
+import java.util.ArrayList;
+import java.util.List;
+
+function boolean evaluateResult(OthersRulesParam othersRulesParam)
+{
+	if(othersRulesParam != null)
+    {
+        List<RulesParam> params =  othersRulesParam.getParameters();
+        ArrayList<UntypedRulesParam> untypedRulesParamsList = new ArrayList<UntypedRulesParam>();
+
+        if (params != null && !params.isEmpty())
+        {    
+		    for(RulesParam param : params)
+		    {    
+		        if(param instanceof UntypedRulesParam)
+		        {
+		            untypedRulesParamsList.add((UntypedRulesParam) param);
+		        }
+		    }
+        }
+
+        if (untypedRulesParamsList != null && !untypedRulesParamsList.isEmpty())
+        {
+            for (UntypedRulesParam untypedRulesParam : untypedRulesParamsList)
+            {
+                if (untypedRulesParam.getMappedAttributes() != null && !untypedRulesParam.getMappedAttributes().isEmpty())
+                {	
+                	boolean mappedAttribute = false;
+                    if (untypedRulesParam.getMappedAttributes().containsKey("DATASERVICEPARAMETER"))
+                    {
+	                    mappedAttribute = (Boolean) untypedRulesParam.getMappedAttributes().get("DATASERVICEPARAMETER");
+	                }
+					System.out.println("TRUE");
+                   	return true;
+                }
+            }
+            System.out.println("FALSE");
+            return false;
+        }
+        System.out.println("FALSE");
+        return false;
+    }
+    else
+    {
+    	System.out.println("FALSE");
+        return false;
+    }
+}
+
+
+rule "isOk"
+when
+	RulesContext(true, $params: othersRulesParam )
+    $response: KnowledgeBaseResponse()
+    eval(evaluateResult($params))
+then
+	$response.setVerified(true);
+end

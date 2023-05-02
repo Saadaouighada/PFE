@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.linedata.presales.entities.impl.SelectedServicesImpl" table="SELECTED_SERVICE">
+		<composite-id>
+			  <key-many-to-one   name="allocation" class="com.linedata.presales.entities.impl.AllocationImpl" >
+     			 <column name="ALLOCATION_ID" />
+  			</key-many-to-one>
+  			<key-many-to-one  name="service" class="com.linedata.presales.entities.impl.ServicesImpl" >
+     			 <column name="SERVICE_ID" />
+  			</key-many-to-one>
+		</composite-id>
+		
+		<property name="idExterne" column="ID_Externe" type="string" />
+		
+	</class>
+
+</hibernate-mapping> 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" fatherId="ConfigureEnvironmentUpdate"
+	id="ConfigureEnvironmentGeneral">
+
+	<graphic>
+		<borderVisible>false</borderVisible>
+		<hideLabel>true</hideLabel>
+		<styleClass>test-k2</styleClass>
+		<headerVisible>false</headerVisible>
+		<collapsible>false</collapsible>
+	</graphic>
+
+	<form id="GeneralConfig" fatherId="GeneralConfig" icon="icons/Biens16.png">
+		<inParameters>
+			<inParameter eventType="SCREENOPENED"></inParameter>
+			<inParameter eventType="SCREENCONTEXT"></inParameter>
+		</inParameters>
+	</form>
+</function>

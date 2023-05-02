@@ -1,0 +1,40 @@
+/** Add css rules here for your application. */
+
+
+.plt-sv input {
+	font: 11px arial, tahoma, verdana, helvetica !important;
+}
+
+.plt-sv label {
+	top: 1px !important;
+	color: #666666 !important;
+	font: 11px bold arial, tahoma, verdana, helvetica !important;
+	left: 3px !important;
+}
+
+.plt-sv .x-form-label {
+	font: 11px arial, tahoma, verdana, helvetica !important
+}
+
+.plt-sv-block legend {
+	border-radius: 2px 2px 2px 2px !important;
+	border-style: hidden !important;
+}
+
+fieldset.plt-sv {
+    border-color: #CCCCCC !important;
+    padding: 1px !important;
+}
+
+.summaryViewTitle{
+	display: inline;
+	padding-right: 5%;
+}
+
+.plt-sv-broker-roles-form input {
+	width: 70px !important;
+}
+
+.plt-sv-broker-financial-form input {
+	width: 170px !important;
+}

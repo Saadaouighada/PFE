@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form id="createFormFormat" editable="false"" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" editable="false" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://scheme.cf.linedata.com/function.xsd">
+	
+		<graphic>
+			<headerVisible>true</headerVisible>
+			<collapsible>true</collapsible>
+			<borderVisible>true</borderVisible>
+			<fieldSetMode>true</fieldSetMode>
+		</graphic>        
+		<areas>
+			<area id="mainArea">
+				<fields>
+					<field id="branchA" nature="string"  sortNumber="1">
+                  </field>
+					<field id="branchB"  nature="string"  sortNumber="2">
+                  </field>
+					<field id="startDate" nature="date" sortNumber="3"></field>
+					<field id="endDate" nature="date" sortNumber="4"  ></field>
+					
+				</fields>
+			</area>
+		</areas>
+	</form>     

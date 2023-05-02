@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="TestLov" beanId="TestLovScreenService">
+
+    <form id="testLovForm" editable="true" beanId="TestLovFormService" >
+        <graphic>
+            <headerVisible>true</headerVisible>
+            <collapsible>false</collapsible>
+            <borderVisible>true</borderVisible>
+            <fieldSetMode>false</fieldSetMode>
+        </graphic>
+        <inParameters>
+            <inParameter eventType="SCREENOPENED" />
+        </inParameters>
+		<areas>
+            <area id="mainArea">
+		        <graphic>
+		            <headerVisible>false</headerVisible>
+		            <collapsible>false</collapsible>
+		            <borderVisible>false</borderVisible>
+		            <fieldSetMode>false</fieldSetMode>
+		        </graphic>
+                <fields>
+                     <field columnNumber="1" defaultValue="option1" displayTemplate="{id} - {Label}" id="managementCompany" lov="BigLov" nature="lov" sortNumber="10"
+                        technicalId="10391" valueField="id">
+                        <controls>
+                           <control id="mandatoryId" nature="MANDATORY" />
+                        </controls>
+                     </field>
+               
+                	<field id="biglov1" columnNumber="1"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        lovFilteringMode="NONE"
+                        displayTemplate="{id} - {label}" />
+                	<field id="biglov2" columnNumber="1"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        displayTemplate="{label}">
+                        <filters>
+                        	<filter id="filter1" fieldId="biglov1" />
+                        </filters>
+                    </field>
+                	<field id="biglov3" columnNumber="1"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        displayTemplate="{label}"/>
+                	<field id="biglov4" columnNumber="1"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        displayTemplate="{label}"/>
+                	<field id="biglov5" columnNumber="1"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        displayTemplate="{label}"/>
+                	<field id="biglov6" columnNumber="2"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        displayTemplate="{label}"/>
+                	<field id="biglov7" columnNumber="2"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        displayTemplate="{label}"/>
+                	<field id="biglov8" columnNumber="2"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        displayTemplate="{label}"/>
+                	<field id="biglov9" columnNumber="2"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        displayTemplate="{label}"/>
+                	<field id="biglov10" columnNumber="2"
+                        nature="lov"
+                        autoComplete="local"
+                        lov="BigLov"
+                        valueField="id"
+                        displayTemplate="{label}"/>
+                </fields>
+            </area>
+		</areas>
+	</form>
+
+	<form editable="true" id="AllocatedLoanContractData">
+	   <graphic>
+	      <headerVisible>false</headerVisible>
+	      <borderVisible>false</borderVisible>
+	      <collapsible>false</collapsible>
+	      <fieldSetMode>true</fieldSetMode>
+	      <leftMargin>0</leftMargin>
+	      <rightMargin>0</rightMargin>
+	      <bottomMargin>0</bottomMargin>
+	      <topMargin>0</topMargin>
+	   </graphic>
+	   <areas>
+	      <area id="areaContractMain" sortNumber="1">
+	         <graphic>
+	            <headerVisible>true</headerVisible>
+	            <borderVisible>true</borderVisible>
+	            <fieldSetMode>true</fieldSetMode>
+	            <collapsible>true</collapsible>
+	            <leftMargin>0</leftMargin>
+	            <rightMargin>0</rightMargin>
+	            <bottomMargin>0</bottomMargin>
+	            <topMargin>0</topMargin>
+	         </graphic>
+	         <fields>
+	            <field columnNumber="1" id="ieContract" nature="string" readOnly="true" sortNumber="0" technicalId="9054">
+	            </field>
+	            <field autoComplete="local" columnNumber="1" defaultValue="CRED" displayTemplate="{label}" hidden="true" id="productCode" lov="BigLov" nature="lov"
+	               sortNumber="15" technicalId="10392" valueField="id">
+	            </field>
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{value} - {longLabel}" id="contractCategory" lov="BigLov" nature="lov"
+	               sortNumber="20" technicalId="10393" valueField="id" lovFilteringMode="STRICT">
+	               <controls>
+	                  <control id="mandatoryContractCategory" nature="MANDATORY" />
+	               </controls>
+	               <filters>
+	                  <filter id="firstConstraint" fieldId="managementCompany" />
+	               </filters>
+	            </field>
+	
+	            <field columnNumber="1" id="contratDescription" maxLength="30" nature="string" sortNumber="25" technicalId="10399" upperCase="true">
+	            </field>
+	            <field autoComplete="local" columnNumber="1" defaultValue="DIRE" displayTemplate="{label}" id="network" lov="BigLov" nature="lov" sortNumber="30"
+	               technicalId="10405" valueField="id">
+	               <controls>
+	                  <control id="mandatoryNetwork" nature="MANDATORY" />
+	               </controls>
+	            </field>
+	            <field columnNumber="1" id="signatureDate" nature="date" sortNumber="35" technicalId="10404">
+	               <graphic>
+	                  <width>100</width>
+	               </graphic>
+	               <controls>
+	                  <control id="mandatorySignatureDate" nature="MANDATORY">
+	                  </control>
+	               </controls>
+	            </field>
+	
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" id="criteria1" lov="BigLov" nature="lov" sortNumber="36" technicalId="10430"
+	               valueField="id" hidden="true">
+	            </field>
+	
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" id="criteria2" lov="BigLov" nature="lov" sortNumber="37" technicalId="10432"
+	               valueField="id" hidden="true">
+	            </field>
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" id="criteria3" lov="BigLov" nature="lov" sortNumber="38" technicalId="10434"
+	               valueField="id" hidden="true">
+	            </field>
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" id="criteria4" lov="BigLov" nature="lov" sortNumber="39" technicalId="10436"
+	               valueField="id" hidden="true">
+	            </field>
+	            <field columnNumber="2" id="marketingReference" maxLength="30" nature="string" sortNumber="48" technicalId="10429" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" id="offer" lov="BigLov" nature="lov" sortNumber="49" technicalId="10407"
+	               valueField="id" />
+	            <field columnNumber="2" currencyFieldId="currency" id="genericField1" sortNumber="50" technicalId="0">
+	            </field>
+	
+	            <field columnNumber="2" id="genericField2" sortNumber="51" technicalId="0">
+	            </field>
+	            <field columnNumber="2" id="genericField3" sortNumber="55" technicalId="0">
+	            </field>
+	
+	            <field columnNumber="2" id="genericField4" sortNumber="56" technicalId="0">
+	            </field>
+	
+	            <field columnNumber="2" id="genericField6" sortNumber="58" technicalId="0">
+	            </field>
+	
+	            <field columnNumber="2" id="genericField5" sortNumber="57" technicalId="0">
+	               <graphic>
+	                  <width>100</width>
+	               </graphic>
+	            </field>
+<!--
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="criteria5" lov="BigLov" nature="lov" sortNumber="55"
+	               technicalId="10438" valueField="id">
+	            </field>
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria6" lov="BigLov" nature="lov" sortNumber="56" technicalId="10430"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria7" lov="BigLov" nature="lov" sortNumber="57" technicalId="10432"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria8" lov="BigLov" nature="lov" sortNumber="58" technicalId="10434"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria9" lov="BigLov" nature="lov" sortNumber="59" technicalId="10436"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria10" lov="BigLov" nature="lov" sortNumber="60" technicalId="10438"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria11" lov="BigLov" nature="lov" sortNumber="61" technicalId="10430"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria12" lov="BigLov" nature="lov" sortNumber="62" technicalId="10432"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria13" lov="BigLov" nature="lov" sortNumber="63" technicalId="10434"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria14" lov="BigLov" nature="lov" sortNumber="64" technicalId="10436"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria15" lov="BigLov" nature="lov" sortNumber="65" technicalId="10438"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria16" lov="BigLov" nature="lov" sortNumber="66" technicalId="10430"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria17" lov="BigLov" nature="lov" sortNumber="67" technicalId="10432"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria18" lov="BigLov" nature="lov" sortNumber="68" technicalId="10434"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria19" lov="BigLov" nature="lov" sortNumber="69" technicalId="10436"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria20" lov="BigLov" nature="lov" sortNumber="70" technicalId="10438"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria21" lov="BigLov" nature="lov" sortNumber="71" technicalId="10430"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria22" lov="BigLov" nature="lov" sortNumber="72" technicalId="10432"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria23" lov="BigLov" nature="lov" sortNumber="73" technicalId="10434"
+	               valueField="id" />
+	            <field autoComplete="local" displayTemplate="{label}" hidden="true" id="criteria24" lov="BigLov" nature="lov" sortNumber="74" technicalId="10436"
+	               valueField="id" />
+	            -->
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="contractCurrency" lov="BigLov" nature="lov" sortNumber="100"
+	               technicalId="10423" valueField="id" />
+	
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" hidden="true" id="invoicingCurrency" lov="BigLov" nature="lov"
+	               sortNumber="101" technicalId="10427" valueField="id">
+	               <filters>
+	                  <filter fieldId="contractCurrency" id="contractCurrency" />
+	                  <filter fieldId="managementCompany" id="contractThirdCompany" />
+	               </filters>
+	            </field>
+	         </fields>
+	
+	      </area>
+	      
+	      <area id="areaParties" sortNumber="2">
+	         <graphic>
+	            <headerVisible>true</headerVisible>
+	            <borderVisible>true</borderVisible>
+	            <fieldSetMode>true</fieldSetMode>
+	            <collapsible>true</collapsible>
+	            <leftMargin>0</leftMargin>
+	            <rightMargin>0</rightMargin>
+	            <bottomMargin>0</bottomMargin>
+	            <topMargin>0</topMargin>
+	         </graphic>
+	         <fields>
+	            <field columnNumber="1" displayTemplate="{partyId} - {fullName}" functionId="SupplierSearch" fkCreationEntityEnable="true" fkSearchField="partyId" id="supplier"
+	               nature="fk" sortNumber="10" technicalId="10420">
+	               <graphic>
+	                  <width>66c</width>
+	               </graphic>
+	               <controls>
+	                  <control id="mandatorySupplier" nature="MANDATORY" />
+	               </controls>
+	            </field>
+	            <field technicalId="0" columnNumber="1" id="supplierCurrency" nature="string" hidden="true">
+	
+	            </field>
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="currency" lov="BigLov" nature="lov" sortNumber="20"
+	               technicalId="10423" valueField="id" />
+	            <field columnNumber="1" displayTemplate="{partyId} - {fullName}" functionId="BrokerSearch" fkCreationEntityEnable="true" fkSearchField="partyId" id="broker"
+	               nature="fk" sortNumber="21" technicalId="10409">
+	               <graphic>
+	                  <width>66c</width>
+	               </graphic>
+	            </field>
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" id="main" lov="BigLov" nature="lov" readOnly="true" sortNumber="30"
+	               technicalId="10411" valueField="id">
+	               <graphic>
+	                  <width>100</width>
+	               </graphic>
+	            </field>
+	            <field columnNumber="1" displayTemplate="{partyId} - {fullName}" functionId="AuthorSearch" fkCreationEntityEnable="true" fkSearchField="partyId" id="salesPerson"
+	               nature="fk" sortNumber="40" technicalId="10414">
+	               <graphic>
+	                  <width>66c</width>
+	               </graphic>
+	            </field>
+	            <field technicalId="0" id="networkLabel" nature="string" hidden="true"></field>
+	            <field technicalId="0" id="brokerLabel" nature="string" hidden="true"></field>
+	            <field technicalId="0" columnNumber="1" displayTemplate="{partyId} - {fullName}" functionId="RelatedBrokerSearch" fkCreationEntityEnable="true" fkSearchField="partyId"
+	               id="relatedBroker" nature="fk" sortNumber="50" readOnly="true">
+	               <graphic>
+	                  <width>66c</width>
+	               </graphic>
+	            </field>
+	            <field technicalId="0" id="internalRegion" nature="lov" lov="BigLov" autoComplete="local" valueField="id" displayTemplate="{label}"
+	               sortNumber="60"></field>
+	            <field technicalId="0" id="internRegionLabel" nature="string" hidden="true"></field>
+	            <field technicalId="0" id="sector" nature="lov" lov="BigLov" autoComplete="local" displayTemplate="{label}" valueField="id"
+	               columnNumber="1" sortNumber="70" readOnly="true">
+	               <filters>
+	                  <filter id="regionCode" fieldId="internRegionLabel" />
+	               </filters>
+	            </field>
+	
+	         </fields>
+	      </area>
+	      <area id="areaContractAdvancedDataRef" sortNumber="3">
+	         <graphic>
+	            <headerVisible>true</headerVisible>
+	            <borderVisible>true</borderVisible>
+	            <fieldSetMode>false</fieldSetMode>
+	            <collapsible>true</collapsible>
+	            <leftMargin>0</leftMargin>
+	            <rightMargin>0</rightMargin>
+	            <bottomMargin>0</bottomMargin>
+	            <topMargin>0</topMargin>
+	         </graphic>
+	         <fields>
+	            <field columnNumber="1" displayTemplate="{label}" functionId="AuthorSearch" fkCreationEntityEnable="true" fkSearchField="lastName" id="invoicedParty"
+	               nature="fk" sortNumber="1" technicalId="8845">
+	               <graphic>
+	                  <width>66C</width>
+	               </graphic>
+	            </field>
+	            <field technicalId="0" columnNumber="1" displayTemplate="{label}" id="displayAddress" lov="BigLov" lovFilteringMode="STRICT" nature="lov"
+	               sortNumber="2" valueField="id">
+	               <graphic>
+	                  <width>66C</width>
+	               </graphic>
+	               <filters>
+	                  <filter fieldId="hiddenInvoicedParty" id="PartyId" />
+	               </filters>
+	            </field>
+	            <field columnNumber="1" hidden="true" id="noAddress" nature="number" sortNumber="2" technicalId="8845">
+	            </field>
+	            <field columnNumber="2" hidden="true" id="address" nature="string" technicalId="8845">
+	            </field>
+	            <field columnNumber="2" hidden="true" id="address2" nature="string" technicalId="8845">
+	            </field>
+	            <field columnNumber="1" displayTemplate="{partyId} - {fullName}" functionId="AuthorSearch" fkSearchField="partyId" id="addressee" nature="fk" sortNumber="3"
+	               technicalId="8845">
+	               <graphic>
+	                  <width>66C</width>
+	               </graphic>
+	            </field>
+	            <field columnNumber="1" displayTemplate="{label}" functionId="AuthorSearch" fkCreationEntityEnable="true" fkSearchField="lastName" id="payer" nature="fk"
+	               sortNumber="4" technicalId="8845">
+	               <graphic>
+	                  <width>66C</width>
+	               </graphic>
+	            </field>
+	            <field columnNumber="1" hidden="true" id="validityDate" nature="date" sortNumber="0" technicalId="8865">
+	               <graphic>
+	                  <width>100</width>
+	               </graphic>
+	            </field>
+	            <field columnNumber="1" displayTemplate="{label}" id="paymentMethod" lov="BigLov" nature="lov" sortNumber="5" technicalId="8852" valueField="id">
+	            </field>
+	            <field columnNumber="1" hidden="true" id="nobar" nature="number" technicalId="8845">
+	            </field>
+	            <field technicalId="0" displayTemplate="{label}" id="bar" lov="BigLov" lovFilteringMode="STRICT" nature="lov" sortNumber="6" valueField="id">
+	               <filters>
+	                  <filter fieldId="hiddenPayerParty" id="PartyId" />
+	               </filters>
+	            </field>
+	            <fieldgroup columnNumber="1" id="bankInfo" sortNumber="6">
+	               <field technicalId="0" hidden="true" id="barKey" nature="string">
+	                  <graphic>
+	                     <width>165</width>
+	                  </graphic>
+	               </field>
+	               <field technicalId="0" hidden="true" id="barNr" nature="string">
+	                  <graphic>
+	                     <width>2c</width>
+	
+	                  </graphic>
+	               </field>
+	            </fieldgroup>
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="currency" lov="BigLov" nature="lov" technicalId="10423"
+	               valueField="id" />
+	            <field columnNumber="1" displayTemplate="{label}" id="externalData" lov="BigLov" nature="lov" sortNumber="7" technicalId="8868" valueField="id">
+	            </field>
+	            <field columnNumber="1" displayTemplate="{label}" id="enforcementType" lov="BigLov" nature="lov" sortNumber="8" technicalId="8870"
+	               valueField="id">
+	            </field>
+	            <field columnNumber="2" displayTemplate="{label}" id="lateInterestMethod" lov="BigLov" nature="lov" sortNumber="9" technicalId="8872" valueField="id">
+	            </field>
+	            <field columnNumber="2" displayTemplate="{label}" id="penaltiesMethod" lov="BigLov" nature="lov" sortNumber="10" technicalId="8874" valueField="id">
+	            </field>
+	            <field columnNumber="2" displayTemplate="{label}" id="represCostsFormula" lov="BigLov" nature="lov" sortNumber="11" technicalId="8875" valueField="id">
+	            </field>
+	            <field columnNumber="1" displayTemplate="{label}" id="invoiceModel" lov="BigLov" nature="lov" sortNumber="12" technicalId="8876"
+	               valueField="id">
+	
+	            </field>
+	            <field columnNumber="1" displayTemplate="{label}" id="statementModel" lov="BigLov" nature="lov" sortNumber="13" technicalId="8877"
+	               valueField="id">
+	            </field>
+	            <field columnNumber="2" defaultValue="AFF" displayTemplate="{label}" id="groupedPayments" lov="BigLov" nature="lov" sortNumber="14" technicalId="8879"
+	               valueField="id" autoComplete="local">
+	            </field>
+	            <field columnNumber="2" displayTemplate="{label}" id="groupedInvoices" lov="BigLov" nature="lov" sortNumber="15" technicalId="8880" valueField="id">
+	            </field>
+	            <field columnNumber="1" displayTemplate="{label}" id="suspensionRate" lov="BigLov" nature="lov" sortNumber="16" technicalId="8881" valueField="id"
+	               defaultValue="XXX" clearValueIfNotInStore="true">
+	            </field>
+	            <field columnNumber="1" displayTemplate="{label}" id="dueDateCalcMeth" lov="BigLov" nature="lov" sortNumber="17" technicalId="8882" valueField="id">
+	            </field>
+	            <fieldgroup columnNumber="1" id="durationGroup" sortNumber="18">
+	               <field id="durationMonth" maxLength="2" nature="number" technicalId="8883">
+	                  <graphic>
+	                  </graphic>
+	               </field>
+	               <field id="durationDay" maxLength="2" nature="number" technicalId="8884">
+	                  <graphic>
+	                     <labelWidth>30</labelWidth>
+	                  </graphic>
+	               </field>
+	            </fieldgroup>
+	            <fieldgroup columnNumber="1" id="anticipDurationGroup" sortNumber="20">
+	               <field columnNumber="1" id="anticipMonths" maxLength="2" nature="number" sortNumber="20" technicalId="8885">
+	                  <graphic>
+	                     <width>3C</width>
+	                  </graphic>
+	               </field>
+	               <field columnNumber="1" id="anticipDays" maxLength="2" nature="number" sortNumber="21" technicalId="8886">
+	                  <graphic>
+	                     <labelWidth>30</labelWidth>
+	                     <width>3C</width>
+	                  </graphic>
+	               </field>
+	            </fieldgroup>
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="criteria5" lov="BigLov" nature="lov" technicalId="10438"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" hidden="true" id="criteria6" lov="BigLov" nature="lov" technicalId="10430"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="criteria7" lov="BigLov" nature="lov" technicalId="10432"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" hidden="true" id="criteria8" lov="BigLov" nature="lov" technicalId="10434"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="criteria9" lov="BigLov" nature="lov" technicalId="10436"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" hidden="true" id="criteria10" lov="BigLov" nature="lov" technicalId="10438"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="criteria11" lov="BigLov" nature="lov" technicalId="10430"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" hidden="true" id="criteria12" lov="BigLov" nature="lov" technicalId="10432"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="criteria13" lov="BigLov" nature="lov" technicalId="10434"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" hidden="true" id="criteria14" lov="BigLov" nature="lov" technicalId="10436"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="criteria15" lov="BigLov" nature="lov" technicalId="10438"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" hidden="true" id="criteria16" lov="BigLov" nature="lov" technicalId="10430"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="criteria17" lov="BigLov" nature="lov" technicalId="10432"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" hidden="true" id="criteria18" lov="BigLov" nature="lov" technicalId="10434"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="1" displayTemplate="{label}" hidden="true" id="criteria19" lov="BigLov" nature="lov" technicalId="10436"
+	               valueField="id" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" id="criteria20" lov="BigLov" nature="lov" technicalId="10438" valueField="id"
+	               hidden="true" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" id="criteria21" lov="BigLov" nature="lov" technicalId="10430" valueField="id"
+	               hidden="true" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" id="criteria22" lov="BigLov" nature="lov" technicalId="10432" valueField="id"
+	               hidden="true" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" id="criteria23" lov="BigLov" nature="lov" technicalId="10434" valueField="id"
+	               hidden="true" />
+	            <field autoComplete="local" columnNumber="2" displayTemplate="{label}" hidden="true" id="criteria24" lov="BigLov" nature="lov" technicalId="10436"
+	               valueField="id" />
+	            <field technicalId="0" hidden="true" id="hiddenPayerParty" nature="string" />
+	            <field technicalId="0" hidden="true" id="hiddenInvoicedParty" nature="string" />
+	         </fields>
+	      </area>
+	
+	   </areas>
+	</form>
+
+</function>

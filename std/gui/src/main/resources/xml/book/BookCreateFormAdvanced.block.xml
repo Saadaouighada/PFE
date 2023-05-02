@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<form xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="BookCreateFormAdvanced" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   editable="true"
+   fatherId="BookCreateForm">
+   <fieldLinks>
+      <fieldLink id="getType2FromType" nature="CUSTOM"
+         childFieldId="type2" beanId="BookCreateFieldLinkService" methodName="getType2FromType" >
+         <fieldLinkFather fatherFieldId="type"/>
+      </fieldLink>
+
+      <fieldLink id="get2From1" nature="CUSTOM"
+                 childFieldId="title2"
+                 beanId="BookCreateFieldLinkService" methodName="get2From1">
+         <fieldLinkFather fatherFieldId="title"/>
+      </fieldLink>
+      <fieldLink id="get3From1And2" nature="CUSTOM"
+                 childFieldId="title3"
+                 beanId="BookCreateFieldLinkService" methodName="get3From1And2">
+         <fieldLinkFather fatherFieldId="title"/>
+         <fieldLinkFather fatherFieldId="title2"/>
+      </fieldLink>
+      <fieldLink id="get4From1And2And3" nature="CUSTOM"
+                 childFieldId="title4"
+                 beanId="BookCreateFieldLinkService" methodName="get4From1And2And3">
+         <fieldLinkFather fatherFieldId="title"/>
+         <fieldLinkFather fatherFieldId="title2"/>
+         <fieldLinkFather fatherFieldId="title3"/>
+      </fieldLink>
+      <fieldLink id="get5From1And2And3And4" nature="CUSTOM"
+                 childFieldId="title5"
+                 beanId="BookCreateFieldLinkService" methodName="get5From1And2And3And4">
+         <fieldLinkFather fatherFieldId="title"/>
+         <fieldLinkFather fatherFieldId="title2"/>
+         <fieldLinkFather fatherFieldId="title3"/>
+         <fieldLinkFather fatherFieldId="title4"/>
+      </fieldLink>
+
+   </fieldLinks>
+   <areas>
+       <area id="mainArea">
+         <graphic>
+            <headerVisible>false</headerVisible>
+         </graphic>
+         <fields>
+             <field id="type"
+                  nature="lov"
+                  lov="BookType"
+                  valueField="id"
+                  displayTemplate="{label}"
+                  autoComplete="local"
+                  sortNumber="3"
+                  columnNumber="1"
+                  clearValueIfNotInStore="false"
+                  defaultValue="ebook">
+                  <filters>
+                     <filter id="nbPages" fieldId="nbPages" value="nbPages"/>
+                  </filters>
+               </field>
+            <field id="nbPages" nature="number" sortNumber="4" columnNumber="1" >
+               <conditionnalHidden evaluationMode="LIVE">
+                  <rule id="typeHasNbPages" ruleId="bookTypeHasNbPages" inParameterFieldId="type" />
+               </conditionnalHidden>
+            </field>
+
+            <field id="title2" nature="string" sortNumber="5" columnNumber="2" />
+            <field id="title3" nature="textarea" sortNumber="6" columnNumber="2" />
+            <field id="title4" nature="string" sortNumber="7" columnNumber="2" />
+            <field id="title5" nature="string" sortNumber="8" columnNumber="2" />
+
+            <field id="rien" nature="string" sortNumber="9" columnNumber="2" upperCase="false"/>
+            <field id="type2" nature="string" sortNumber="10" columnNumber="2" />
+         </fields>
+      </area>
+   </areas>
+</form>

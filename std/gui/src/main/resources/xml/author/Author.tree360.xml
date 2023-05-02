@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tree360
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/tree360.xsd"
+    pivot360BeanId="AuthorPivot360">
+
+	<mappedView360 view360Id="AuthorView360" precedency="1" collapsed="true"/>
+
+</tree360>

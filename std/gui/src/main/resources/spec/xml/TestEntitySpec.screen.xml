@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka.ad.linedata.com:8989/scheme/function.xsd"
+	id="TestEntitySpec" overrideFatherId="TestEntity">
+    <contextMenu id="contextMenu">
+      <actionGroup id="testEntityGroup" disabled="false" />
+      <actionGroup id="testEntityGroupSpec" fatherId="TestEntityGroup"/>
+    </contextMenu>
+</function>

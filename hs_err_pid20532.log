@@ -1,0 +1,202 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 2147483648 bytes for Failed to commit area from 0x0000000700000000 to 0x0000000780000000 of length 2147483648.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./src/hotspot/os/windows/os_windows.cpp:3301), pid=20532, tid=5104
+#
+# JRE version:  (11.0.10+9) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.10+9, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Xms2048m -Xmx4096m -Xss10m -XX:MetaspaceSize=1024m -XX:MaxMetaspaceSize=4096m -Djavax.xml.accessExternalSchema=all -Dclassworlds.conf=D:\dev\tools\apache-maven-3.2.5-bin\apache-maven-3.2.5\bin\..\bin\m2.conf -Dmaven.home=D:\dev\tools\apache-maven-3.2.5-bin\apache-maven-3.2.5\bin\.. org.codehaus.plexus.classworlds.launcher.Launcher clean install
+
+Host: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz, 8 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.2251)
+Time: Mon Jan 16 11:07:13 2023 W. Central Africa Standard Time elapsed time: 0.008660 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002d013dcd000):  JavaThread "Unknown thread" [_thread_in_vm, id=5104, stack(0x000000fbb1600000,0x000000fbb2000000)]
+
+Stack: [0x000000fbb1600000,0x000000fbb2000000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x5f35ea]
+V  [jvm.dll+0x77c65e]
+V  [jvm.dll+0x77dd2f]
+V  [jvm.dll+0x77e3f3]
+V  [jvm.dll+0x246c38]
+V  [jvm.dll+0x5f079a]
+V  [jvm.dll+0x5e53c5]
+V  [jvm.dll+0x2fba4c]
+V  [jvm.dll+0x2fb8d2]
+V  [jvm.dll+0x300586]
+V  [jvm.dll+0x344cff]
+V  [jvm.dll+0x344730]
+V  [jvm.dll+0x2d8cb8]
+V  [jvm.dll+0x2d9e06]
+V  [jvm.dll+0x757c77]
+V  [jvm.dll+0x7593ff]
+V  [jvm.dll+0x351a59]
+V  [jvm.dll+0x73aea0]
+V  [jvm.dll+0x3b929f]
+V  [jvm.dll+0x3bb7a1]
+C  [jli.dll+0x520b]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x174b4]
+C  [ntdll.dll+0x526a1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000002d011a14cd0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000002d013de6800 GCTaskThread "GC Thread#0" [stack: 0x000000fbb2000000,0x000000fbb2100000] [id=14704]
+  0x000002d013e44000 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000fbb2100000,0x000000fbb2200000] [id=11760]
+  0x000002d013e45800 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000fbb2200000,0x000000fbb2300000] [id=12432]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffd7fd98337]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000002d013dca190] Heap_lock - owner thread: 0x000002d013dcd000
+
+Heap address: 0x0000000700000000, size: 4096 MB, Compressed Oops mode: Non-zero based: 0x0000000700000000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.004 Loaded shared library D:\dev\tools\jdk-11.0.10+9\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff7186b0000 - 0x00007ff7186bd000 	D:\dev\tools\jdk-11.0.10+9\bin\java.exe
+0x00007ffdbfe70000 - 0x00007ffdc0068000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffdbee10000 - 0x00007ffdbeecf000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffdbd900000 - 0x00007ffdbdbd2000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffdbd700000 - 0x00007ffdbd800000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffdb6050000 - 0x00007ffdb6065000 	D:\dev\tools\jdk-11.0.10+9\bin\VCRUNTIME140.dll
+0x00007ffdb3660000 - 0x00007ffdb3677000 	D:\dev\tools\jdk-11.0.10+9\bin\jli.dll
+0x00007ffdbe710000 - 0x00007ffdbe8ad000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffdbd570000 - 0x00007ffdbd592000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffd9c210000 - 0x00007ffd9c4aa000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffdbf0b0000 - 0x00007ffdbf0db000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffdbd5a0000 - 0x00007ffdbd6af000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffdbdec0000 - 0x00007ffdbdf5e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffdbde20000 - 0x00007ffdbdebd000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffdbf840000 - 0x00007ffdbf872000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000068000000 - 0x000000006806c000 	C:\WINDOWS\System32\QIPCAP64.dll
+0x00007ffdbe580000 - 0x00007ffdbe62e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffdbfc70000 - 0x00007ffdbfd0c000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffdbdf80000 - 0x00007ffdbe0a5000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffdbf0f0000 - 0x00007ffdbf833000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffdbca20000 - 0x00007ffdbcaea000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x00007ffdbc9d0000 - 0x00007ffdbca0b000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ffdbf0e0000 - 0x00007ffdbf0e8000 	C:\WINDOWS\System32\NSI.dll
+0x00007ffd80600000 - 0x00007ffd8069b000 	D:\dev\tools\jdk-11.0.10+9\bin\msvcp140.dll
+0x00007ffd7fab0000 - 0x00007ffd805f3000 	D:\dev\tools\jdk-11.0.10+9\bin\server\jvm.dll
+0x00007ffd9c610000 - 0x00007ffd9c619000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffd9db90000 - 0x00007ffd9dbb7000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffdae5f0000 - 0x00007ffdae5fa000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffdbfb50000 - 0x00007ffdbfbbb000 	C:\WINDOWS\System32\WS2_32.dll
+0x000002d0134f0000 - 0x000002d0134f8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffdbbdd0000 - 0x00007ffdbbde2000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffdba870000 - 0x00007ffdba880000 	D:\dev\tools\jdk-11.0.10+9\bin\verify.dll
+0x00007ffdbb140000 - 0x00007ffdbb324000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffd9c4b0000 - 0x00007ffd9c4dc000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x000002d013500000 - 0x000002d013582000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffd94040000 - 0x00007ffd94068000 	D:\dev\tools\jdk-11.0.10+9\bin\java.dll
+0x00007ffdb8af0000 - 0x00007ffdb8afa000 	D:\dev\tools\jdk-11.0.10+9\bin\jimage.dll
+0x00007ffda32a0000 - 0x00007ffda32b7000 	D:\dev\tools\jdk-11.0.10+9\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\dev\tools\jdk-11.0.10+9\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;D:\dev\tools\jdk-11.0.10+9\bin\server
+
+VM Arguments:
+jvm_args: -Xms2048m -Xmx4096m -Xss10m -XX:MetaspaceSize=1024m -XX:MaxMetaspaceSize=4096m -Djavax.xml.accessExternalSchema=all -Dclassworlds.conf=D:\dev\tools\apache-maven-3.2.5-bin\apache-maven-3.2.5\bin\..\bin\m2.conf -Dmaven.home=D:\dev\tools\apache-maven-3.2.5-bin\apache-maven-3.2.5\bin\.. 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher clean install
+java_class_path (initial): D:\dev\tools\apache-maven-3.2.5-bin\apache-maven-3.2.5\bin\..\boot\plexus-classworlds-2.5.2.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 2147483648                                {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4294967296                                {product} {command line}
+   size_t MaxMetaspaceSize                         = 4294967296                                {product} {command line}
+   size_t MetaspaceSize                            = 1073741824                             {pd product} {command line}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     intx ThreadStackSize                          = 10240                                  {pd product} {command line}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=D:\dev\tools\jdk-11.0.10+9
+PATH=D:\dev\tools\jdk-11.0.10+9\bin;D:\dev\tools\apache-maven-3.2.5-bin\apache-maven-3.2.5\bin;C:\Python311\Scripts\;C:\Python311\;D:\Forms10G\jdk\jre\bin\classic;D:\Forms10G\jdk\jre\bin;D:\Forms10G\jdk\jre\bin\client;D:\Forms10G\jlib;D:\Forms10G\bin;D:\Forms10G\jre\1.4.2\bin\client;D:\Forms10G\jre\1.4.2\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\NJlaiel\AppData\Local\Microsoft\WindowsApps;\\ad.linedata.com\corpdfs\corp\bin;\\ad.linedata.com\corpdfs\corp\cygwin\bin;C:\Users\NJlaiel\AppData\Roaming\npm;;D:\dev\tools\Microsoft VS Code\bin
+USERNAME=NJlaiel
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.2251)
+OS uptime: 6 days 3:07 hours
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 140 stepping 1 microcode 0xa4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, evex, sha, fma
+
+Memory: 4k page, system-wide physical 16064M (3368M free)
+TotalPageFile size 20064M (AvailPageFile size 623M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 61M, peak: 2109M
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.10+9) for windows-amd64 JRE (11.0.10+9), built on Jan 20 2021 06:07:07 by "" with MS VC++ 15.9 (VS2017)
+
+END.

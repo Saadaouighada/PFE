@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.linedata.presales.entities.impl.AuthorisedProductsImpl" table="authorised_products">
+		<composite-id>
+			  <key-many-to-one   name="user" class="com.linedata.presales.entities.impl.UsersImpl" >
+     			 <column name="id_user" />
+  			</key-many-to-one>
+  			<key-many-to-one  name="product" class="com.linedata.presales.entities.impl.ProductsImpl" >
+     			 <column name="id_product" />
+  			</key-many-to-one>
+		</composite-id>
+
+
+	
+	
+	</class>
+
+</hibernate-mapping> 

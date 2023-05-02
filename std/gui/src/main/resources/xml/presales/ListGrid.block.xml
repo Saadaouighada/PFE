@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grid id="ListGrid" editable="true" type="resultGrid"
+	forceFit="true" pageSize="10" textSelection="true"
+	beanId="ListGridBlockService" sortNumber="2" openFunctionMode="UPDATE">
+	<graphic>
+		<height>200</height>
+		<fieldSetMode>true</fieldSetMode>
+		<collapsible>false</collapsible>
+		<collapsed>false</collapsed>
+		<headerVisible>false</headerVisible>
+		<borderVisible>true</borderVisible>
+	</graphic>
+	<columns>
+		<column id="code" nature="string" sortNumber="1">
+			<graphic>
+				<width>100</width>
+			</graphic>
+		</column>
+		<column id="description" nature="string" sortNumber="2">
+			<graphic>
+				<width>100</width>
+			</graphic>
+		</column>
+	</columns>
+</grid>

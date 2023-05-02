@@ -1,0 +1,187 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+
+    <display-name>Test framework</display-name>
+    
+    <!--  mapping with spring files -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/import.spring.xml</param-value>
+    </context-param>
+      <filter>
+        <filter-name>ClickjackFilter</filter-name>
+        <filter-class>com.linedata.framework.core.server.filter.ClickjackFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ClickjackFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+     <filter>
+        <filter-name>CacheControlFilter</filter-name>
+        <filter-class>com.linedata.framework.core.server.filter.CacheControlFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheControlFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- Filter mappings for spring security -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+      <filter-name>CorsFilter</filter-name>
+      <filter-class>com.linedata.framework.core.server.filter.CORSFilter</filter-class>
+   </filter>
+   <filter-mapping>
+      <filter-name>CorsFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+   </filter-mapping>
+   
+
+<!--     <servlet> -->
+<!--       <servlet-name>xsrf</servlet-name> -->
+<!--       <servlet-class> -->
+<!--             com.google.gwt.user.server.rpc.XsrfTokenServiceServlet -->
+<!--       </servlet-class> -->
+<!--    </servlet> -->
+<!--    <servlet-mapping> -->
+<!--      <servlet-name>xsrf</servlet-name> -->
+<!--      <url-pattern>/testfwk/xsrf</url-pattern> -->
+<!--    </servlet-mapping> -->
+
+<!--    <context-param> -->
+<!--      <param-name>gwt.xsrf.session_cookie_name</param-name> -->
+<!--      <param-value>JSESSIONID</param-value> -->
+<!--    </context-param>  -->
+   
+    <!--  Use with Spring to load any spring files -->
+    <listener>
+       <listener-class>
+         org.springframework.security.web.session.HttpSessionEventPublisher
+       </listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>        
+    </listener>
+   <listener>
+    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+   </listener>
+
+
+    <!--  Main servlet. Use to dispatch all service call from client to server side -->
+    <servlet>
+        <servlet-name>RPCServletDispatcher</servlet-name>
+        <servlet-class>com.linedata.ekip.core.server.RPCServletDispatcher</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+<!--     <servlet> -->
+<!--         <servlet-name>CXFServlet</servlet-name> -->
+<!--         <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class> -->
+<!--         <load-on-startup>1</load-on-startup> -->
+<!--     </servlet> -->
+    <servlet>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <servlet-class>com.linedata.ekip.core.server.fileupload.FileUploadServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+      <servlet-name>PdfLoaderServlet</servlet-name>
+      <servlet-class>com.linedata.fwk.dev.server.PdfLoaderServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+      <servlet-name>CXFServlet</servlet-name>
+      <display-name>CXF Servlet</display-name>
+      <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+   
+    <servlet-mapping>
+      <servlet-name>CXFServlet</servlet-name>
+      <url-pattern>/api/*</url-pattern>
+   </servlet-mapping>
+   
+    <servlet-mapping>
+        <servlet-name>RPCServletDispatcher</servlet-name>
+        <url-pattern>*.rpc</url-pattern>
+    </servlet-mapping>    
+<!--     <servlet-mapping> -->
+<!--         <servlet-name>CXFServlet</servlet-name> -->
+<!--         <url-pattern>gui/*</url-pattern> -->
+<!--     </servlet-mapping> -->
+    <servlet-mapping>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>PdfLoaderServlet</servlet-name>
+      <url-pattern>/loadPdf</url-pattern>
+   </servlet-mapping>
+
+    <servlet>
+            <servlet-name>metrics</servlet-name>
+            <servlet-class>com.codahale.metrics.servlets.AdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>metrics-healthcheck</servlet-name>
+        <servlet-class>com.codahale.metrics.servlets.HealthCheckServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>metrics-metrics</servlet-name>
+        <servlet-class>com.codahale.metrics.servlets.MetricsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>metrics-ping</servlet-name>
+        <servlet-class>com.codahale.metrics.servlets.PingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>metrics-thread</servlet-name>
+        <servlet-class>com.codahale.metrics.servlets.ThreadDumpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+            <servlet-name>metrics</servlet-name>
+            <url-pattern>/metrics/*</url-pattern>
+    </servlet-mapping>
+   
+   <servlet>
+      <servlet-name>ExcelExportServlet</servlet-name>
+      <servlet-class>com.linedata.ekip.core.server.export.servlet.ExcelExportServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>ExcelExportServlet</servlet-name>
+      <url-pattern>/excelExport</url-pattern>
+   </servlet-mapping>
+   
+   <error-page>
+      <error-code>500</error-code>
+      <location>/error.jsp</location>
+   </error-page>
+   
+   <error-page>
+      <error-code>405</error-code>
+      <location>/error.jsp</location>
+   </error-page>
+   
+    <welcome-file-list>
+        <welcome-file>test-fwk.html</welcome-file>
+    </welcome-file-list>
+    
+   <session-config>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>false</secure>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+      
+</web-app>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<function xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+	type="create" id="reportihmCreation" beanId="reportIhmformBranchBlockService">
+
+	<graphic>
+		<headerVisible>true</headerVisible>
+		<borderVisible>true</borderVisible>
+	</graphic>
+
+	<form id="formBranch" editable="true"
+		beanId="reportIhmformBranchBlockService" icon="icons/Biens16.png">
+		<graphic>
+			<headerVisible>true</headerVisible>
+			<collapsible>true</collapsible>
+			<borderVisible>true</borderVisible>
+			<fieldSetMode>true</fieldSetMode>
+		</graphic>
+
+		<inParameters>
+			<inParameter eventType="SCREENOPENED" />
+			<inParameter eventType="SCREENCONTEXT" />
+		</inParameters>
+		<areas>
+			<area id="mainArea">
+				<fields>
+					<field id="branchA" nature="string" columnNumber="1" sortNumber="1">
+					
+					</field>
+					<field id="branchB" nature="string" columnNumber="1" sortNumber="2"></field>
+					<field id="startDate" nature="date" sortNumber="3" columnNumber="1">
+					</field>
+				<field id="endDate" nature="date" sortNumber="4" columnNumber="1">
+					</field>
+					<field id="comment" nature="textarea" sortNumber="4" columnNumber="1"/>
+				</fields>
+			
+			</area>
+		</areas>
+	</form>
+	<screenActions>
+		<screenAction code="save" id="save" icon="icons/Sauvegarde16.png" evaluateControls="false"
+			onTopMenu="true" sortNumber="1">
+			<actionResponses>
+				<onSuccess>
+					<displayMessages sortNumber="0" />
+					<openFunction closeActiveFunction="true" context="SCREEN" functionId=""
+						id="save" sortNumber="1"/>
+				</onSuccess>
+			</actionResponses>
+		</screenAction>
+	</screenActions>
+</function>

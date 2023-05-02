@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<form xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd"
+   id="TestBlockOverride"
+   overrideFatherId="TestBlock"
+   editable="true">
+   <areas>
+      <area id="mainArea">
+         <fields>
+            <field id="testField3" nature="string" />
+         </fields>
+      </area>
+   </areas>
+</form>

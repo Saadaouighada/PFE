@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.linedata.test.services</groupId>
+		<artifactId>test-fwk-std-services-presales-parent</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.linedata.test.services.presales</groupId>
+	<artifactId>test-fwk-std-services-presales-service</artifactId>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.linedata.test.services.presales</groupId>
+			<artifactId>test-fwk-std-services-presales-service-api</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.linedata.lls.core</groupId>
+			<artifactId>lls-core-public</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.linedata.fwk360.services</groupId>
+			<artifactId>fwk360-services-core-service</artifactId>
+			<version>${framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<type>pom</type>
+		</dependency>
+ 
+
+
+	</dependencies>
+
+</project>
