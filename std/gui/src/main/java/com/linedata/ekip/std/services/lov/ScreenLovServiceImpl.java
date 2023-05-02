@@ -1,5 +1,5 @@
 package com.linedata.ekip.std.services.lov;
-
+import  com.linedata.reportihm.branchFieldLinkService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
-
+import com.linedata.reportihm.reportIhmcompareBranchFunctionService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.linedata.ekip.commons.shared.context.ActionContext;
@@ -21,7 +21,7 @@ public class ScreenLovServiceImpl implements ScreenLovService
 {
    public static final String             BEANID          = "ScreenLovService";
 
-   private Map<String, Map<String, Data>> allLovs;
+  public Map<String, Map<String, Data>> allLovs;
 
    private Set<String>                    knownLovs;
 
@@ -36,6 +36,11 @@ public class ScreenLovServiceImpl implements ScreenLovService
       return BEANID;
    }
 
+   
+   public void updateBranchLov() {
+	  allLovs.get("branchLov").remove("val2");
+	}
+   
    @PostConstruct
    public void generateLovs()
    {
@@ -51,11 +56,36 @@ public class ScreenLovServiceImpl implements ScreenLovService
       colorList();
       languageList();
       addRegionList();
+      addbranchListLov();
       currencyFormatList();
       dateFormatList();
    }
 
-   private void addBusinessLov()
+  public  void addbranchListLov() {
+	// TODO Auto-generated method stub
+	   HashMap<String, Data> lov = new HashMap<String, Data>();
+	      Data value = new Data();
+	      value.set("id", "1");
+	      value.set("longLabel", "B_5_1_0");
+	      lov.put("val1", value);
+	      value = new Data();
+	      value.set("id", "2");
+	      value.set("longLabel", "master");
+	      lov.put("val2", value);
+	      value = new Data();
+	      value.set("id", "3");
+	      value.set("longLabel", "B_1_0_0");
+	      lov.put("val3", value);
+	      value = new Data();
+	      value.set("id", "4");
+	      value.set("longLabel", "B_1_1_0");
+	      lov.put("val4", value);
+	      allLovs.put("branchLov", lov);
+	      knownLovs = allLovs.keySet();
+	
+}
+
+private void addBusinessLov()
    {
       HashMap<String, Data> lov = new HashMap<String, Data>();
       Data value = new Data();
@@ -327,6 +357,21 @@ public class ScreenLovServiceImpl implements ScreenLovService
                }
             }
          }
+        /* else if("branchLove".equals(lovName))
+         {
+        	 final Data inParameters ;
+        	 	if (inParameters.get("reportIhmformBranchBlockService") != null)
+		   		{
+		   			Data fielters = (Data) inParameters.get("formBranch");
+	   			if (fielters != null)
+	   			{
+	   				knownLovs.remove(fielters);
+	   				
+	   			}
+	   				
+	   			}}
+*/
+         
          else
          {
             result.addAll(allLovs.get("BookType").values());

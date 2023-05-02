@@ -15,28 +15,39 @@
 			<borderVisible>true</borderVisible>
 			<fieldSetMode>true</fieldSetMode>
 		</graphic>
-
+	
+		
 		<inParameters>
 			<inParameter eventType="SCREENOPENED" />
 			<inParameter eventType="SCREENCONTEXT" />
 		</inParameters>
+		
+		
+		
+		
 		<areas>
 			<area id="mainArea">
 				<fields>
-					<field id="branchA" nature="string" columnNumber="1" sortNumber="1">
-					
-					</field>
-					<field id="branchB" nature="string" columnNumber="1" sortNumber="2"></field>
+				
+						
+					<field id="branchA" nature="lov" sortNumber="1" lov="branchLov" displayTemplate="{longLabel}"
+						valueField="id" columnNumber="1"/>
+					<field id="branchB" nature="lov" sortNumber="2" lov="branchLov" displayTemplate="{longLabel}"
+						valueField="id" columnNumber="1"/>
 					<field id="startDate" nature="date" sortNumber="3" columnNumber="1">
 					</field>
+					
 				<field id="endDate" nature="date" sortNumber="4" columnNumber="1">
 					</field>
 					<field id="comment" nature="textarea" sortNumber="4" columnNumber="1"/>
+					<field id="onLine" nature="checkbox" sortNumber="5" columnNumber="1"/>
+					<field id="offline" nature="checkbox" sortNumber="6" columnNumber="1"/>
+					<field id="notif" nature="checkbox" sortNumber="7" columnNumber="1"/>
 				</fields>
-			
 			</area>
 		</areas>
 	</form>
+	
 	<screenActions>
 		<screenAction code="save" id="save" icon="icons/Sauvegarde16.png" evaluateControls="false"
 			onTopMenu="true" sortNumber="1">

@@ -14,7 +14,7 @@
 #   Set larger code cache with -XX:ReservedCodeCacheSize=
 # This output file may be truncated or incomplete.
 #
-#  Out of Memory Error (./src/hotspot/os/windows/os_windows.cpp:3311), pid=19072, tid=11576
+#  Out of Memory Error (./src/hotspot/os/windows/os_windows.cpp:3311), pid=1248, tid=7796
 #
 # JRE version:  (11.0.13+8) (build )
 # Java VM: OpenJDK 64-Bit Server VM (11.0.13+8, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
@@ -23,16 +23,16 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: -Xms2048m -Xmx3096m -XX:PermSize=1024m -XX:MaxPermSize=2048m -Djavax.xml.accessExternalSchema=all -Dclassworlds.conf=C:\GhadaPFE\tools\maven-3.5.2\bin\..\bin\m2.conf -Dmaven.home=C:\GhadaPFE\tools\maven-3.5.2\bin\.. -Dlibrary.jansi.path=C:\GhadaPFE\tools\maven-3.5.2\bin\..\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\GhadaPFE\guiWorkSpace\sales-portal.git\std org.codehaus.plexus.classworlds.launcher.Launcher -e clean install -Dmaven.test.skip=true -Djavax.xml.accessExternalSchema=all -PngApp,test
+Command Line: -Xms2048m -Xmx3096m -XX:PermSize=1024m -XX:MaxPermSize=2048m -Djavax.xml.accessExternalSchema=all -Dclassworlds.conf=C:\GhadaPFE\tools\maven-3.5.2\bin\..\bin\m2.conf -Dmaven.home=C:\GhadaPFE\tools\maven-3.5.2\bin\.. -Dlibrary.jansi.path=C:\GhadaPFE\tools\maven-3.5.2\bin\..\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\GhadaPFE\guiWorkSpace\sales-portal.git org.codehaus.plexus.classworlds.launcher.Launcher -e clean install -Dmaven.test.skip=true -Djavax.xml.accessExternalSchema=all -PngApp,test
 
 Host: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz, 8 cores, 11G,  Windows 10 , 64 bit Build 17763 (10.0.17763.379)
-Time: Wed Apr  5 09:21:07 2023 Afr. centrale Ouest elapsed time: 0.320063 seconds (0d 0h 0m 0s)
+Time: Fri Apr 28 10:58:11 2023 Afr. centrale Ouest elapsed time: 0.020492 seconds (0d 0h 0m 0s)
 
 ---------------  T H R E A D  ---------------
 
-Current thread (0x00000266a3076800):  JavaThread "Unknown thread" [_thread_in_vm, id=11576, stack(0x000000b165c00000,0x000000b165d00000)]
+Current thread (0x0000019be42cf000):  JavaThread "Unknown thread" [_thread_in_vm, id=7796, stack(0x0000005841c00000,0x0000005841d00000)]
 
-Stack: [0x000000b165c00000,0x000000b165d00000]
+Stack: [0x0000005841c00000,0x0000005841d00000]
 Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
 V  [jvm.dll+0x61cc7a]
 V  [jvm.dll+0x7a8fd9]
@@ -63,22 +63,22 @@ C  [ntdll.dll+0x6a251]
 ---------------  P R O C E S S  ---------------
 
 Threads class SMR info:
-_java_thread_list=0x00000266a0dbc7d0, length=0, elements={
+_java_thread_list=0x0000019be20adf20, length=0, elements={
 }
 
 Java Threads: ( => current thread )
 
 Other Threads:
-  0x00000266a308f800 GCTaskThread "GC Thread#0" [stack: 0x000000b165d00000,0x000000b165e00000] [id=1904]
-  0x00000266a30da000 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000b165e00000,0x000000b165f00000] [id=7976]
-  0x00000266a30db800 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000b165f00000,0x000000b166000000] [id=4652]
+  0x0000019be42e1800 GCTaskThread "GC Thread#0" [stack: 0x0000005841d00000,0x0000005841e00000] [id=3612]
+  0x0000019be432b000 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000005841e00000,0x0000005841f00000] [id=17924]
+  0x0000019be432c800 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000005841f00000,0x0000005842000000] [id=4140]
 
-[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fffd8233b17]
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffdc1bd3b17]
 
 VM state:not at safepoint (not fully initialized)
 
 VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
-[0x00000266a30737d0] Heap_lock - owner thread: 0x00000266a3076800
+[0x0000019be42ca170] Heap_lock - owner thread: 0x0000019be42cf000
 
 Heap address: 0x000000073e800000, size: 3096 MB, Compressed Oops mode: Non-zero based: 0x000000073e800000
 Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
@@ -96,63 +96,63 @@ Internal exceptions (0 events):
 No events
 
 Events (1 events):
-Event: 0.237 Loaded shared library C:\GhadaPFE\tools\OJDK11.0.13_8\bin\zip.dll
+Event: 0.011 Loaded shared library C:\GhadaPFE\tools\OJDK11.0.13_8\bin\zip.dll
 
 
 Dynamic libraries:
-0x00007ff7fc6f0000 - 0x00007ff7fc6fd000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\java.exe
-0x00007ff84b890000 - 0x00007ff84ba7d000 	C:\windows\SYSTEM32\ntdll.dll
-0x00007ff84b450000 - 0x00007ff84b503000 	C:\windows\System32\KERNEL32.DLL
-0x00007ff847b40000 - 0x00007ff847dd3000 	C:\windows\System32\KERNELBASE.dll
-0x00007ff8480d0000 - 0x00007ff8481ca000 	C:\windows\System32\ucrtbase.dll
-0x00007ff845010000 - 0x00007ff845027000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\jli.dll
-0x00007ff844ff0000 - 0x00007ff845005000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\VCRUNTIME140.dll
-0x00007ff848ba0000 - 0x00007ff848d37000 	C:\windows\System32\USER32.dll
-0x00007ff8336e0000 - 0x00007ff833959000 	C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17763.379_none_05b83be8071c94a1\COMCTL32.dll
-0x00007ff847de0000 - 0x00007ff847e00000 	C:\windows\System32\win32u.dll
-0x00007ff84b090000 - 0x00007ff84b12e000 	C:\windows\System32\msvcrt.dll
-0x00007ff84abc0000 - 0x00007ff84abe9000 	C:\windows\System32\GDI32.dll
-0x00007ff84b510000 - 0x00007ff84b83d000 	C:\windows\System32\combase.dll
-0x00007ff847e80000 - 0x00007ff84801a000 	C:\windows\System32\gdi32full.dll
-0x00007ff848e20000 - 0x00007ff848f42000 	C:\windows\System32\RPCRT4.dll
-0x00007ff848b00000 - 0x00007ff848ba0000 	C:\windows\System32\msvcp_win.dll
-0x00007ff847a60000 - 0x00007ff847ade000 	C:\windows\System32\bcryptPrimitives.dll
-0x00007ff84b420000 - 0x00007ff84b44e000 	C:\windows\System32\IMM32.DLL
+0x00007ff79dd60000 - 0x00007ff79dd6d000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\java.exe
+0x00007ffdf6290000 - 0x00007ffdf647d000 	C:\windows\SYSTEM32\ntdll.dll
+0x00007ffdf58b0000 - 0x00007ffdf5963000 	C:\windows\System32\KERNEL32.DLL
+0x00007ffdf2fe0000 - 0x00007ffdf3273000 	C:\windows\System32\KERNELBASE.dll
+0x00007ffdf2a80000 - 0x00007ffdf2b7a000 	C:\windows\System32\ucrtbase.dll
+0x00007ffdeda40000 - 0x00007ffdeda57000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\jli.dll
+0x00007ffde9de0000 - 0x00007ffde9df5000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\VCRUNTIME140.dll
+0x00007ffdf39f0000 - 0x00007ffdf3b87000 	C:\windows\System32\USER32.dll
+0x00007ffddddf0000 - 0x00007ffdde069000 	C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17763.379_none_05b83be8071c94a1\COMCTL32.dll
+0x00007ffdf2d40000 - 0x00007ffdf2d60000 	C:\windows\System32\win32u.dll
+0x00007ffdf3bf0000 - 0x00007ffdf3c8e000 	C:\windows\System32\msvcrt.dll
+0x00007ffdf3910000 - 0x00007ffdf3939000 	C:\windows\System32\GDI32.dll
+0x00007ffdf5560000 - 0x00007ffdf588d000 	C:\windows\System32\combase.dll
+0x00007ffdf32f0000 - 0x00007ffdf348a000 	C:\windows\System32\gdi32full.dll
+0x00007ffdf5e30000 - 0x00007ffdf5f52000 	C:\windows\System32\RPCRT4.dll
+0x00007ffdf2f40000 - 0x00007ffdf2fe0000 	C:\windows\System32\msvcp_win.dll
+0x00007ffdf2b80000 - 0x00007ffdf2bfe000 	C:\windows\System32\bcryptPrimitives.dll
+0x00007ffdf5b50000 - 0x00007ffdf5b7e000 	C:\windows\System32\IMM32.DLL
 0x0000000068000000 - 0x000000006806c000 	C:\windows\System32\QIPCAP64.dll
-0x00007ff84ac10000 - 0x00007ff84acb3000 	C:\windows\System32\ADVAPI32.dll
-0x00007ff84ad90000 - 0x00007ff84ae2e000 	C:\windows\System32\sechost.dll
-0x00007ff8496d0000 - 0x00007ff84abc0000 	C:\windows\System32\SHELL32.dll
-0x00007ff847e00000 - 0x00007ff847e4a000 	C:\windows\System32\cfgmgr32.dll
-0x00007ff84afe0000 - 0x00007ff84b088000 	C:\windows\System32\shcore.dll
-0x00007ff8481d0000 - 0x00007ff84891a000 	C:\windows\System32\windows.storage.dll
-0x00007ff8479b0000 - 0x00007ff8479d4000 	C:\windows\System32\profapi.dll
-0x00007ff8479e0000 - 0x00007ff847a3d000 	C:\windows\System32\powrprof.dll
-0x00007ff84acc0000 - 0x00007ff84ad12000 	C:\windows\System32\shlwapi.dll
-0x00007ff847970000 - 0x00007ff847981000 	C:\windows\System32\kernel.appcore.dll
-0x00007ff847a40000 - 0x00007ff847a57000 	C:\windows\System32\cryptsp.dll
-0x00007ff846f90000 - 0x00007ff847056000 	C:\windows\SYSTEM32\DNSAPI.dll
-0x00007ff84ad20000 - 0x00007ff84ad8d000 	C:\windows\System32\WS2_32.dll
-0x00007ff84b850000 - 0x00007ff84b858000 	C:\windows\System32\NSI.dll
-0x00007ff846f50000 - 0x00007ff846f8d000 	C:\windows\SYSTEM32\IPHLPAPI.DLL
-0x00007ff83a9a0000 - 0x00007ff83aa3b000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\msvcp140.dll
-0x00007fffd7f40000 - 0x00007fffd8abe000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\server\jvm.dll
-0x00007ff84b840000 - 0x00007ff84b848000 	C:\windows\System32\PSAPI.DLL
-0x00007ff8455f0000 - 0x00007ff845614000 	C:\windows\SYSTEM32\WINMM.dll
-0x00007ff82c610000 - 0x00007ff82c619000 	C:\windows\SYSTEM32\WSOCK32.dll
-0x00007ff839130000 - 0x00007ff83913a000 	C:\windows\SYSTEM32\VERSION.dll
-0x00007ff8455c0000 - 0x00007ff8455ed000 	C:\windows\SYSTEM32\winmmbase.dll
-0x00007ff843a00000 - 0x00007ff843a10000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\verify.dll
-0x00007ff845a40000 - 0x00007ff845c2d000 	C:\windows\SYSTEM32\DBGHELP.DLL
-0x00007ff834a30000 - 0x00007ff834a5a000 	C:\windows\SYSTEM32\dbgcore.DLL
-0x00007ff83d100000 - 0x00007ff83d128000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\java.dll
-0x00007ff841d00000 - 0x00007ff841d0a000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\jimage.dll
-0x00007ff83ca10000 - 0x00007ff83ca27000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\zip.dll
+0x00007ffdf5970000 - 0x00007ffdf5a13000 	C:\windows\System32\ADVAPI32.dll
+0x00007ffdf5f60000 - 0x00007ffdf5ffe000 	C:\windows\System32\sechost.dll
+0x00007ffdf3df0000 - 0x00007ffdf52e0000 	C:\windows\System32\SHELL32.dll
+0x00007ffdf32a0000 - 0x00007ffdf32ea000 	C:\windows\System32\cfgmgr32.dll
+0x00007ffdf6010000 - 0x00007ffdf60b8000 	C:\windows\System32\shcore.dll
+0x00007ffdf2330000 - 0x00007ffdf2a7a000 	C:\windows\System32\windows.storage.dll
+0x00007ffdf22c0000 - 0x00007ffdf22e4000 	C:\windows\System32\profapi.dll
+0x00007ffdf2260000 - 0x00007ffdf22bd000 	C:\windows\System32\powrprof.dll
+0x00007ffdf5b80000 - 0x00007ffdf5bd2000 	C:\windows\System32\shlwapi.dll
+0x00007ffdf22f0000 - 0x00007ffdf2301000 	C:\windows\System32\kernel.appcore.dll
+0x00007ffdf3280000 - 0x00007ffdf3297000 	C:\windows\System32\cryptsp.dll
+0x00007ffdf1880000 - 0x00007ffdf1946000 	C:\windows\SYSTEM32\DNSAPI.dll
+0x00007ffdf5340000 - 0x00007ffdf53ad000 	C:\windows\System32\WS2_32.dll
+0x00007ffdf5890000 - 0x00007ffdf5898000 	C:\windows\System32\NSI.dll
+0x00007ffdf1840000 - 0x00007ffdf187d000 	C:\windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ffde81c0000 - 0x00007ffde825b000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\msvcp140.dll
+0x00007ffdc18e0000 - 0x00007ffdc245e000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\server\jvm.dll
+0x00007ffdf58a0000 - 0x00007ffdf58a8000 	C:\windows\System32\PSAPI.DLL
+0x00007ffde1600000 - 0x00007ffde1624000 	C:\windows\SYSTEM32\WINMM.dll
+0x00007ffdd9990000 - 0x00007ffdd9999000 	C:\windows\SYSTEM32\WSOCK32.dll
+0x00007ffde7db0000 - 0x00007ffde7dba000 	C:\windows\SYSTEM32\VERSION.dll
+0x00007ffde15d0000 - 0x00007ffde15fd000 	C:\windows\SYSTEM32\winmmbase.dll
+0x00007ffded900000 - 0x00007ffded910000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\verify.dll
+0x00007ffdf0a00000 - 0x00007ffdf0bed000 	C:\windows\SYSTEM32\DBGHELP.DLL
+0x00007ffddf310000 - 0x00007ffddf33a000 	C:\windows\SYSTEM32\dbgcore.DLL
+0x00007ffde9c10000 - 0x00007ffde9c38000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\java.dll
+0x00007ffde9dc0000 - 0x00007ffde9dca000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\jimage.dll
+0x00007ffde9a90000 - 0x00007ffde9aa7000 	C:\GhadaPFE\tools\OJDK11.0.13_8\bin\zip.dll
 
 dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
 symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\GhadaPFE\tools\OJDK11.0.13_8\bin;C:\windows\SYSTEM32;C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17763.379_none_05b83be8071c94a1;C:\GhadaPFE\tools\OJDK11.0.13_8\bin\server
 
 VM Arguments:
-jvm_args: -Xms2048m -Xmx3096m -XX:PermSize=1024m -XX:MaxPermSize=2048m -Djavax.xml.accessExternalSchema=all -Dclassworlds.conf=C:\GhadaPFE\tools\maven-3.5.2\bin\..\bin\m2.conf -Dmaven.home=C:\GhadaPFE\tools\maven-3.5.2\bin\.. -Dlibrary.jansi.path=C:\GhadaPFE\tools\maven-3.5.2\bin\..\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\GhadaPFE\guiWorkSpace\sales-portal.git\std 
+jvm_args: -Xms2048m -Xmx3096m -XX:PermSize=1024m -XX:MaxPermSize=2048m -Djavax.xml.accessExternalSchema=all -Dclassworlds.conf=C:\GhadaPFE\tools\maven-3.5.2\bin\..\bin\m2.conf -Dmaven.home=C:\GhadaPFE\tools\maven-3.5.2\bin\.. -Dlibrary.jansi.path=C:\GhadaPFE\tools\maven-3.5.2\bin\..\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\GhadaPFE\guiWorkSpace\sales-portal.git 
 java_command: org.codehaus.plexus.classworlds.launcher.Launcher -e clean install -Dmaven.test.skip=true -Djavax.xml.accessExternalSchema=all -PngApp,test
 java_class_path (initial): C:\GhadaPFE\tools\maven-3.5.2\bin\..\boot\plexus-classworlds-2.5.2.jar
 Launcher Type: SUN_STANDARD
@@ -194,12 +194,12 @@ PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
 ---------------  S Y S T E M  ---------------
 
 OS: Windows 10 , 64 bit Build 17763 (10.0.17763.379)
-OS uptime: 0 days 23:55 hours
+OS uptime: 1 days 0:04 hours
 
 CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 10 microcode 0xd6, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
 
-Memory: 4k page, system-wide physical 12146M (3701M free)
-TotalPageFile size 15383M (AvailPageFile size 1146M)
+Memory: 4k page, system-wide physical 12146M (3857M free)
+TotalPageFile size 16146M (AvailPageFile size 739M)
 current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
 current process commit charge ("private bytes"): 61M, peak: 2109M
 

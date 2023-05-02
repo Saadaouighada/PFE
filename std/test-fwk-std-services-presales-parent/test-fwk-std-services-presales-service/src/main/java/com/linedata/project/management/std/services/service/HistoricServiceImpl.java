@@ -96,6 +96,7 @@ public class HistoricServiceImpl
 
          SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
          Date startDate = sdf.parse(dateBorneMin);
+         
          Date endDate = sdf.parse(dateBorneMax);
          List<String> listbranchF = downloadRepositoryByBranch(branchNameChild, workSpace + "/" + branchNameChild + "/ekip-appl", startDate, endDate);
 

@@ -6,9 +6,9 @@
          http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-         
+        <bean id=" reportIhmformBranchBlockService" class="com.linedata.reportihm.reportIhmcompareBranchFunctionService"></bean>
+         <bean id="BranchFieldLinkService " class="com.linedata.reportihm.branchFieldLinkService"></bean>
 	<bean id="EnvironmentFunctionService" class="com.linedata.presales.EnvironmentFunctionService"></bean>
-	<bean id="reportIhmformBranchBlockService" class="com.linedata.reportihm.reportIhmformBranchBlockService"></bean>
 	<bean id="CreateEnvironmentFunctionService" class="com.linedata.presales.CreateEnvironmentFunctionService"></bean>
 	<bean id="EnvironmentStatusHistoryBlockService" class="com.linedata.presales.EnvironmentStatusHistoryBlockService"></bean>
 	<bean id="ConfigureEnvironmentUpdateFunctionService" class="com.linedata.presales.ConfigureEnvironmentUpdateFunctionService"></bean>
